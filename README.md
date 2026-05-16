@@ -1,2 +1,2 @@
 # LIVE DEMO
-(click here)[https://fortunecodeit.github.io/construction-company/]
+[click here](https://fortunecodeit.github.io/construction-company/)
