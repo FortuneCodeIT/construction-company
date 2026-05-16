@@ -706,7 +706,7 @@ header {
     display: none;
     background: #000;
     filter: blur(-10px);
-    width: 30%;
+    width: 50%;
     height: 100vh;
     position: fixed;
     left: 0;
