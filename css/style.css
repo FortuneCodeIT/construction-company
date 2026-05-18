@@ -724,9 +724,9 @@ header {
 .mobile-nav ul li a.active {
     background-color: var(--contact_bg);
      border-radius: 6px;
-     padding: 15px 20px;
+     padding: 15px 40px;
      border: var(--border);
-    
+     width: 100%;
 }
 header
 .bar-wrapper {
