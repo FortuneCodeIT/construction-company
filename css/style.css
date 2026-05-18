@@ -720,8 +720,15 @@ header {
 .mobile-nav ul li a {
     color: #fff;
     text-decoration: none;
-
 }
+.mobile-nav ul li a.active {
+    background-color: var(--contact_bg);
+     border-radius: 6px;
+     padding: 15px 20px;
+     border: var(--border);
+    
+}
+header
 .bar-wrapper {
     display: flex;
     flex-direction: column;
