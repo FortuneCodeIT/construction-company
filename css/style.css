@@ -711,7 +711,7 @@ header {
     position: fixed;
     left: 0;
     top: 0;
-    padding: 40px;
+    padding: 40px 20px;
 }
 .mobile-nav ul li {
     list-style: none;
@@ -720,11 +720,12 @@ header {
 .mobile-nav ul li a {
     color: #fff;
     text-decoration: none;
+    margin: 0 20px
 }
 .mobile-nav ul li a.active {
     background-color: var(--contact_bg);
      border-radius: 6px;
-     padding: 15px 40px;
+     padding: 15px 0;
      border: var(--border);
      width: 100%;
 }
@@ -1464,7 +1465,7 @@ textarea {
 .no-spinner {
   -moz-appearance: textfield;
 }
-.contact-card form .input-group select {
+.contact-card form .input-group select {2
     padding-right: 30px;
 }
 .contact-card form .input-group select option {
