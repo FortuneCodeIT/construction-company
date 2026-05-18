@@ -721,6 +721,7 @@ header {
     color: #fff;
     text-decoration: none;
     margin: 0 20px
+    width: 100%
 }
 .mobile-nav ul li a.active {
     background-color: var(--contact_bg);
