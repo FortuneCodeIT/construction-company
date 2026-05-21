@@ -84,7 +84,7 @@ header button  {
 }
 
 .hero-section {
-    background-image: url('images/Bg elements.png');
+    background-image: url('../images/background.png');
     width: 100%;
     height: 100vh;
     background-position: center;
@@ -1108,7 +1108,7 @@ header {
 
 /* This is for About Page */
 .about-hero-section {
-    background-image: url('images/Bg elements.png');
+    background-image: url('../images/background.png');
     width: 100%;
     height: 100vh;
     background-position: center;
@@ -1858,7 +1858,7 @@ textarea {
     top: 250px;
 }
 .project-type img:nth-child(5) {
-    right: 55%;
+    right: 50%;
     top: 140px;
 }
 
@@ -1900,7 +1900,7 @@ textarea {
     font-size: 18px;
     padding: 20px;
 }
-#mobile-project-card,
+.mobile-project-card,
 #desktop-p-build-img {
     display: none;
 }
