@@ -1697,7 +1697,7 @@ textarea {
     font-weight: bold;
 }
 .check-box {
-    align-items: flex-start;
+    align-items: center;
 }
 .check-box input {
     background-color: var(--contact_bg);
