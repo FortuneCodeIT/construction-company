@@ -630,6 +630,7 @@ header .reg-btn {
     border: 1px solid #000;
     background: #555;
     margin-left: -10px;
+    border: 1px solid var(--bg);
     overflow: hidden;
 }
 .avatar:first-child {
@@ -661,8 +662,14 @@ header .reg-btn {
     padding: 20px;
     display: flex;
     align-items: flex-start;
-    gap: 60px;
+    /* gap: 60px; */
 
+}
+.rev-cover {
+    width: 250px; 
+    height: 100%; 
+    overflow: hidden; 
+    object-fit:cover;
 }
 .review-card img {
     width: 120px;

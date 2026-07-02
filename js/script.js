@@ -1,7 +1,6 @@
     //  this is for preloader
        document.addEventListener('DOMContentLoaded', () => {
 
-
             const preloader = document.getElementById('preloader');
             if (preloader) {
                 preloader.style.display = 'none';
@@ -15,8 +14,7 @@
                     
                 }
 
-
-         },3000);
+         },10000);
 
                  
   
