@@ -132,6 +132,7 @@ function addUser(userData) {
 
         const initials = userData.name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
 
+<<<<<<< HEAD
         let cleanRole = userData.role || 'client';
 
         if (typeof cleanRole === 'string') {
@@ -139,6 +140,8 @@ function addUser(userData) {
         }
 
 
+=======
+>>>>>>> c5491b9d34073c1e38491f7641db556e7dbc1c85
         const newUser = {
             id: newId,
             name: userData.name,
@@ -146,15 +149,26 @@ function addUser(userData) {
             phone: userData.phone || '',
             password: userData.password,
             confirmPassword: userData.confirmPassword,
+<<<<<<< HEAD
             role: cleanRole,
+=======
+            role: userData.role,
+>>>>>>> c5491b9d34073c1e38491f7641db556e7dbc1c85
             department: userData.department || '',
             status: userData.status,
             clientProjectId: null,
             createdAt: new Date().toISOString()
         };
+<<<<<<< HEAD
         users.push(newUser);
         localStorage.setItem('users', JSON.stringify(users));
         console.log('New user added:', newUser.name, 'Role:', newUser.role);
+=======
+
+        users.push(newUser);
+        localStorage.setItem('users', JSON.stringify(users));
+        console.log('New user added:', newUser.name);
+>>>>>>> c5491b9d34073c1e38491f7641db556e7dbc1c85
 
 
         addActivity('New user ${newUser.name} created as ${newUser.role}', "user");
