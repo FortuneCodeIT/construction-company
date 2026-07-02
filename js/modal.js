@@ -207,8 +207,6 @@ function handleAddProject(event) {
             "project"
         );
 
-        // Close modal
-        materialModal.style.display = "none";
 
 
         // Refresh project list and dashboard
