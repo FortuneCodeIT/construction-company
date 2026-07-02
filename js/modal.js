@@ -156,6 +156,7 @@ function handleAddProject(event) {
 
         if (!location || !startDate || !endDate || !budget || !projectManagerId || !clientId || !status || !description) {
             formError.textContent = "Please fill in all required fields.";
+           return;
             
         } else {
             formError.textContent = "Project added successfully"
