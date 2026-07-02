@@ -67,7 +67,7 @@
 
     const assignTeam = document.getElementById('projectAssignee')
 
-    const workers = users.filter(t => t.role !== 'admin' && t.role !== 'client' && t.role !== 'project_manager' && t.status === 'active');
+    const workers = users.filter(u => u.role !== 'admin' && u.role !== 'client' && u.role !== 'project_manager' && u.status === 'active');
 
     const roleGroup = {
         'engineer': 'Engineers',
@@ -79,11 +79,11 @@
     assignTeam.innerHTML = `<option value="">Select Other Teams</option>`;
 
     Object.keys(roleGroup).forEach(role => {
-        const roleWorkers = workers.filter(t => t.role === role);
+        const roleWorkers = workers.filter(u => u.role === role);
         if (roleWorkers.length > 0) {
             assignTeam.innerHTML += `<option disabled style="color: #FF5200; font-weight: bold;" >-- ${roleGroup[role]} --</option>`;
-            roleWorkers.forEach(t => {
-                assignTeam.innerHTML += `<option value="${t.id}">${t.name}</option>`;
+            roleWorkers.forEach(u => {
+                assignTeam.innerHTML += `<option value="${u.id}">${u.name}</option>`;
             });
         }
     });
