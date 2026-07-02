@@ -340,7 +340,7 @@
 
             <div class="search-bar-wrapper">
                 <i class="bx bx-search search"></i>
-                <input type="search" name="" id="" placeholder="search here...">
+                <input type="search" name="" id="searchInput" placeholder="search here..." onchange="filterUsers()">
                                 
             </div>
 
@@ -680,7 +680,7 @@
     <script>
             
    document.addEventListener("DOMContentLoaded", () => {
-            renderUsers();
+            renderUsers();            
    });
         console.log('User mnagement page loaded');
 

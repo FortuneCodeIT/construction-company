@@ -12,12 +12,12 @@ function initData() {
     if (!localStorage.getItem('users') || !adminExists) {
         const users = [
             { id: 1, name: "Admin User", email: "admin@pinnacle.com", password: "admin123", role: "admin", department: "Executive", avatar: "AU", status: "active", clientProjectId: null },
-            { id: 2, name: "John Doe", email: "john@pinnacle.com", password: "pm123", role: "project_manager", department: "Construction", avatar: "JD", status: "active", clientProjectId: null },
-            { id: 3, name: "Sarah Johnson", email: "sarah@client.com", password: "client123", role: "client", department: "", avatar: "SJ", status: "active", clientProjectId: null },
-            { id: 4, name: "Micheal Brown", email: "micheal@pinnacle.com", password: "eng123", role: "engineer", department: "Engineering", avatar: "MB", status: "active", clientProjectId: null },
-            { id: 5, name: "Lisa Wong", email: "lisa@pinnacle.com", password: "sup123", role: "supervisor", department: "Safety", avatar: "LW", status: "active", clientProjectId: null },
-            { id: 6, name: "James Obi", email: "james@pinnacle.com", password: "worker123", role: "worker", department: "Construction", avatar: "JO", status: "active", clientProjectId: null },
-            { id: 7, name: "John Smith", email: "johnsm@pinnacle.com", password: "pm1234", role: "project_manager", department: "Construction", avatar: "JS", status: "active", clientProjectId: null },
+            // { id: 2, name: "John Doe", email: "john@pinnacle.com", password: "pm123", role: "project_manager", department: "Construction", avatar: "JD", status: "active", clientProjectId: null },
+            // { id: 3, name: "Sarah Johnson", email: "sarah@client.com", password: "client123", role: "client", department: "", avatar: "SJ", status: "active", clientProjectId: null },
+            // { id: 4, name: "Micheal Brown", email: "micheal@pinnacle.com", password: "eng123", role: "engineer", department: "Engineering", avatar: "MB", status: "active", clientProjectId: null },
+            // { id: 5, name: "Lisa Wong", email: "lisa@pinnacle.com", password: "sup123", role: "supervisor", department: "Safety", avatar: "LW", status: "active", clientProjectId: null },
+            // { id: 6, name: "James Obi", email: "james@pinnacle.com", password: "worker123", role: "worker", department: "Construction", avatar: "JO", status: "active", clientProjectId: null },
+            // { id: 7, name: "John Smith", email: "johnsm@pinnacle.com", password: "pm1234", role: "project_manager", department: "Construction", avatar: "JS", status: "active", clientProjectId: null },
         ];
         localStorage.setItem('users', JSON.stringify(users));
         console.log("Default users created");

@@ -518,37 +518,197 @@ function viewProject(projectId) {
 }
 
 
-function loadProjectDetails() {
+// ============================================
+        // GET PROJECT ID FROM URL
+        // ============================================
+        function getProjectIdFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return parseInt(params.get('id'));
+        }
 
-    const projectId = Number(localStorage.getItem('selectedProjectId'));
+        const projectId = getProjectIdFromURL();
 
-    if (!projectId) return;
+        // ============================================
+        // LOAD PROJECT DETAILS
+        // ============================================
+        function loadProjectDetails() {
+            if (!projectId || isNaN(projectId)) {
+                document.getElementById('app').innerHTML = `
+                    <div class="empty-state">
+                        <i class="bx bx-error-circle"></i>
+                        <h4>No Project Selected</h4>
+                        <p>Please select a project from the projects page.</p>
+                        <a href="projects.html" style="color: #FF5200; text-decoration: none;">Go to Projects</a>
+                    </div>
+                `;
+                return;
+            }
 
-    const projects = getAllProjects();
-    const project = projects.find(p => p.id === projectId);
+            const projects = getAllProjects();
+            const project = projects.find(p => p.id === projectId);
 
-     if (!project) return;
+            if (!project) {
+                document.getElementById('app').innerHTML = `
+                    <div class="empty-state">
+                        <i class="bx bx-folder-x"></i>
+                        <h4>Project Not Found</h4>
+                        <p>The project you're looking for doesn't exist.</p>
+                        <a href="projects.html" style="color: #FF5200; text-decoration: none;">Go to Projects</a>
+                    </div>
+                `;
+                return;
+            }
 
-       const managerName = getUserName(project.projectManagerId);
+            // Get related data
+            const tasks = getAllTasks().filter(t => t.projectId === projectId);
+            const users = getAllUsers();
+            const expenses = getAllExpenses().filter(e => e.projectId === projectId);
 
+            // ✅ Get team members with roles
+            const pmName = getUserName(project.projectManagerId);
+            const engineerName = getUserName(project.leadEngineerId);
+            const clientName = getUserName(project.clientId);
+           
+            // ✅ Get all team members (assignedTeam)
+            const teamMembers = [];
+            if (project.assignedTeam && project.assignedTeam.length > 0) {
+                project.assignedTeam.forEach(id => {
+                    const member = users.find(u => u.id === id);
+                    if (member) {
+                        teamMembers.push(member);
+                    }
+                });
+            }
 
-   const app = document.getElementById('app');
+            // ✅ Role display names
+            const roleDisplayNames = {
+                'project_manager': 'Project Manager',
+                'engineer': 'Engineer',
+                'supervisor': 'Supervisor',
+                'worker': 'Worker'
+            };
 
-    app.innerHTML = `
+            // ✅ Role badge classes
+            const roleBadgeClasses = {
+                'project_manager': 'role-pm',
+                'engineer': 'role-engineer',
+                'supervisor': 'role-supervisor',
+                'worker': 'role-worker',
+                'client': 'role-client'
+            };
 
-      <div class="project-details-head">
+            // Calculate stats
+            const totalTasks = tasks.length;
+            const completedTasks = tasks.filter(t => t.status === 'completed' || t.status === 'done').length;
+            const inProgressTasks = tasks.filter(t => t.status === 'in_progress').length;
+            const pendingTasks = tasks.filter(t => t.status === 'pending').length;
+
+            // Calculate budget spent
+            const totalSpent = expenses.reduce((sum, e) => sum + (e.amount || 0), 0);
+            const budgetRemaining = (project.budget || 0) - totalSpent;
+            const budgetUsedPercent = project.budget ? Math.round((totalSpent / project.budget) * 100) : 0;
+
+            // Status class
+            const statusClass = project.status === 'active' ? 'status-active' :
+                               project.status === 'completed' ? 'status-completed' :
+                               project.status === 'delayed' ? 'status-delayed' : 'status-on-hold';
+            const statusDisplay = project.status ? project.status.charAt(0).toUpperCase() + project.status.slice(1) : 'Active';
+
+            // Progress color
+            const progressColor = project.progress >= 80 ? '#22C55E' :
+                                 project.progress >= 50 ? '#FF5200' : '#EF4444';
+
+            // ✅ Build team HTML
+            let teamHtml = '';
+           
+            // Add Project Manager
+            if (project.projectManagerId) {
+                const pm = users.find(u => u.id === project.projectManagerId);
+                if (pm) {
+                    const initials = pm.avatar || pm.name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+                    teamHtml += `
+                        <div class="team-member-card">
+                            <div class="avatar" style="background: linear-gradient(135deg, #FF5200, #ff8c5a);">${initials}</div>
+                            <div class="name">${pm.name}</div>
+                            <div class="role">Project Manager</div>
+                            <span class="role-badge role-pm">PM</span>
+                        </div>
+                    `;
+                }
+            }
+
+            // Add Lead Engineer
+            if (project.leadEngineerId) {
+                const engineer = users.find(u => u.id === project.leadEngineerId);
+                if (engineer) {
+                    const initials = engineer.avatar || engineer.name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+                    teamHtml += `
+                        <div class="team-member-card">
+                            <div class="avatar" style="background: linear-gradient(135deg, #3b82f6, #60a5fa);">${initials}</div>
+                            <div class="name">${engineer.name}</div>
+                            <div class="role">Lead Engineer</div>
+                            <span class="role-badge role-engineer">Engineer</span>
+                        </div>
+                    `;
+                }
+            }
+
+            // Add Client
+            if (project.clientId) {
+                const client = users.find(u => u.id === project.clientId);
+                if (client) {
+                    const initials = client.avatar || client.name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+                    teamHtml += `
+                        <div class="team-member-card">
+                            <div class="avatar" style="background: linear-gradient(135deg, #22C55E, #4ade80);">${initials}</div>
+                            <div class="name">${client.name}</div>
+                            <div class="role">Client</div>
+                            <span class="role-badge role-client">Client</span>
+                        </div>
+                    `;
+                }
+            }
+
+            // Add Team Members
+            teamMembers.forEach(member => {
+                const initials = member.avatar || member.name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+                const roleDisplay = roleDisplayNames[member.role] || member.role;
+                const roleBadge = roleBadgeClasses[member.role] || 'role-worker';
+               
+                const roleColors = {
+                    'project_manager': 'linear-gradient(135deg, #FF5200, #ff8c5a)',
+                    'engineer': 'linear-gradient(135deg, #3b82f6, #60a5fa)',
+                    'supervisor': 'linear-gradient(135deg, #F59E0B, #fbbf24)',
+                    'worker': 'linear-gradient(135deg, #a855f7, #c084fc)'
+                };
+                const avatarColor = roleColors[member.role] || 'linear-gradient(135deg, #6b7280, #9ca3af)';
+               
+                teamHtml += `
+                    <div class="team-member-card">
+                        <div class="avatar" style="background: ${avatarColor};">${initials}</div>
+                        <div class="name">${member.name}</div>
+                        <div class="role">${roleDisplay}</div>
+                        <span class="role-badge ${roleBadge}">${roleDisplay}</span>
+                    </div>
+                `;
+            });
+
+            // Render HTML
+            document.getElementById('app').innerHTML = `
+
+             <div class="project-details-head">
             <h4><a href="projects.html">Projects</a></h4>
             <i class="bx bx-chevron-right"></i>
-            <span>${project.name}</span>
+            <p>${project.name}</span>
         </div>
 
-        <div class="project-details-name-wrapper">
+            <div class="project-details-name-wrapper">
             <h1>${project.name}</h1>
             <p style="text-transform: Capitalize;">${project.status}</p>
             <div class="project-details-progress-wrapper">
                 <div class="project-details-progress-text">
                     <h4>Progress</h4>
-                    <span>${projects.progress || 0}%</span>
+                    <span style="color: ${progressColor};">${projects.progress || 0}%</span>
                 </div>
                     <div class="project-progress-wrapper">
                         <div class="project-progress" style=" width: ${projects.progress || 0}; background-color:#FF5200;"></div>
@@ -557,7 +717,7 @@ function loadProjectDetails() {
             <button>Edit Project</button>
         </div>
 
-                 <div class="details-btn-container">
+                  <div class="details-btn-container">
             <div class="details-btn-wrapper">
                 <button class="active-btn">Overview</button>
                 <button>Timeline</button>
@@ -567,48 +727,58 @@ function loadProjectDetails() {
                 <button>Reports</button>
             </div>
 
-                        <div class="details-overview-progress-wrapper">
+                <div class="details-overview-progress-wrapper">
                     <div class="overview-progress-card-1">
                         <table>
                             <tr>
                                 <th>Location</th>
-                                <td>${project.location}</td>
+                                <td>📍 ${project.location || 'No location set'}</td>
                             </tr>
                             <tr>
                                 <th>Start Date</th>
-                                <td>${project.startDate}</td>
+                                <td>${formatDate(project.startDate)}</td>
                             </tr>
                             <tr>
                                 <th>End Date</th>
-                                <td>${project.endDate}</td>
+                                <td>${formatDate(project.endDate)}</td>
                             </tr>
                             <tr>
                                 <th>Budget</th>
-                                <td>₦ ${project.budget.toLocaleString()}</td>
+                                <td style="color: #22C55E;">₦${(project.budget || 0).toLocaleString()}</td>
                             </tr>
                             <tr>
                                 <th>Projects Manager</th>
-                                <td>${managerName}</td>
+                                <td>${pmName}</td>
                             </tr>
+                             <tr>
+                              <th>Lead Engineer</th>
+                                    <td>${project.leadEngineerId}</td>
+                                </tr>
+                                <tr>
+                                    <th>Client</th>
+                                    <td>${project.clientId}</td>
+                                </tr>
                         </table>
 
-                        <div class="decription-text">
-                            <p>Description</p>
-                            <span>${project.description}</span>
+                         <div class="decription-text">
+                                <p>Description</p>
+                                <span>${project.description}</span>
+                            </div>
+                            
                         </div>
-                        
-                    </div>
 
-                    <div class="overview-progress-card-2">
-                        <h4>Progress Overview</h4>
-                        <canvas></canvas>
-                    </div>
-            </div>
-            </div>
+                        <div class="overview-progress-card-2">
+                            <h4>Progress Overview</h4>
+                            <canvas></canvas>
+                        </div>
+                </div>
+                </div>
 
-    `;
 
-     if (project.status === 'active' || project.status === 'completed') {
+
+            `;
+
+                 if (project.status === 'active' || project.status === 'completed') {
      document.querySelector('.project-details-name-wrapper p').style.background = "#22C55E";
      }    
      if (project.status === 'completed') {
@@ -620,9 +790,8 @@ function loadProjectDetails() {
     if (project.status === 'on-hold') {
        document.querySelector('.project-details-name-wrapper p').style.background = "#EF4444";
      }
-    
-    
-}
+        }
+
 
 
 
@@ -1909,93 +2078,93 @@ function renderWorkerProjects(projects) {
 
 
 
-function renderWorkerTasks(tasks) {
-    console.log("🔵 renderWorkerTasks() called");
-    
-    // const user = getCurrentUser();
-    // if (!user) return;
-    
-    // const allTasks = getAllTasks();
-    // const myTasks = allTasks.filter(t => t.assignedTo === user.id);
-    tasks.sort((a, b) => {
-            return new Date(b.createdAt) - new Date(a.createdAt);
-        });
+        function renderWorkerTasks(tasks) {
+            console.log("🔵 renderWorkerTasks() called");
+            
+            // const user = getCurrentUser();
+            // if (!user) return;
+            
+            // const allTasks = getAllTasks();
+            // const myTasks = allTasks.filter(t => t.assignedTo === user.id);
+          tasks.sort((a, b) => {
+                 return new Date(b.createdAt) - new Date(a.createdAt);
+             });
 
-    
-    const container = document.getElementById('tasksContainer');
-    if (!container) return;
+            
+            const container = document.getElementById('tasksContainer');
+            if (!container) return;
+   
+          container.innerHTML = `hgnghnghc`
 
-    container.innerHTML = `hgnghnghc`
+            if (!tasks || tasks.length === 0) {
+                container.innerHTML = `
+                     <div class="empty-state">
+                        <i class="bx bx-check-circle"></i>
+                        <h4>No Tasks</h4>
+                        <p>You have no tasks assigned.</p>
+                    </div>
+                `;
+                return;
+            }
 
-    if (!tasks || tasks.length === 0) {
-        container.innerHTML = `
-                <div class="empty-state">
-                <i class="bx bx-check-circle"></i>
-                <h4>No Tasks</h4>
-                <p>You have no tasks assigned.</p>
-            </div>
-        `;
-        return;
-    }
+            container.innerHTML = tasks.slice(0, 10).map(t => {
+                const statusClass = t.status === 'pending' ? 'status-pending' : 
+                                   t.status === 'in_progress' ? 'status-progress' : 'status-completed';
+                const statusDisplay = t.status === 'in_progress' ? 'In Progress' : 
+                                     t.status === 'done' ? 'Completed' : 
+                                     t.status || 'Pending';
 
-    container.innerHTML = tasks.slice(0, 10).map(t => {
-        const statusClass = t.status === 'pending' ? 'status-pending' : 
-                            t.status === 'in_progress' ? 'status-progress' : 'status-completed';
-        const statusDisplay = t.status === 'in_progress' ? 'In Progress' : 
-                                t.status === 'done' ? 'Completed' : 
-                                t.status || 'Pending';
+                const priorityClass = t.priority === 'high' ? 'priority-high' :
+                                     t.priority === 'medium' ? 'priority-medium' : 'priority-low';
+                const priorityDisplay = t.priority ? t.priority.charAt(0).toUpperCase() + t.priority.slice(1) : 'medium';
+                                     
+                const projectName = getProjectName(t.projectId);
 
-        const priorityClass = t.priority === 'high' ? 'priority-high' :
-                                t.priority === 'medium' ? 'priority-medium' : 'priority-low';
-        const priorityDisplay = t.priority ? t.priority.charAt(0).toUpperCase() + t.priority.slice(1) : 'medium';
-                                
-        const projectName = getProjectName(t.projectId);
-
-        // Due Date
-        const dueDate = t.dueDate ? formatDate(t.dueDate) : 'No date';
+                // Due Date
+                const dueDate = t.dueDate ? formatDate(t.dueDate) : 'No date';
 
 
+              
+                // OverDue Date
+                const isOverDue = t.dueDate && new Date(t.dueDate) < new Date() && t.status !== 'completed';
+              
+                return `
+
+                <div class="task-card" data-status="in-progress">
+                    <div class="task-header">
+                        <span class="task-title">${t.title}</span>
+
+                        <select class="status-select" onchange="updateTaskStatus(${t.id}, this.value)">
+                            <option value="pending" ${t.status === 'pending' ? 'selected' : ''}>Pending</option>
+                            <option value="in_progress" ${t.status === 'in_progress' ? 'selected' : ''}>In Progress</option>
+                            <option value="completed" ${t.status === 'completed' ? 'selected' : ''}>Completed</option>
+                            <option value="delayed" ${t.status === 'delayed' ? 'selected' : ''}>Delayed</option>
+                        </select>
+                    </div>
+                    <div class="task-project">📁 ${projectName}</div>
+                    <div style="display: flex; justify-content: space-between; margin-top: 12px;">
+                    <div>
+                        <span class="task-due">Due: ${dueDate}</span>
+                    </div>
+                        <span class="priority-high ${priorityClass}">● ${priorityDisplay}</span>
+                    </div>
+                </div>
+                    <div class="task-item">
+            
+                        <span class="task-status ${statusClass}"></span>
+                    </div>
+                `;
+            }).join('');
+
+              if (!dueDate) {
+                document.querySelector('.task-due').textContent = `OverDue: ${dueDate}`
+            }
+            else {
+                document.querySelector('.task-due').textContent = `isOverDue: ${isOverDue}`
+            }
         
-        // OverDue Date
-        const isOverDue = t.dueDate && new Date(t.dueDate) < new Date() && t.status !== 'completed';
-        
-        return `
 
-        <div class="task-card" data-status="in-progress">
-            <div class="task-header">
-                <span class="task-title">${t.title}</span>
-
-                <select class="status-select" onchange="updateTaskStatus(${t.id}, this.value)">
-                    <option value="pending" ${t.status === 'pending' ? 'selected' : ''}>Pending</option>
-                    <option value="in_progress" ${t.status === 'in_progress' ? 'selected' : ''}>In Progress</option>
-                    <option value="completed" ${t.status === 'completed' ? 'selected' : ''}>Completed</option>
-                    <option value="delayed" ${t.status === 'delayed' ? 'selected' : ''}>Delayed</option>
-                </select>
-            </div>
-            <div class="task-project">📁 ${projectName}</div>
-            <div style="display: flex; justify-content: space-between; margin-top: 12px;">
-            <div>
-                <span class="task-due">Due: ${dueDate}</span>
-            </div>
-                <span class="priority-high ${priorityClass}">● ${priorityDisplay}</span>
-            </div>
-        </div>
-            <div class="task-item">
-    
-                <span class="task-status ${statusClass}"></span>
-            </div>
-        `;
-    }).join('');
-
-        if (!dueDate) {
-        document.querySelector('.task-due').textContent = `OverDue: ${dueDate}`
-    }
-    else {
-        document.querySelector('.task-due').textContent = `isOverDue: ${isOverDue}`
-    }
-
-
-}
+        }
 
 // ============================================
 // UPDATE TASK STATUS
