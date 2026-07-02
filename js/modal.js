@@ -174,7 +174,7 @@ function handleAddProject(event) {
             endDate: endDate,
             budget: Number(budget),
             projectManagerId: projectManagerId,
-            assigneeId ? parseInt(assigneeId) : null
+            assigneeId: assigneeId ? parseInt(assigneeId) : null,
             clientId: clientId,
             status: status,
             description: description,
