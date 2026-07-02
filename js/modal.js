@@ -145,30 +145,24 @@ function handleAddProject(event) {
         const description = document.getElementById("description").value.trim();
         const formError = document.getElementById('formError');
 
-        const hasError = false;
-        let errorMessages = [];
+
 
         if (!projectName) {
             formError.textContent = "Please fill in all required fields.";
             document.getElementById("projectName").style.borderColor = '#EF4444'
             document.getElementById("projectName").focus();
-            hasError = true
+            return;
         }
 
         if (!location || !startDate || !endDate || !budget || !projectManagerId || !clientId || !status || !description) {
             formError.textContent = "Please fill in all required fields.";
-            hasError = true
+            
         } else {
             formError.textContent = "Project added successfully"
             formError.style.color = "#22C55E"
         }
 
-            if (hasError) {
-            formError.innerHTML = errorMessages.join('<br>');
-            console.log('validation error:', errorMessages);
-
-            return false;
-        }
+         
         
         // Create project object
         const newProject = {
