@@ -2182,11 +2182,8 @@ function deleteNotify(notificationId) {
     renderNotifications();
 }
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> c5491b9d34073c1e38491f7641db556e7dbc1c85
 function deleteAllNotifications() {
     if (!confirm('Delete all notifications? This cannot be undone.')) return;
 
@@ -2209,15 +2206,9 @@ function deleteAllNotifications() {
 
 
 
-<<<<<<< HEAD
  function updateMyTask() {
     const tasks = getAllTasks();
 
-=======
-function updateMyTask() {
-    const tasks = getAllTasks();
-    const userProjects = getAllProjects();
->>>>>>> c5491b9d34073c1e38491f7641db556e7dbc1c85
     
     const taskList = document.getElementById('taskList');
     const visibleTasks = tasks.slice(0, 3);
@@ -2242,11 +2233,7 @@ function updateMyTask() {
     `}).join('');
 
     document.getElementById('taskCount').textContent = `${tasksData.length} tasks`;
-<<<<<<< HEAD
  }
-=======
-}
->>>>>>> c5491b9d34073c1e38491f7641db556e7dbc1c85
 
 
 

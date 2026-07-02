@@ -2367,7 +2367,7 @@ header {
     }
 
     .search-bar-wrapper {
-        display: none;
+        /* display: none; */
     }
 
     .project-details-name-wrapper h1 {

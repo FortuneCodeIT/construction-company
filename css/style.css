@@ -630,10 +630,7 @@ header .reg-btn {
     border: 1px solid #000;
     background: #555;
     margin-left: -10px;
-<<<<<<< HEAD
     border: 1px solid var(--bg);
-=======
->>>>>>> c5491b9d34073c1e38491f7641db556e7dbc1c85
     overflow: hidden;
 }
 .avatar:first-child {
@@ -665,7 +662,6 @@ header .reg-btn {
     padding: 20px;
     display: flex;
     align-items: flex-start;
-<<<<<<< HEAD
     /* gap: 60px; */
 
 }
@@ -675,11 +671,6 @@ header .reg-btn {
     overflow: hidden; 
     object-fit:cover;
 }
-=======
-    gap: 60px;
-
-}
->>>>>>> c5491b9d34073c1e38491f7641db556e7dbc1c85
 .review-card img {
     width: 120px;
     height: 120px;
@@ -924,12 +915,9 @@ header {
 .mobile-nav ul {
     width: 100%;
 }
-<<<<<<< HEAD
 .mobile-nav ul a {
     text-decoration: none;
 }
-=======
->>>>>>> c5491b9d34073c1e38491f7641db556e7dbc1c85
 .mobile-nav ul  li {
     list-style: none;
     padding: 20px 0;

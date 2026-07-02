@@ -1,10 +1,5 @@
     //  this is for preloader
-<<<<<<< HEAD
        document.addEventListener('DOMContentLoaded', () => {
-=======
-       document.getElementById('DOMContentLoaded', () => {
-
->>>>>>> c5491b9d34073c1e38491f7641db556e7dbc1c85
 
             const preloader = document.getElementById('preloader');
             if (preloader) {
@@ -19,10 +14,6 @@
                     
                 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> c5491b9d34073c1e38491f7641db556e7dbc1c85
          },3000);
 
                  
