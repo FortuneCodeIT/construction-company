@@ -174,11 +174,12 @@ function handleAddProject(event) {
             endDate: endDate,
             budget: Number(budget),
             projectManagerId: projectManagerId,
-            assigneeId: assigneeId,
+            assigneeId ? parseInt(assigneeId) : null
             clientId: clientId,
             status: status,
             description: description,
             progress: 0, // default progress
+            assignedTeam: assigneeId ? [parseInt(assigneeId)] : [],
             createdAt: new Date().toISOString()
         };
 
