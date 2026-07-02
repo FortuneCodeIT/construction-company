@@ -908,6 +908,9 @@ header {
 .mobile-nav ul {
     width: 100%;
 }
+.mobile-nav ul a {
+    text-decoration: none;
+}
 .mobile-nav ul  li {
     list-style: none;
     padding: 20px 0;
