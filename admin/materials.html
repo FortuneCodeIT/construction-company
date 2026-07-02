@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../boxicons-2.1.4/boxicons-2.1.4/css/boxicons.css">
+        <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <title>Document</title>
+</head>
+<style>
+    .status-available {
+        color: #22C55E;
+    }
+    .status-low {
+        color: #F59E0B;
+    }
+    .status-out-of-stock {
+        color: #EF4444;
+    }
+</style>
+<body>
+
+    <!-- this is for preloader -->
+            <div id="preloader">
+        <div class="logo-loader">
+            <img src="../images/Vector.png" alt="Pinnacle">
+            <h2>Pinnacle</h2>
+            <div class="spinner"></div>
+            <div class="loader-text">Loading...</div>
+        </div>
+    </div>
+    
+    <aside class="aside-container">
+        <div class="logo">
+            <img src="../images/Vector.png" alt="" style="color: black;">
+            <h2>Pinnacle</h2>
+        </div>
+
+        <nav>
+            <ul>
+                <a href="dashboard.html">
+                <div class="side-list">
+                    <i class="bx bx-home-alt"></i>
+                <li>Dashboard</li>
+                </div>
+                </a>
+
+                <a href="projects.html">
+                <div class="side-list">
+                    <i class="bx bx-briefcase"></i>
+                <li>Projects</li>
+                </div>
+                </a>
+
+                <a href="tasks.html">
+                <div class="side-list">
+                    <i class="bx bx-task"></i>
+                <li>Tasks</li>
+                </div>
+                </a>
+
+                <a href="materials.html">
+                <div class="side-list active">
+                    <i class="bx bx-cube"></i>
+                <li>Materials</li>
+                </div>
+                </a>
+
+                <a href="budgets.html">
+                <div class="side-list">
+                    <i class="bx bx-money"></i>
+                <li>Budget</li>
+                </div>
+                </a>
+
+                <a href="teams.html">
+                <div class="side-list">
+                    <i class="bx bx-group"></i>
+                <li>Team</li>
+                </div>
+                </a>
+
+                <a href="monitoring.html">
+                <div class="side-list">
+                    <i class="bx bx-line-chart"></i>
+                <li>Monitoring</li>
+                </div>
+                </a>
+
+                <a href="reports.html">
+                <div class="side-list">
+                    <i class="bx bx-file"></i>
+                <li>Reports</li>
+                </div>
+                </a>
+                
+                <a href="ad-inbox.html">
+                    <div class="side-list">
+                        <i class="bx bx-message"></i>
+                        <li>Inbox</li>
+                    </div>
+                </a>
+
+                <a href="notification.html">
+                <div class="side-list">
+                    <i class="bx bx-bell bell"></i>
+                <li>Notifications</li>
+                </div>
+                </a>
+
+                <a href="settings.html">
+                <div class="side-list">
+                    <i class="bx bx-slider"></i>
+                <li>Settings</li>
+                </div>
+                </a>
+                
+                <a href="user.html">
+                <div class="side-list">
+                    <i class="bx bx-user-plus"></i>
+                <li>User Management</li>
+                </div>
+                </a>
+
+                <div class="logout-wrapper">
+                <a href="../logout.html">
+                <div class="logout">
+                    <i class="bx bx-log-out"></i>
+                <li>Logout</li>
+                </div>
+                </a>
+
+                </div>
+
+            </ul>
+        </nav>
+    </aside>
+
+             <header>
+  
+
+            <div class="search-bar-wrapper">
+                <i class="bx bx-search search"></i>
+                <input type="search" name="" id="" placeholder="search here...">
+                                
+            </div>
+
+            
+
+            <div style="display: flex; align-items: center; gap: 10px;">      
+            <div class="bar-wrapper">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="header-profile-wrapper">
+                 <i class="bx bx-bell bell"></i>
+                 <div class="notify-dot" id="notifyDot"></div>
+                
+                 <div class="header-profile">
+                    <img src="../images/avatar2.jpg" alt="">
+                    <div class="header-profile-text">
+                        <h3 id="userName"> John Doe</h3>
+                        <p id="userRole">Adminstration</p>
+                        
+                    </div>
+                 </div>
+            </div>
+
+            </div>
+
+      
+        </header>
+
+    <main class="main-container">
+
+    <div class="main-content">
+
+        <div class="page-name">
+            <h1>Materials</h1>
+            <button id="openModal">
+                <i class="bx bx-plus"></i>
+                Add Material
+            </button>
+        </div>
+
+                <div class="dash-overview-container">
+
+            <div class="dash-overview-card" style="box-shadow: 0 6px 2px rgb(37, 101, 235) ;">
+                <div class="dash-overview-icon" style="background-color:rgba(37, 99, 235, 0.07);">
+                <i class="bx bx-cube" style="font-size: 24px; color: #2563EB;"></i>
+                </div>
+                <div class="overview-card-content">
+                    <p>Total Materials</p>
+                    <h4 id="totalMaterials">0</h4>
+                </div>
+            </div>
+
+            <div class="dash-overview-card" style="box-shadow:  0 6px 2px rgb(245, 158, 11);">
+                 <div class="dash-overview-icon" style="background-color: rgba(245, 158, 11, 0.07);">
+                <i class="bx bx-error-circle" style="font-size: 24px; color: #F59E0B;"></i>
+                 </div>
+                <div class="overview-card-content">
+                    <p>Low Stock</p>
+                    <h4 id="lowStock">0</h4>
+                </div>
+            </div>
+
+            <div class="dash-overview-card" style="box-shadow: 0 6px 2px rgb(37, 101, 235) ;">
+                <div class="dash-overview-icon" style="background-color:rgba(37, 99, 235, 0.07);">
+                <i class="bx bx-wrench" style="font-size: 24px; color: #2563EB;"></i>
+                </div>
+                <div class="overview-card-content">
+                    <p>Out Of stock</p>
+                    <h4 id="outOfStock">0</h4>
+                </div>
+            </div>
+
+            <div class="dash-overview-card" style="box-shadow:  0 6px 2px rgb(245, 158, 11);">
+                 <div class="dash-overview-icon" style="background-color: rgba(245, 158, 11, 0.07);">
+                <i class="bx bx-hourglass" style="font-size: 24px; color: #F59E0B;"></i>
+                 </div>
+                <div class="overview-card-content">
+                    <p>Categories</p>
+                    <h4 id="totalCategory">0</h4>
+                </div>
+            </div>  
+
+        </div>
+
+        <div class="materials-table-container" style="box-shadow: var(--shadow-1);">
+                 <div class="activities-table" id="materialContainer">
+                    <!-- <table style="width: 100%;">
+                        <thead>
+                            <tr class="table-bg">
+                                <th>Material Name</th>
+                                <th>Category</th>
+                                <th>Quantity</th>
+                                <th>Unit</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>
+                                   Cement
+                                </td>
+                                <td>
+                                   Construction
+                                </td>
+                                <td>
+                                    2000
+                                </td>
+                                <td>
+                                    Bags
+                                </td>
+                                <td class="available">
+                                   Available
+                                </td>
+                            <td class="action-icons">
+                                <i class="bx bx-edit" onclick="editUser('mike.chen@pinnacle.com')" title="Edit"></i>
+                                <i class="bx bx-lock" onclick="toggleUserStatus(this)" title="Disable"></i>
+                                <i class="bx bx-trash" onclick="deleteUser(this)" title="Delete"></i>
+                            </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                   Steel Rods
+                                </td>
+                                <td>
+                                   Construction
+                                </td>
+                                <td>
+                                    1500
+                                </td>
+                                <td>
+                                    Kg
+                                </td>
+                                <td class="low-stock">
+                                    Low Stock
+                                </td>
+                                <td class="action-icons">
+                                    <i class="bx bx-edit" onclick="editUser('mike.chen@pinnacle.com')" title="Edit"></i>
+                                    <i class="bx bx-lock" onclick="toggleUserStatus(this)" title="Disable"></i>
+                                    <i class="bx bx-trash" onclick="deleteUser(this)" title="Delete"></i>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Bricks
+                                </td>
+                                <td>
+                                   Construction
+                                </td>
+                                <td>
+                                    5000
+                                </td>
+                                <td>
+                                    Pcs
+                                </td>
+                                <td class="available">
+                                    Available
+                                </td>
+                                <td class="action-icons">
+                                    <i class="bx bx-edit" onclick="editUser('mike.chen@pinnacle.com')" title="Edit"></i>
+                                    <i class="bx bx-lock" onclick="toggleUserStatus(this)" title="Disable"></i>
+                                    <i class="bx bx-trash" onclick="deleteUser(this)" title="Delete"></i>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Sand
+                                </td>
+                                <td>
+                                   Construction
+                                </td>
+                                <td>
+                                    80
+                                </td>
+                                <td>
+                                    m <sup>3</sup>
+                                </td>
+                                <td class="available">
+                                    Available
+                                </td>
+                                <td class="action-icons">
+                                    <i class="bx bx-edit" onclick="editUser('mike.chen@pinnacle.com')" title="Edit"></i>
+                                    <i class="bx bx-lock" onclick="toggleUserStatus(this)" title="Disable"></i>
+                                    <i class="bx bx-trash" onclick="deleteUser(this)" title="Delete"></i>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Granite
+                                </td>
+                                <td>
+                                   Construction
+                                </td>
+                                <td>
+                                    60
+                                </td>
+                                <td>
+                                    m <sup>3</sup>
+                                </td>
+                                <td class="low-stock">
+                                    Low Stock
+                                </td>
+                                <td class="action-icons">
+                                    <i class="bx bx-edit" onclick="editUser('mike.chen@pinnacle.com')" title="Edit"></i>
+                                    <i class="bx bx-lock" onclick="toggleUserStatus(this)" title="Disable"></i>
+                                    <i class="bx bx-trash" onclick="deleteUser(this)" title="Delete"></i>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Excavator
+                                </td>
+                                <td>
+                                   Equipment
+                                </td>
+                                <td>
+                                    5
+                                </td>
+                                <td>
+                                    Units
+                                </td>
+                                <td class="available">
+                                    Available
+                                </td>
+                                <td class="action-icons">
+                                    <i class="bx bx-edit" onclick="editUser('mike.chen@pinnacle.com')" title="Edit"></i>
+                                    <i class="bx bx-lock" onclick="toggleUserStatus(this)" title="Disable"></i>
+                                    <i class="bx bx-trash" onclick="deleteUser(this)" title="Delete"></i>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Concrete Mixer
+                                </td>
+                                <td>
+                                  Equipment
+                                </td>
+                                <td>
+                                    8
+                                </td>
+                                <td>
+                                   Units
+                                </td>
+                                <td class="available">
+                                    Available
+                                </td>
+                                <td class="action-icons">
+                                    <i class="bx bx-edit" onclick="editUser('mike.chen@pinnacle.com')" title="Edit"></i>
+                                    <i class="bx bx-lock" onclick="toggleUserStatus(this)" title="Disable"></i>
+                                    <i class="bx bx-trash" onclick="deleteUser(this)" title="Delete"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                 -->
+                </div>
+
+        </div>
+
+    </div>
+    </main>
+
+        <!-- Request Modal -->
+    <div class="request-modal" id="requestModal">
+        <div class="modal-content">
+
+            <h3 style="margin-bottom: 20px;">Add Material</h3>
+
+            <form action="" id="materialForm">
+            <input type="text" id="materialName" placeholder="Material Name">
+            <select id="materialCategory">
+                <option value="">Category</option>
+                <option value="construction">Construction</option>
+                <option value="equipment">Equipment</option>
+                <option value="finishing">Finishing</option>
+            </select>
+            <input type="number" id="materialQuantity" placeholder="Quantity">
+            <select id="materialUnit">
+                <option value="">Unit</option>
+                <option value="Bags">Bags</option>
+                <option value="Kg">Kg</option>
+                <option value="Pcs">Pcs</option>
+                <option value="m<sup>3</sup>">m<sup>3</sup></option>
+                <option value="Units">Units</option>
+                <option value="Liters">Liters</option>
+            </select>
+            <select id="materialStatus">
+                <option value="">Status</option>
+                <option value="available" style="color: var(--success);">Available</option>
+                <option value="low_stock" style="color: var(--warning);">Low Stock</option>
+                <option value="out_of_stock" style="color: var(--spent);">Out of Stock</option>
+            </select>
+
+            <input type="number" name="" id="minStock" placeholder="Notify when below this quantity" min="0">
+
+            <p id="materialError"></p>
+            
+            <div class="modal-buttons">
+                <button class="cancel-btn" id="cancelBtn">Cancel</button>
+                <button class="request-btn" type="button" onclick="handleAddMaterial()">Submit Request</button>
+            </div>
+            </form>
+            
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderMaterial();
+        });
+        
+    </script>
+
+
+
+    <script src="../js/side-bar.js"></script>
+    <script src="../js/modal.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/auth-check.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

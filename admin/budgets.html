@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../boxicons-2.1.4/boxicons-2.1.4/css/boxicons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- this is for preloader -->
+            <div id="preloader">
+        <div class="logo-loader">
+            <img src="../images/Vector.png" alt="Pinnacle">
+            <h2>Pinnacle</h2>
+            <div class="spinner"></div>
+            <div class="loader-text">Loading...</div>
+        </div>
+    </div>
+    
+    <aside class="aside-container">
+        <div class="logo">
+            <img src="../images/Vector.png" alt="" style="color: black;">
+            <h2>Pinnacle</h2>
+        </div>
+
+        <nav>
+            <ul>
+                <a href="dashboard.html">
+                <div class="side-list">
+                    <i class="bx bx-home-alt"></i>
+                <li>Dashboard</li>
+                </div>
+                </a>
+
+                <a href="projects.html">
+                <div class="side-list">
+                    <i class="bx bx-briefcase"></i>
+                <li>Projects</li>
+                </div>
+                </a>
+
+                <a href="tasks.html">
+                <div class="side-list">
+                    <i class="bx bx-task"></i>
+                <li>Tasks</li>
+                </div>
+                </a>
+
+                <a href="materials.html">
+                <div class="side-list">
+                    <i class="bx bx-cube"></i>
+                <li>Materials</li>
+                </div>
+                </a>
+
+                <a href="budgets.html">
+                <div class="side-list active">
+                    <i class="bx bx-money"></i>
+                <li>Budget</li>
+                </div>
+                </a>
+
+                <a href="teams.html">
+                <div class="side-list">
+                    <i class="bx bx-group"></i>
+                <li>Team</li>
+                </div>
+                </a>
+
+                <a href="monitoring.html">
+                <div class="side-list">
+                    <i class="bx bx-line-chart"></i>
+                <li>Monitoring</li>
+                </div>
+                </a>
+
+                <a href="reports.html">
+                <div class="side-list">
+                    <i class="bx bx-file"></i>
+                <li>Reports</li>
+                </div>
+                </a>
+
+                <a href="ad-inbox.html">
+                    <div class="side-list">
+                        <i class="bx bx-message"></i>
+                        <li>Inbox</li>
+                    </div>
+                </a>
+
+                <a href="notification.html">
+                <div class="side-list">
+                    <i class="bx bx-bell bell"></i>
+                <li>Notifications</li>
+                </div>
+                </a>
+
+                <a href="settings.html">
+                <div class="side-list">
+                    <i class="bx bx-slider"></i>
+                <li>Settings</li>
+                </div>
+                </a>
+                
+                <a href="user.html">
+                <div class="side-list">
+                    <i class="bx bx-user-plus"></i>
+                <li>User Management</li>
+                </div>
+                </a>
+
+
+                <div class="logout-wrapper">
+                <a href="../logout.html">
+                <div class="logout">
+                    <i class="bx bx-log-out"></i>
+                <li>Logout</li>
+                </div>
+                </a>
+
+                </div>
+
+            </ul>
+        </nav>
+    </aside>
+
+           <header>
+  
+
+            <div class="search-bar-wrapper">
+                <i class="bx bx-search search"></i>
+                <input type="search" name="" id="" placeholder="search here...">
+                                
+            </div>
+
+            
+
+            <div style="display: flex; align-items: center; gap: 10px;">      
+            <div class="bar-wrapper">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="header-profile-wrapper">
+                 <i class="bx bx-bell bell"></i>
+                 <div class="notify-dot" id="notifyDot"></div>
+                
+                 <div class="header-profile">
+                    <img src="../images/avatar2.jpg" alt="">
+                    <div class="header-profile-text">
+                        <h3 id="userName"> John Doe</h3>
+                        <p id="userRole">Adminstration</p>
+                        
+                    </div>
+                 </div>
+            </div>
+
+            </div>
+
+      
+        </header>
+    <main class="main-container">
+ 
+        <div class="main-content">
+
+        <div class="page-name">
+            <h1 id="projectNameHeader">Budget Tracking</h1>
+
+            <div style="display: flex; gap:10px;">
+
+            <button onclick="openExpenseModal()">
+                <i class="bx bx-plus"></i>
+                Add Expense
+            </button>
+
+            <select name="" id="projectFilter" onchange="filterBudget()">
+            </select>
+
+            </div>
+        </div>
+
+        <div class="scroll-width">
+        <div class="dash-overview-container">
+
+            <div class="dash-overview-card" style="box-shadow:  0 6px 2px rgb(34, 197, 94);">
+                <div class="dash-overview-icon" style="background-color:rgba(34, 197, 94, 0.07);">
+                <i class="bx bx-wallet" style="font-size: 24px; color: #22C55E;"></i>
+                </div>
+                <div class="overview-card-content">
+                    <p>Total Budget</p>
+                    <h4 id="totalBudget">&#8358;0</h4>
+                </div>
+            </div>
+
+            <div class="dash-overview-card" style="box-shadow:  0 6px 2px rgb(239, 68, 68);">
+                 <div class="dash-overview-icon" style="background-color: rgba(243, 70, 70, 0.07);">
+                <i class="bx bx-trending-down" style="font-size: 24px; color: #EF4444;"></i>
+                </div>
+                <div class="overview-card-content">
+                    <p>Total Spent</p>
+                    <h4 id="totalSpent">&#8358;0</h4>
+                </div>
+            </div>
+
+            <div class="dash-overview-card" style="box-shadow: 0 6px 2px rgb(37, 101, 235) ;">
+                <div class="dash-overview-icon" style="background-color:rgba(37, 99, 235, 0.07);">
+                <i class="bx bx-dollar-circle" style="font-size: 24px; color: #2565EB;"></i>
+                </div>
+                <div class="overview-card-content">
+                    <p>Remaining Budeget</p>
+                    <h4 id="remainingBudget">&#8358;0</h4>
+                </div>
+            </div>
+
+            <div class="dash-overview-card" style="box-shadow: 0 6px 2px rgb(245, 158, 11)">
+                <div class="dash-overview-icon" style="background-color:rgba(245, 158, 11, 0.07);">
+                <i class="bx bx-error-circle" style="font-size: 24px; color: #F59E0B;"></i>
+                </div>
+                <div class="overview-card-content">
+                    <p>Pending Cost</p>
+                    <h4 id="pendingCost">&#8358;0</h4>
+                </div>
+            </div>
+    </div>
+        </div> 
+
+                <div class="dash-progress-wrapper">
+            
+            <div class="dash-progress-card">
+                <div class="dash-progress-card-title">
+                <p>Budget Overview</p>
+                </div>
+
+                <div class="progress-wrapper">
+                    <canvas class="canvas-overview"></canvas>
+                    
+                    <div id="categoryChart" style="width: 100%;"></div>
+                    <!-- <div class="progress-content-wrapper ">
+
+                        <div class="progress-content">                          
+                        <div class="progress-text">
+                            <div class="dot labour"></div>
+                            <p>Labour Cost</p>
+                        </div>
+                            <span>&#8358;437.50M</span>
+                        </div>
+
+                        <div class="progress-content">                          
+                        <div class="progress-text">
+                            <div class="dot material"></div>
+                            <p>Material Cost</p>
+                        </div>
+                            <span>&#8358;437.50M</span>
+                        </div>
+
+                        <div class="progress-content">                          
+                        <div class="progress-text">
+                            <div class="dot equipment"></div>
+                            <p>Equipment cost</p>
+                        </div>
+                            <span>&#8358;437.50M</span>
+                        </div>
+
+                        <div class="progress-content">                          
+                        <div class="progress-text">
+                            <div class="dot other"></div>
+                            <p>Other cost</p>
+                        </div>
+                            <span>&#8358;437.50M</span>
+                        </div>
+
+                    </div> -->
+                </div>
+            </div>
+
+            <div class="dash-progress-card">
+            <div class="dash-progress-card-title">
+                <p>Budget vs Expense</p>
+            </div>
+
+                <div class="progress-wrapper" >
+                    <div class="budget-canvas">
+                        <canvas ></canvas>
+                    </div>
+
+                    <div id="utilizationChart"></div>
+
+                </div>
+            </div>
+        </div>
+
+                <div class="budget-table-container">
+                    <div style="display: flex; justify-content: space-between;">
+                    <h4>Recent Expenses</h4>
+                    <h4 id="expenseCount"></h4>
+                    </div>
+                 <div class="activities-table" id="expensesContainer">
+                    <!-- <table style="width: 100%;">
+                        <thead>
+                            <tr class="table-bg">
+                                <th>Items</th>
+                                <th>Project</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>
+                                   Steel Rods
+                                </td>
+                                <td>
+                                   Sunrise Tower
+                                </td>
+                                <td>
+                                    Material
+                                </td>
+                                <td>
+                                    &#8358;30,000,000
+                                </td>
+                                <td>
+                                   Jan 20, 2026
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                   Steel Rods
+                                </td>
+                                <td>
+                                   Sunrise Tower
+                                </td>
+                                <td>
+                                    Material
+                                </td>
+                                <td>
+                                    &#8358;30,000,000
+                                </td>
+                                <td>
+                                   Jan 20, 2026
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                   Steel Rods
+                                </td>
+                                <td>
+                                   Sunrise Tower
+                                </td>
+                                <td>
+                                    Material
+                                </td>
+                                <td>
+                                    &#8358;30,000,000
+                                </td>
+                                <td>
+                                   Jan 20, 2026
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table> -->
+                </div>
+
+        </div>
+   
+
+    </div>
+    </main>
+
+        <!-- Expense Modal -->
+    <div class="request-modal" id="requestModal">
+        <div class="modal-content">
+
+            <h3 style="margin-bottom: 20px;">Add Expense</h3>
+
+            <form action="" id="ExpenseForm">
+
+            <select id="expenseProject">
+                <option value="">Select a Project</option>
+            </select>
+
+            <select id="expenseCategory">
+                <option value="">Select Category</option>
+                <option value="labor">Labor</option>
+                <option value="material">Material</option>
+                <option value="equipment">Equipment</option>
+                <option value="transport">Transport</option>
+                <option value="other">other</option>
+            </select>
+
+            <input type="text" name="" id="expenseDescription" placeholder="Enter expense description">
+            <input type="number" name="" id="expenseAmount" placeholder="0" min="0">
+            <input type="Date" name="" id="expenseDate">
+
+
+            <p id="expenseError"></p>
+
+            <div class="modal-buttons">
+                <button class="cancel-btn" id="cancelBtn">Cancel</button>
+                <button class="request-btn" type="button" onclick="handleAddExpense()">Submit Request</button>
+            </div>
+            </form>
+            
+        </div>
+    </div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        populateProjectFilter();
+        renderExpenses();
+        renderBudgetData();
+        renderCategoryChart();
+        renderUtilizationChart();
+    });
+
+    
+function openExpenseModal() {
+    console.log('Opening task Modal');
+
+
+    const projectSelect = document.getElementById('expenseProject');
+    const projects = getAllProjects();
+
+    projectSelect.innerHTML = `<option value="">Select Project</option>`;
+   
+    projects.forEach(project => {
+        projectSelect.innerHTML += `<option value="${project.id}">${project.name}</option>`;  
+    });
+  
+  
+
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('expenseDate').value = today;
+
+    document.getElementById('expenseDescription').value = '';
+    document.getElementById('expenseAmount').value = '';
+    document.getElementById('expenseCategory').value = '';
+
+
+
+    document.getElementById('requestModal').style.display = 'flex';
+}
+
+// close task modal
+function closeExpenseModal() {
+    document.getElementById('requestModal').style.display = 'none';
+}
+
+</script>
+<script src="../js/side-bar.js"></script>
+<script src="../js/modal.js"></script>
+<script src="../js/data.js"></script>
+<script src="../js/auth-check.js"></script>
+<script src="../js/dashboard.js"></script>
+</body>
+</html>

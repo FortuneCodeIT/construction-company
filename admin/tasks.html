@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../boxicons-2.1.4/boxicons-2.1.4/css/boxicons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- this is for preloader -->
+            <div id="preloader">
+        <div class="logo-loader">
+            <img src="../images/Vector.png" alt="Pinnacle">
+            <h2>Pinnacle</h2>
+            <div class="spinner"></div>
+            <div class="loader-text">Loading...</div>
+        </div>
+    </div>
+    
+    <aside class="aside-container">
+        <div class="logo">
+            <img src="../images/Vector.png" alt="" style="color: black;">
+            <h2>Pinnacle</h2>
+        </div>
+
+        <nav>
+            <ul>
+                <a href="dashboard.html">
+                <div class="side-list">
+                    <i class="bx bx-home-alt"></i>
+                <li>Dashboard</li>
+                </div>
+                </a>
+
+                <a href="projects.html">
+                <div class="side-list">
+                    <i class="bx bx-briefcase"></i>
+                <li>Projects</li>
+                </div>
+                </a>
+
+                <a href="tasks.html">
+                <div class="side-list active">
+                    <i class="bx bx-task"></i>
+                <li>Tasks</li>
+                </div>
+                </a>
+
+                <a href="materials.html">
+                <div class="side-list">
+                    <i class="bx bx-cube"></i>
+                <li>Materials</li>
+                </div>
+                </a>
+
+                <a href="budgets.html">
+                <div class="side-list">
+                    <i class="bx bx-money"></i>
+                <li>Budget</li>
+                </div>
+                </a>
+
+                <a href="teams.html">
+                <div class="side-list">
+                    <i class="bx bx-group"></i>
+                <li>Team</li>
+                </div>
+                </a>
+
+                <a href="monitoring.html">
+                <div class="side-list">
+                    <i class="bx bx-line-chart"></i>
+                <li>Monitoring</li>
+                </div>
+                </a>
+
+                <a href="reports.html">
+                <div class="side-list">
+                    <i class="bx bx-file"></i>
+                <li>Reports</li>
+                </div>
+                </a>
+                
+                <a href="ad-inbox.html">
+                    <div class="side-list">
+                        <i class="bx bx-message"></i>
+                        <li>Inbox</li>
+                    </div>
+                </a>
+
+                <a href="notification.html">
+                <div class="side-list">
+                    <i class="bx bx-bell bell"></i>
+                <li>Notifications</li>
+                </div>
+                </a>
+
+                <a href="settings.html">
+                <div class="side-list">
+                    <i class="bx bx-slider"></i>
+                <li>Settings</li>
+                </div>
+                </a>
+                
+                <a href="user.html">
+                <div class="side-list">
+                    <i class="bx bx-user-plus"></i>
+                <li>User Management</li>
+                </div>
+                </a>
+
+
+                <div class="logout-wrapper">
+                <a href="../logout.html">
+                <div class="logout">
+                    <i class="bx bx-log-out"></i>
+                <li>Logout</li>
+                </div>
+                </a>
+
+                </div>
+
+            </ul>
+        </nav>
+    </aside>
+
+                <header>
+  
+
+            <div class="search-bar-wrapper">
+                <i class="bx bx-search search"></i>
+                <input type="search" name="" id="" placeholder="search here...">
+                                
+            </div>
+
+            
+
+            <div style="display: flex; align-items: center; gap: 10px;">      
+            <div class="bar-wrapper">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="header-profile-wrapper">
+                 <i class="bx bx-bell bell"></i>
+                 <div class="notify-dot" id="notifyDot"></div>
+                
+                 <div class="header-profile">
+                    <img src="../images/avatar2.jpg" alt="">
+                    <div class="header-profile-text">
+                        <h3 id="userName"> John Doe</h3>
+                        <p id="userRole">Adminstration</p>
+                        
+                    </div>
+                 </div>
+            </div>
+
+            </div>
+
+      
+        </header>
+
+
+    <main class="main-container">
+
+        <div class="main-content">
+
+        <div class="page-name">
+            <h1>Tasks</h1>
+            <button  onclick="openTaskModal()">
+                <i class="bx bx-plus"></i>
+                New Task
+            </button>
+        </div>
+
+        <div class="projects-btn-wrapper">
+            <button class="active-btn">All Tasks</button>
+            <button>My Tasks</button>
+        </div>
+
+        <div class="task-container">
+            <div class="activities-table" id="taskContainerId">
+                <!-- <div class="all-tasks-card-wrapper">
+                    
+                    <div class="all-tasks-card">
+                        <h4>To Do (5)</h4>
+                        <div class="task-line"></div>
+                        <div class="task-list-wrapper">
+                            <div class="task-list">
+                                <h5>Excavation Work</h5>
+                                <p>Sunrise Tower</p>
+                                <p>Jan 20, 2026</p>
+                            </div>
+                        </div>
+
+                        <div class="task-line"></div>
+                        <div class="task-list-wrapper">
+                            <div class="task-list">
+                                <h5>Steel Reinforcement</h5>
+                                <p>Metro Station</p>
+                                <p>Mar 18, 2026</p>
+                            </div>
+                        </div>
+
+                        <div class="task-line"></div>
+                        <div class="task-list-wrapper">
+                                <div class="task-list">
+                                    <h5>Plumbing Installation</h5>
+                                    <p>Residential Complex</p>
+                                    <p>July 5, 2025</p>
+                                </div>
+                        </div>
+
+                        <div class="task-line"></div>
+                        <div class="task-list-wrapper">
+                            <div class="task-list">
+                                <h5>Electrical Wiring</h5>
+                                <p>River Bridge</p>
+                                <p>Mar 20, 2026</p>
+                            </div>
+                        </div>
+
+                        <div class="task-line"></div>
+
+                        <div class="addtask-btn">
+                            <button>
+                                    <i class="bx bx-plus"></i>
+                                    Add Task
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div class="all-tasks-card">
+                        <h4 style="color: #F59E0B;">In Progress (4)</h4>
+
+                        <div class="task-line"></div>
+                        <div class="task-list-wrapper">
+                            <div class="task-list">
+                                <h5>Excavation Work</h5>
+                                <p>Sunrise Tower</p>
+                                <p>Jan 20, 2026</p>
+                            </div>
+                        </div>
+
+                        <div class="task-line"></div>
+                        <div class="task-list-wrapper">
+                            <div class="task-list">
+                                <h5>Steel Reinforcement</h5>
+                                <p>Metro Station</p>
+                                <p>Mar 18, 2026</p>
+                            </div>
+                        </div>
+
+                        <div class="task-line"></div>
+
+                        <div class="task-list-wrapper">
+                            <div class="task-list">
+                                <h5>Plumbing Installation</h5>
+                                <p>Residential Complex</p>
+                                <p>July 5, 2025</p>
+                            </div>
+                        </div>
+
+                        <div class="task-line"></div>
+
+                        <div class="task-list-wrapper">
+                            <div class="task-list">
+                                <h5>Electrical Wiring</h5>
+                                <p>River Bridge</p>
+                                <p>Mar 20, 2026</p>
+                            </div>
+                        </div>
+
+                        <div class="task-line"></div>
+                        <div class="addtask-btn">
+                            <button>
+                                    <i class="bx bx-plus"></i>
+                                    Add Task
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="all-tasks-card">
+                        <h4 style="color: #22C55E;">Completed (6)</h4>
+                        <div class="task-line"></div>
+                        
+                        <div class="task-list-wrapper">
+                            <div class="task-list">
+                                <h5>Excavation Work</h5>
+                                <p>Sunrise Tower</p>
+                                <p>Jan 20, 2026</p>
+                            </div>
+
+                            <i class="bx bx-check"></i>
+                        </div>
+
+                        <div class="task-line"></div>
+                        <div class="task-list-wrapper">
+                            <div class="task-list">
+                                <h5>Steel Reinforcement</h5>
+                                <p>Metro Station</p>
+                                <p>Mar 18, 2026</p>
+                            </div>
+
+                            <i class="bx bx-check"></i>
+                        </div>
+
+                        <div class="task-line"></div>
+                        <div class="task-list-wrapper">
+                            <div class="task-list">
+                                <h5>Plumbing Installation</h5>
+                                <p>Residential Complex</p>
+                                <p>July 5, 2025</p>
+                            </div>
+
+                            <i class="bx bx-check"></i>
+                        </div>
+
+                        <div class="task-line"></div>
+                        <div class="task-list-wrapper">
+                            <div class="task-list">
+                                <h5>Electrical Wiring</h5>
+                                <p>River Bridge</p>
+                                <p>Mar 20, 2026</p>
+                            </div>
+
+                            <i class="bx bx-check"></i>
+                        </div>
+
+                        <div class="task-line"></div>
+                        <div class="addtask-btn">
+                            <button>
+                                    <i class="bx bx-plus"></i>
+                                    Add Task
+                            </button>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+
+    </div>
+    </main>
+
+            <!-- Request Modal -->
+    <div class="request-modal" id="addTaskModal">
+        <div class="modal-content">
+            <h3 style="margin-bottom: 20px;">Create New Task</h3>
+
+            <!-- <form action="" id="taskForm" onsubmit="return false;"> -->
+        <div id="taskForm">
+            <input type="text" id="taskTitle" placeholder="Enter task title" >
+
+            <select id="taskProject" >
+                <option value="">Select Project </option>             
+                <!-- will be populated dynamically -->
+            </select>
+
+            <select id="taskAssignee" >
+                <option value="">Select Team Member </option>             
+                <!-- will be populated dynamically -->
+            </select>
+
+
+            <select id="taskPriority">
+                <option value="">Priority</option>
+                <option value="low" style="color: yellow;">Low</option>
+                <option value="medium" style="color: #FF5200;">Medium</option>
+                <option value="high" style="color: #22C55E;">High</option>
+            </select>
+
+            <input type="date" id="taskDueDate" placeholder="Due Date">
+
+            <textarea name="" id="taskDescription" placeholder="Enter task description..."></textarea>
+
+            <select id="taskStatus">
+                <option value="">Status</option>
+                <option value="pending" style="color: var(--success);">Pending</option>
+                <option value="in_progress" style="color: var(--warning);">In Progress</option>
+                <option value="completed" style="color: #3B82F6;">Completed</option>
+                <option value="delayed" style="color: var(--spent);">Delayed</option>
+            </select>
+
+    
+            <div id="taskError" style="font-size: 12px; color: red;"></div>
+
+            <div class="modal-buttons">
+                <button class="cancel-btn" type="button"  onclick="closeTaskModal()">Cancel</button>
+                <button class="request-btn"  type="button"  onclick="handleAddTask()" >Create Task</button>
+            </div>
+
+            
+
+            </div>
+            <!-- </form> -->
+        </div>
+    </div>
+
+
+<script>
+                
+   document.addEventListener("DOMContentLoaded", () => {
+            renderTasks();
+   });
+
+function openTaskModal() {
+    console.log('Opening task Modal');
+
+
+    const projectSelect = document.getElementById('taskProject');
+    const projects = getAllProjects();
+
+    projectSelect.innerHTML = `<option value="">Select Project</option>`;
+    projects.forEach(project => {
+        projectSelect.innerHTML += `<option value="${project.id}">${project.name}</option>`;
+    });
+
+    const assigneeSelect = document.getElementById('taskAssignee');
+    const users = getAllUsers();
+    const workers = users.filter(u => u.role !== 'client' && u.role !== 'admin');
+
+    assigneeSelect.innerHTML = `<option value="">Select Team Member</option>`;
+    workers.forEach(worker => {
+        assigneeSelect.innerHTML += `<option value="${worker.id}">${worker.name}</option>`;
+    });
+
+    const today = new Date().toISOString().split('T')[0];
+
+    document.getElementById('taskDueDate').value = today;
+    document.getElementById('taskTitle').value = '';
+    document.getElementById('taskDescription').value = '';
+    document.getElementById('taskStatus').value = 'pending';
+
+
+
+   document.getElementById('taskTitle').style.borderColor = '#2a2a2a';
+   document.getElementById('taskProject').style.borderColor = '#2a2a2a';
+   document.getElementById('taskAssignee').style.borderColor = '#2a2a2a';
+
+
+    document.getElementById('addTaskModal').style.display = 'flex';
+}
+
+// close task modal
+function closeTaskModal() {
+    document.getElementById('addTaskModal').style.display = 'none';
+}
+</script>
+
+<script src="../js/side-bar.js"></script>
+<script src="../js/data.js"></script>
+<script src="../js/auth-check.js"></script>
+<script src="../js/dashboard.js"></script>
+<script src="../js/modal.js"></script>
+</body>
+</html>

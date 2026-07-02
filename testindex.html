@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pinnacle — Construction & Real Estate</title>
+  <!-- Font Awesome (optional but clean) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ===== RESET & BASE ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    :root {
+      --bg: #ff5200;
+      --button_bg: #ff6c26;
+      --contact_bg: #282726;
+      --font: #fcfcfc;
+      --p-text: #d9d9d9;
+      --p2-text: #c0c0bf;
+      --border: 1px solid #454545;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #000;
+      color: #fff;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    ul {
+      list-style: none;
+    }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #0d0d0d; }
+    ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 99px; }
+
+    /* ===== HEADER ===== */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #020100;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: 80px;
+      padding: 0 60px;
+      border-bottom: 1px solid #454545;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo img {
+      width: 30px;
+      height: 30px;
+    }
+    .logo h2 {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .desktop-nav ul {
+      display: flex;
+      gap: 40px;
+    }
+    .desktop-nav ul li a {
+      font-size: 14px;
+      font-weight: 500;
+      padding: 6px 0;
+      position: relative;
+      transition: 0.2s;
+    }
+    .desktop-nav ul li a:hover { color: #ff8f59; }
+    .desktop-nav ul li a.active {
+      background: var(--contact_bg);
+      border-radius: 6px;
+      padding: 10px 20px;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+    .desktop-nav ul li a.active::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      background: conic-gradient(#ff8f59, #ff5200, #ff8f59);
+      animation: spin 2s linear infinite;
+      z-index: -2;
+      border-radius: 6px;
+    }
+    .desktop-nav ul li a.active::after {
+      content: '';
+      position: absolute;
+      inset: 2px;
+      background: #111;
+      border-radius: 6px;
+      z-index: -1;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .reg-btn {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .reg-btn a {
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    .reg-btn a:first-child { background: none; }
+    .reg-btn a:last-child {
+      background: var(--button_bg);
+      color: #fff;
+    }
+    .reg-btn a:hover { transform: scale(1.05); opacity: 0.9; }
+
+    /* mobile nav */
+    .mobile-nav { display: none; }
+    .bar-wrapper { display: none; flex-direction: column; gap: 6px; cursor: pointer; }
+    .bar { width: 30px; height: 2px; background: #fff; transition: 0.3s; }
+    .bar:nth-child(3) { width: 15px; align-self: flex-end; }
+    .bar-wrapper.open .bar:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .bar-wrapper.open .bar:nth-child(2) { opacity: 0; }
+    .bar-wrapper.open .bar:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); width: 30px; }
+
+    /* ===== HERO ===== */
+    .hero-section {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDgwIDgwIj48cmVjdCB3aWR0aD0iODAiIGhlaWdodD0iODAiIGZpbGw9IiMyMjIiLz48cGF0aCBkPSJNMjAgMjBoMTB2MTBIMjB6TTUwIDIwaDEwdjEwSDUweiIgZmlsbD0iIzMzMyIvPjwvc3ZnPg==');
+      background-size: cover;
+      background-position: center;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      padding: 0 60px;
+    }
+    .hero-content { max-width: 600px; }
+    .hero-content h2 {
+      font-size: 64px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .hero-content p {
+      font-size: 18px;
+      color: var(--p-text);
+      margin-bottom: 30px;
+    }
+    .hero-btn {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .hero-btn a {
+      padding: 14px 32px;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .hero-btn a:first-child { background: var(--button_bg); color: #fff; }
+    .hero-btn a:last-child { background: var(--contact_bg); color: #fff; }
+    .hero-btn a:hover { transform: scale(1.05); }
+
+    /* ===== ABOUT US SECTION (index) ===== */
+    .about-us-section {
+      background: var(--bg);
+      padding: 80px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-us-section h1 { font-size: 60px; font-weight: 800; }
+    .first-commune { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    .circle { width: 100px; height: 30px; background: #000; border-radius: 30px; display: flex; align-items: center; justify-content: center; }
+    .or-circle { width: 70px; height: 5px; background: var(--bg); border-radius: 30px; }
+    .second-commune { margin-top: 10px; }
+    .second-commune p { color: #fff; max-width: 600px; margin: 10px auto 20px; }
+    .second-commune a {
+      display: inline-block;
+      padding: 14px 32px;
+      background: #201f1f;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    .second-commune a:hover { transform: scale(1.05); }
+    .design-img { position: relative; }
+    .design-img #circle-design {
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 600px;
+      opacity: 0.15;
+    }
+    .design-img #right-image { position: absolute; right: 40px; top: 80px; max-width: 200px; }
+    .design-img #left-image { position: absolute; left: 40px; top: 200px; max-width: 200px; }
+
+    /* ===== SERVICES (index) ===== */
+    .services-section { padding: 60px 0; }
+    .services-content-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .services-content-wrapper h1 { font-size: 52px; font-weight: 800; }
+    .services-content-wrapper p { max-width: 600px; color: var(--p-text); margin: 10px 0 20px; }
+    .services-offered-btns {
+      background: var(--contact_bg);
+      padding: 5px;
+      border-radius: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .services-offered-btns button {
+      padding: 12px 24px;
+      background: transparent;
+      border: 1px solid #454545;
+      border-radius: 6px;
+      color: #fff;
+      cursor: pointer;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .services-offered-btns .active-service { background: #000; border-color: #000; }
+    .services-card-wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .services-card-wrapper.hidden { display: none; }
+    .service-card {
+      border: var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      background: #0a0a0a;
+      transition: 0.3s;
+    }
+    .service-card:hover { border-color: #ff5200; }
+    .service-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .service-card-text { margin-top: 16px; }
+    .service-card-text h4 { font-size: 20px; margin-bottom: 8px; }
+    .service-card-text p { color: var(--p-text); font-size: 14px; }
+    .service-btn button {
+      background: none;
+      border: none;
+      border-bottom: 2px solid var(--p-text);
+      color: #fff;
+      padding: 4px 0;
+      cursor: pointer;
+      font-size: 13px;
+      margin-top: 12px;
+      transition: 0.2s;
+    }
+    .service-btn button:hover { border-color: #ff5200; color: #ff5200; }
+
+    /* ===== REVIEWS ===== */
+    .client-review { padding: 60px 0; }
+    .avatar-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 30px 0;
+    }
+    .avatars { display: flex; }
+    .avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 2px solid #000;
+      margin-left: -12px;
+      overflow: hidden;
+    }
+    .avatar:first-child { margin-left: 0; }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .rating span { color: var(--p-text); font-size: 14px; margin-left: 10px; }
+    .review-wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .review-card {
+      border: var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      background: #0a0a0a;
+    }
+    .review-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--bg);
+    }
+    .review-content p { color: #eee; margin-bottom: 12px; }
+    .review-content span { color: var(--p-text); font-size: 14px; }
+
+    /* ===== FAQ ===== */
+    .FAQ-wrapper { padding: 40px 0; }
+    .faq-card-wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      border: var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 20px;
+    }
+    .faq-card {
+      border: var(--border);
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .faq-card h2 { font-size: 18px; margin-bottom: 12px; }
+    .faq-card p { color: var(--p-text); font-size: 14px; }
+
+    /* ===== CTA ===== */
+    .cta-container {
+      background: var(--bg);
+      margin: 40px 0;
+      padding: 60px 40px;
+      border-radius: 16px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-container h1 {
+      font-size: 52px;
+      font-weight: 800;
+      position: relative;
+      z-index: 2;
+    }
+    .cta-container h1 img { width: 60px; display: inline-block; vertical-align: middle; }
+    .cta-container button {
+      padding: 16px 48px;
+      background: var(--contact_bg);
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 600;
+      font-size: 18px;
+      margin-top: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+      z-index: 2;
+      position: relative;
+    }
+    .cta-container button:hover { transform: scale(1.05); }
+    .cta-design-bg img {
+      position: absolute;
+      max-width: 500px;
+      opacity: 0.2;
+      z-index: 0;
+    }
+    .cta-design-bg #first-design { left: -100px; top: -200px; }
+    .cta-design-bg #second-design { right: -100px; bottom: -200px; }
+
+    /* ===== FOOTER ===== */
+    .footer-container {
+      display: flex;
+      gap: 40px;
+      padding: 40px 0;
+      flex-wrap: wrap;
+    }
+    .input-wrapper {
+      position: relative;
+      margin-top: 16px;
+    }
+    .input-wrapper input {
+      width: 300px;
+      padding: 14px 40px;
+      border: var(--border);
+      border-radius: 6px;
+      background: transparent;
+      color: #fff;
+    }
+    .input-wrapper img {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .input-wrapper #mailEnv { left: 12px; }
+    .input-wrapper #sendEmail { right: 12px; cursor: pointer; }
+    .navigation-wrapper {
+      display: flex;
+      flex: 1;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .navigation h4 { font-size: 18px; color: var(--p-text); margin-bottom: 12px; }
+    .navigation ul li { padding: 6px 0; }
+    .navigation ul li a { color: #fff; font-size: 14px; transition: 0.2s; }
+    .navigation ul li a:hover { color: #ff8f59; }
+    .all-right {
+      border-top: 1px solid #2a2a2a;
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .all-right p { color: var(--p-text); font-size: 14px; }
+    .all-right-socials { display: flex; gap: 12px; }
+    .all-right-socials img { cursor: pointer; transition: 0.2s; }
+    .all-right-socials img:hover { transform: scale(1.1); }
+
+    /* ===== ABOUT PAGE SPECIFIC ===== */
+    .about-hero-section {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDgwIDgwIj48cmVjdCB3aWR0aD0iODAiIGhlaWdodD0iODAiIGZpbGw9IiMyMjIiLz48cGF0aCBkPSJNMjAgMjBoMTB2MTBIMjB6TTUwIDIwaDEwdjEwSDUweiIgZmlsbD0iIzMzMyIvPjwvc3ZnPg==');
+      background-size: cover;
+      background-position: center;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      padding: 0 60px;
+    }
+    .we-build { max-width: 600px; }
+    .we-build h1 { font-size: 52px; font-weight: 800; }
+    .we-build p { color: var(--p-text); margin-top: 16px; }
+
+    .our-story-wrapper { padding: 60px 0; }
+    .our-story {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 30px;
+    }
+    .our-story-content p { color: var(--p-text); }
+    .about-left img { width: 100%; border-radius: 12px; margin-bottom: 16px; }
+    .our-story-text ul li { padding: 6px 0; }
+
+    .achievements { padding: 40px 0; }
+    .achieve-card-wrapper {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .achieve-card {
+      border: var(--border);
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .achieve-card h1 { font-size: 36px; color: var(--bg); }
+    .achieve-card p { color: var(--p-text); }
+
+    .our-team { padding: 40px 0; }
+    .team-card-wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .team-card {
+      border: var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      background: #0a0a0a;
+    }
+    .team-card img { width: 100%; height: 250px; object-fit: cover; border-radius: 8px; }
+    .team-card-text { margin-top: 16px; }
+    .team-card-text h4 { font-size: 18px; }
+    .team-card-text p { color: var(--p-text); font-size: 14px; }
+
+    /* ===== CONTACT PAGE ===== */
+    .contact-section-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 40px 0;
+    }
+    .get-in-touch-wrapper { display: flex; flex-direction: column; gap: 24px; }
+    .phone-email p {
+      background: var(--contact_bg);
+      padding: 12px 20px;
+      border: var(--border);
+      border-radius: 6px;
+      color: var(--p2-text);
+      margin: 6px 0;
+    }
+    .social-connect { display: flex; gap: 16px; margin-top: 10px; }
+
+    .contact-card-wrapper-1 {
+      border: var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      width: 100%;
+    }
+    .contact-card form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .contact-card form .full-width { grid-column: 1 / -1; }
+    .name { position: relative; }
+    .name img {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      opacity: 0.6;
+    }
+    .contact-card input, .contact-card select, .contact-card textarea {
+      width: 100%;
+      padding: 14px 14px 14px 40px;
+      border: var(--border);
+      border-radius: 6px;
+      background: transparent;
+      color: #fff;
+      font-size: 14px;
+    }
+    .contact-card textarea { padding-left: 40px; resize: vertical; }
+    .contact-card select { appearance: none; padding-right: 30px; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="white" d="M6 8L1 3h10z"/></svg>'); background-repeat: no-repeat; background-position: right 12px center; }
+    .contact-card select option { background: #000; }
+    .phone-code { display: flex; gap: 10px; }
+    .phone-code .name { flex: 1; }
+    .check-box-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .check-box { display: flex; align-items: center; gap: 10px; }
+    .check-box input { width: 18px; height: 18px; accent-color: var(--button_bg); }
+    .check-box label { font-size: 14px; color: var(--p-text); }
+    .send button {
+      padding: 14px 40px;
+      background: var(--button_bg);
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .send button:hover { background: #e64a00; transform: scale(1.02); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      header { padding: 0 20px; }
+      .desktop-nav { display: none; }
+      .mobile-nav {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 60%;
+        height: 100vh;
+        background: #000;
+        padding: 80px 20px 20px;
+        z-index: 200;
+        border-right: 1px solid #333;
+      }
+      .mobile-nav ul li { padding: 16px 0; }
+      .mobile-nav ul li a { font-size: 18px; font-weight: 500; }
+      .mobile-nav ul li a.active {
+        background: var(--contact_bg);
+        padding: 10px 20px;
+        border-radius: 6px;
+        display: inline-block;
+      }
+      .bar-wrapper { display: flex; }
+      .reg-btn a { padding: 8px 14px; font-size: 13px; }
+      .hero-section { padding: 0 20px; min-height: 70vh; }
+      .hero-content h2 { font-size: 48px; }
+      .about-us-section { padding: 60px 20px; }
+      .about-us-section h1 { font-size: 44px; }
+      .services-section { padding: 40px 0; }
+      .services-content-wrapper h1 { font-size: 40px; }
+      .services-card-wrapper { grid-template-columns: 1fr 1fr; }
+      .review-wrapper { grid-template-columns: 1fr; }
+      .faq-card-wrapper { grid-template-columns: 1fr; }
+      .cta-container h1 { font-size: 40px; }
+      .footer-container { flex-direction: column; }
+      .navigation-wrapper { gap: 20px; }
+      .our-story { grid-template-columns: 1fr; }
+      .achieve-card-wrapper { grid-template-columns: repeat(2, 1fr); }
+      .team-card-wrapper { grid-template-columns: 1fr 1fr; }
+      .contact-section-wrapper { grid-template-columns: 1fr; }
+      .contact-card form { grid-template-columns: 1fr; }
+      .phone-code { flex-direction: column; }
+    }
+    @media (max-width: 640px) {
+      .hero-content h2 { font-size: 36px; }
+      .hero-btn a { width: 100%; text-align: center; }
+      .services-card-wrapper { grid-template-columns: 1fr; }
+      .team-card-wrapper { grid-template-columns: 1fr; }
+      .achieve-card-wrapper { grid-template-columns: 1fr 1fr; }
+      .cta-container h1 { font-size: 32px; }
+      .cta-container h1 img { width: 40px; }
+      .all-right { flex-direction: column-reverse; align-items: flex-start; }
+      .input-wrapper input { width: 100%; }
+      .review-card { flex-direction: column; align-items: center; text-align: center; }
+      .review-card img { width: 100px; height: 100px; }
+      .about-hero-section { padding: 0 20px; min-height: 40vh; }
+      .we-build h1 { font-size: 36px; }
+      .design-img #right-image, .design-img #left-image { display: none; }
+      .mobile-nav { width: 80%; }
+      .services-offered-btns { flex-direction: column; width: 100%; }
+      .services-offered-btns button { width: 100%; }
+    }
+    /* utilities */
+    .hidden { display: none; }
+    .featured-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .featured-head img { width: 28px; }
+    .featured-head h1 { font-size: 36px; font-weight: 800; }
+    .text-center { text-align: center; }
+    .mt-20 { margin-top: 20px; }
+    .mb-20 { margin-bottom: 20px; }
+    .gap-10 { gap: 10px; }
+  </style>
+</head>
+<body>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="logo">
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDMwIDMwIj48cG9seWdvbiBwb2ludHM9IjE1LDAgMzAsMTUgMTUsMzAgMCwxNSIgZmlsbD0iI2ZmNTIwMCIvPjwvc3ZnPg==" alt="Pinnacle">
+      <h2>Pinnacle</h2>
+    </div>
+    <nav class="desktop-nav">
+      <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#about-page">About Us</a></li>
+        <li><a href="#services-page">Services</a></li>
+        <li><a href="#contact-page">Contact Us</a></li>
+      </ul>
+    </nav>
+    <nav class="mobile-nav" id="mobileNav">
+      <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#about-page">About Us</a></li>
+        <li><a href="#services-page">Services</a></li>
+        <li><a href="#contact-page">Contact Us</a></li>
+      </ul>
+    </nav>
+    <div class="bar-wrapper" id="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <div class="reg-btn">
+      <a href="#">Login</a>
+      <a href="#">Sign Up</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- ===== HOME ===== -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <h2>Creating a Better <br>Tomorrow, One <br>Home at a Time</h2>
+        <p>We built a reputation for delivering exceptional results and exceeding our clients' expectations. From luxurious residential homes to state-of-the-art commercial properties, our team is dedicated to bringing your vision to life.</p>
+        <div class="hero-btn">
+          <a href="#contact-page">Schedule a call</a>
+          <a href="#">Get Started</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About teaser -->
+    <section class="about-us-section">
+      <div class="first-commune">
+        <h1>We're</h1>
+        <div class="circle"><div class="or-circle"></div></div>
+        <h1>building</h1>
+      </div>
+      <div class="second-commune">
+        <h1>communities.</h1>
+        <p>With the commitment to excellence and a focus on innovation, we've established ourselves as a leader in the real estate and construction industry.</p>
+        <a href="#about-page">Learn More About Us...</a>
+        <div class="avatar-group" style="margin-top:30px; justify-content:center;">
+          <div class="avatars">
+            <div class="avatar"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48Y2lyY2xlIGN4PSIyMCIgY3k9IjE4IiByPSIxMCIgZmlsbD0iI2NjYyIvPjxjaXJjbGUgY3g9IjIwIiBjeT0iMzgiIHI9IjE2IiBmaWxsPSIjY2NjIi8+PC9zdmc+" alt=""></div>
+            <div class="avatar"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48Y2lyY2xlIGN4PSIyMCIgY3k9IjE4IiByPSIxMCIgZmlsbD0iI2NjYyIvPjxjaXJjbGUgY3g9IjIwIiBjeT0iMzgiIHI9IjE2IiBmaWxsPSIjY2NjIi8+PC9zdmc+" alt=""></div>
+            <div class="avatar"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48Y2lyY2xlIGN4PSIyMCIgY3k9IjE4IiByPSIxMCIgZmlsbD0iI2NjYyIvPjxjaXJjbGUgY3g9IjIwIiBjeT0iMzgiIHI9IjE2IiBmaWxsPSIjY2NjIi8+PC9zdmc+" alt=""></div>
+            <div class="avatar"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48Y2lyY2xlIGN4PSIyMCIgY3k9IjE4IiByPSIxMCIgZmlsbD0iI2NjYyIvPjxjaXJjbGUgY3g9IjIwIiBjeT0iMzgiIHI9IjE2IiBmaWxsPSIjY2NjIi8+PC9zdmc+" alt=""></div>
+          </div>
+          <div class="rating"><span>4.3/5 Rated by 300+ Professionals</span></div>
+        </div>
+      </div>
+      <div class="design-img">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iNjAwIiB2aWV3Qm94PSIwIDAgNjAwIDYwMCI+PGNpcmNsZSBjeD0iMzAwIiBjeT0iMzAwIiByPSIyMDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmNTIwMCIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9zdmc+" id="circle-design" alt="">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMjAwIDIwMCI+PHJlY3Qgd2lkdGg9IjE4MCIgaGVpZ2h0PSIxODAiIGZpbGw9IiMzMzMiLz48L3N2Zz4=" id="right-image" alt="">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMjAwIDIwMCI+PHJlY3Qgd2lkdGg9IjE4MCIgaGVpZ2h0PSIxODAiIGZpbGw9IiMzMzMiLz48L3N2Zz4=" id="left-image" alt="">
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services-section" id="services-page">
+      <div class="services-content-wrapper">
+        <div class="featured-head"><h1>Quality service you get</h1><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMCAxOGMtNC40MSAwLTgtMy41OS04LThzMy41OS04IDgtOCA4IDMuNTkgOCA4LTMuNTkgOC04IDh6IiBmaWxsPSIjZmY1MjAwIi8+PC9zdmc+" alt=""></div>
+        <p>At Pinnacle, we offer a wide range services to cater to your unique needs. From residential construction to commercial development. We've got you covered.</p>
+        <div class="services-offered-btns">
+          <button class="active-service" data-target="residential">Residential</button>
+          <button data-target="management">Property Management</button>
+          <button data-target="commercial">Commercial</button>
+          <button data-target="development">Development</button>
+        </div>
+      </div>
+      <!-- residential -->
+      <div class="services-card-wrapper" id="residential">
+        <div class="service-card"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgNDAwIDI1MCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiMyMjIiLz48cmVjdCB4PSI1MCIgeT0iNTAiIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iIzMzMyIvPjxyZWN0IHg9IjI1MCIgeT0iNTAiIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iIzMzMyIvPjwvc3ZnPg==" alt=""><div class="service-card-text"><h4>Custom Home</h4><p class="text">We design and build custom homes that reflect your personal style and meet your specific needs.</p><div class="service-btn"><button>Learn More...</button></div></div></div>
+        <div class="service-card"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgNDAwIDI1MCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiMyMjIiLz48cmVjdCB4PSI2MCIgeT0iNjAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iIzMzMyIvPjxyZWN0IHg9IjI4MCIgeT0iNjAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iIzMzMyIvPjwvc3ZnPg==" alt=""><div class="service-card-text"><h4>Community Dev</h4><p class="text">We develop and manage community projects, including single-family homes, townhomes, and condominiums.</p><div class="service-btn"><button>Learn More...</button></div></div></div>
+        <div class="service-card"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgNDAwIDI1MCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiMyMjIiLz48cmVjdCB4PSI3MCIgeT0iNzAiIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0iIzMzMyIvPjxyZWN0IHg9IjI2MCIgeT0iNzAiIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0iIzMzMyIvPjwvc3ZnPg==" alt=""><div class="service-card-text"><h4>Renovations</h4><p class="text">We specialize in residential renovations, from minor updates to major overhauls.</p><div class="service-btn"><button>Learn More...</button></div></div></div>
+      </div>
+      <!-- management -->
+      <div class="services-card-wrapper hidden" id="management">
+        <div class="service-card"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgNDAwIDI1MCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiMyMjIiLz48Y2lyY2xlIGN4PSI4MCIgY3k9IjgwIiByPSI0MCIgZmlsbD0iIzMzMyIvPjxjaXJjbGUgY3g9IjI4MCIgY3k9IjgwIiByPSI0MCIgZmlsbD0iIzMzMyIvPjwvc3ZnPg==" alt=""><div class="service-card-text"><h4>Tenant Management</h4><p class="text">We handle all tenant-related matters including screening, lease agreements, rent collection.</p><div class="service-btn"><button>Learn More...</button></div></div></div>
+        <div class="service-card"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgNDAwIDI1MCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiMyMjIiLz48cmVjdCB4PSI2MCIgeT0iNjAiIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iIzMzMyIvPjxyZWN0IHg9IjI2MCIgeT0iNjAiIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iIzMzMyIvPjwvc3ZnPg==" alt=""><div class="service-card-text"><h4>Maintenance & Repairs</h4><p class="text">24/7 maintenance response for all your properties. We coordinate repairs, inspections.</p><div class="service-btn"><button>Learn More...</button></div></div></div>
+        <div class="service-card"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgNDAwIDI1MCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiMyMjIiLz48cmVjdCB4PSI3MCIgeT0iNzAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iIzMzMyIvPjxyZWN0IHg9IjI3MCIgeT0iNzAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iIzMzMyIvPjwvc3ZnPg==" alt=""><div class="service-card-text"><h4>Financial Reporting</h4><p class="text">Monthly financial statements, expense tracking, and tax-ready reports.</p><div class="service-btn"><button>Learn More...</button></div></div></div>
+      </div>
+      <!-- commercial -->
+      <div class="services-card-wrapper hidden" id="commercial">
+        <div class="service-card"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgNDAwIDI1MCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiMyMjIiLz48cmVjdCB4PSI1MCIgeT0iNTAiIHdpZHRoPSI4MCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiMzMzMiLz48cmVjdCB4PSIyNTAiIHk9IjUwIiB3aWR0aD0iODAiIGhlaWdodD0iMTAwIiBmaWxsPSIjMzMzIi8+PC9zdmc+" alt=""><div class="service-card-text"><h4>Office Building</h4><p class="text">We construct modern, functional office buildings designed for productivity and collaboration.</p><div class="service-btn"><button>Learn More...</button></div></div></div>
+        <div class="service-card"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgNDAwIDI1MCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiMyMjIiLz48cmVjdCB4PSI2MCIgeT0iNjAiIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iIzMzMyIvPjxyZWN0IHg9IjI2MCIgeT0iNjAiIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iIzMzMyIvPjwvc3ZnPg==" alt=""><div class="service-card-text"><h4>Retail Spaces</h4><p class="text">Specialized in building retail environments that attract customers and maximize sales.</p><div class="service-btn"><button>Learn More...</button></div></div></div>
+        <div class="service-card"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgNDAwIDI1MCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiMyMjIiLz48cmVjdCB4PSI3MCIgeT0iNzAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iIzMzMyIvPjxyZWN0IHg9IjI3MCIgeT0iNzAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iIzMzMyIvPjwvc3ZnPg==" alt=""><div class="service-card-text"><h4>Industrial Warehouses</h4><p class="text">Durable, efficient industrial warehouses built to handle heavy operations.</p><div class="service-btn"><button>Learn More...</button></div></div></div>
+      </div>
+      <!-- development -->
+      <div class="services-card-wrapper hidden" id="development">
+        <div class="service-card"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgNDAwIDI1MCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiMyMjIiLz48cmVjdCB4PSI1MCIgeT0iNTAiIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iIzMzMyIvPjxyZWN0IHg9IjI1MCIgeT0iNTAiIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iIzMzMyIvPjwvc3ZnPg==" alt=""><div class="service-card-text"><h4>Land Acquisition</h4><p class="text">We help identify, evaluate, and acquire prime land for development projects.</p><div class="service-btn"><button>Learn More...</button></div></div></div>
+        <div class="service-card"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgNDAwIDI1MCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiMyMjIiLz48cmVjdCB4PSI2MCIgeT0iNjAiIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iIzMzMyIvPjxyZWN0IHg9IjI2MCIgeT0iNjAiIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iIzMzMyIvPjwvc3ZnPg==" alt=""><div class="service-card-text"><h4>Project Financing</h4><p class="text">Assistance with securing funding for your development projects.</p><div class="service-btn"><button>Learn More...</button></div></div></div>
+        <div class="service-card"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgNDAwIDI1MCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiMyMjIiLz48cmVjdCB4PSI3MCIgeT0iNzAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iIzMzMyIvPjxyZWN0IHg9IjI3MCIgeT0iNzAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iIzMzMyIvPjwvc3ZnPg==" alt=""><div class="service-card-text"><h4>Site Planning</h4><p class="text">Comprehensive site planning including zoning analysis, environmental impact studies.</p><div class="service-btn"><button>Learn More...</button></div></div></div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="client-review">
+      <div class="services-content-wrapper">
+        <div class="featured-head"><h1>What Our Clients Say</h1><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMCAxOGMtNC40MSAwLTgtMy41OS04LThzMy41OS04IDgtOCA4IDMuNTkgOCA4LTMuNTkgOC04IDh6IiBmaWxsPSIjZmY1MjAwIi8+PC9zdmc+" alt=""></div>
+        <p>At Pinnacle, We're not just building structures - we're building relationships. Here's what some of our satisfied clients have to say.</p>
+      </div>
+      <div class="review-wrapper">
+        <div class="review-card"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDgwIDgwIj48Y2lyY2xlIGN4PSI0MCIgY3k9IjI4IiByPSIxNCIgZmlsbD0iI2NjYyIvPjxjaXJjbGUgY3g9IjQwIiBjeT0iNzAiIHI9IjI4IiBmaWxsPSIjY2NjIi8+PC9zdmc+" alt=""><div class="review-content"><p>"Pinnacle's attention to detail and commitment to excellence is unparalleled."</p><span>- Emily J. Smith, Owner</span></div></div>
+        <div class="review-card"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDgwIDgwIj48Y2lyY2xlIGN4PSI0MCIgY3k9IjI4IiByPSIxNCIgZmlsbD0iI2NjYyIvPjxjaXJjbGUgY3g9IjQwIiBjeT0iNzAiIHI9IjI4IiBmaWxsPSIjY2NjIi8+PC9zdmc+" alt=""><div class="review-content"><p>"I was blown away by the quality of work and the level of service provided."</p><span>- David L. Lee, CEO</span></div></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="FAQ-wrapper">
+      <div class="featured-head"><h1>Frequently Asked Questions</h1><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMCAxOGMtNC40MSAwLTgtMy41OS04LThzMy41OS04IDgtOCA4IDMuNTkgOCA4LTMuNTkgOC04IDh6IiBmaWxsPSIjZmY1MjAwIi8+PC9zdmc+" alt=""></div>
+      <div class="faq-card-wrapper">
+        <div class="faq-card"><h2>How long has Pinnacle been in business?</h2><p>Pinnacle was founded in 2005, and we've been proudly serving the area for over 15 years.</p></div>
+        <div class="faq-card"><h2>What types of services does Pinnacle offer?</h2><p>We offer residential construction, commercial construction, property management, and development services.</p></div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-container">
+      <h1>Let's Build <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48cG9seWdvbiBwb2ludHM9IjMwLDUgNTAsMjUgMzAsNDUgMTAsMjUiIGZpbGw9IiNmZmZmZmYiLz48L3N2Zz4=" alt=""> Something <br>Extraordinary Together</h1>
+      <button>Get Started</button>
+      <div class="cta-design-bg">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIiB2aWV3Qm94PSIwIDAgNTAwIDUwMCI+PGNpcmNsZSBjeD0iMjUwIiBjeT0iMjUwIiByPSIyMDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9zdmc+" id="first-design" alt="">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIiB2aWV3Qm94PSIwIDAgNTAwIDUwMCI+PGNpcmNsZSBjeD0iMjUwIiBjeT0iMjUwIiByPSIyMDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9zdmc+" id="second-design" alt="">
+      </div>
+    </section>
+
+    <!-- ===== ABOUT PAGE (anchor) ===== -->
+    <div id="about-page" style="scroll-margin-top: 80px;"></div>
+    <section class="about-hero-section">
+      <div class="we-build">
+        <h1>We're building <br>communities.</h1>
+        <p>With a commitment to quality, innovation, and customer satisfaction, we've established ourselves as a trusted leader in the construction and real estate industry.</p>
+      </div>
+    </section>
+
+    <section class="our-story-wrapper">
+      <div class="we-build-text"><h1>Our Story & Values</h1></div>
+      <div class="our-story">
+        <div class="our-story-content">
+          <p>Pinnacle was founded in 2005 by John Doe, a seasoned entrepreneur with a vision to create a company that would revolutionize the way homes are built and lived in.</p>
+          <div class="review-card" style="margin:20px 0;border:var(--border);border-radius:12px;padding:20px;display:flex;gap:20px;flex-wrap:wrap;">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDgwIDgwIj48Y2lyY2xlIGN4PSI0MCIgY3k9IjI4IiByPSIxNCIgZmlsbD0iI2NjYyIvPjxjaXJjbGUgY3g9IjQwIiBjeT0iNzAiIHI9IjI4IiBmaWxsPSIjY2NjIi8+PC9zdmc+" alt="" style="width:80px;height:80px;border-radius:50%;border:3px solid var(--bg);">
+            <div class="review-content"><p>"At Pinnacle, we believe that every home we build should be a masterpiece."</p><span>- John Doe, Founder and CEO</span></div>
+          </div>
+          <div class="our-story-text">
+            <p>Since its inception, Pinnacle has grown to become a leading player in the industry, completing over 500 projects and serving thousands of satisfied clients.</p>
+            <ul style="padding-left:20px;margin-top:16px;">
+              <li><strong>Quality:</strong> We're committed to delivering exceptional quality.</li>
+              <li><strong>Innovation:</strong> We're always looking for new ways to improve.</li>
+              <li><strong>Customer Satisfaction:</strong> We're dedicated to exceeding expectations.</li>
+              <li><strong>Sustainability:</strong> We're committed to building sustainable homes.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="about-left">
+          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iNzAwIiB2aWV3Qm94PSIwIDAgNjAwIDcwMCI+PHJlY3Qgd2lkdGg9IjYwMCIgaGVpZ2h0PSI3MDAiIGZpbGw9IiMyMjIiLz48cmVjdCB4PSI1MCIgeT0iNTAiIHdpZHRoPSI1MDAiIGhlaWdodD0iNjAwIiBmaWxsPSIjMzMzIi8+PC9zdmc+" alt="">
+        </div>
+      </div>
+    </section>
+
+    <section class="achievements">
+      <div class="featured-head"><h1>Our Achievements</h1><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMCAxOGMtNC40MSAwLTgtMy41OS04LThzMy41OS04IDgtOCA4IDMuNTkgOCA4LTMuNTkgOC04IDh6IiBmaWxsPSIjZmY1MjAwIi8+PC9zdmc+" alt=""></div>
+      <p style="color:var(--p-text);max-width:600px;">With the company now serving over 100 countries and available in 19 different languages.</p>
+      <div class="achieve-card-wrapper">
+        <div class="achieve-card"><h1>10k</h1><p>Clients</p></div>
+        <div class="achieve-card"><h1>500</h1><p>Projects</p></div>
+        <div class="achieve-card"><h1>19</h1><p>Languages</p></div>
+        <div class="achieve-card"><h1>1K+</h1><p>Employees</p></div>
+      </div>
+    </section>
+
+    <section class="our-team">
+      <div class="team-content-wrapper" style="text-align:center;">
+        <div class="featured-head" style="justify-content:center;"><h1>Our experienced team</h1><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMCAxOGMtNC40MSAwLTgtMy41OS04LThzMy41OS04IDgtOCA4IDMuNTkgOCA4LTMuNTkgOC04IDh6IiBmaWxsPSIjZmY1MjAwIi8+PC9zdmc+" alt=""></div>
+        <p style="color:var(--p-text);max-width:600px;margin:0 auto;">With a diverse range of skills and expertise, our team is dedicated to delivering exceptional results.</p>
+      </div>
+      <div class="team-card-wrapper">
+        <div class="team-card"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgNDAwIDI1MCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiMyMjIiLz48Y2lyY2xlIGN4PSIyMDAiIGN5PSI4MCIgcj0iNjAiIGZpbGw9IiMzMzMiLz48L3N2Zz4=" alt=""><div class="team-card-text"><h4>John Doe / <small>Founder and CEO</small></h4><p>With over 20 years of experience, he has built a reputation for his unwavering commitment to quality.</p></div></div>
+        <div class="team-card"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgNDAwIDI1MCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiMyMjIiLz48Y2lyY2xlIGN4PSIyMDAiIGN5PSI4MCIgcj0iNjAiIGZpbGw9IiMzMzMiLz48L3N2Zz4=" alt=""><div class="team-card-text"><h4>Jane Smith / <small>VP of Operations</small></h4><p>Jane is the driving force behind Pinnacle's day-to-day operations. Her ability to navigate complex challenges has been instrumental.</p></div></div>
+        <div class="team-card"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgNDAwIDI1MCI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiMyMjIiLz48Y2lyY2xlIGN4PSIyMDAiIGN5PSI4MCIgcj0iNjAiIGZpbGw9IiMzMzMiLz48L3N2Zz4=" alt=""><div class="team-card-text"><h4>Michael Johnson / <small>Director of Design</small></h4><p>He has a unique ability to transform even the most ambitious visions into reality.</p></div></div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT PAGE (anchor) ===== -->
+    <div id="contact-page" style="scroll-margin-top: 80px;"></div>
+    <section class="about-hero-section" style="min-height:40vh;">
+      <div class="we-build"><h1>Contact Us</h1><p>We value your feedback and would love to hear from you. Whether you have a question, a comment, or suggestion, we're here to listen.</p></div>
+    </section>
+
+    <section class="contact-section-wrapper">
+      <div class="get-in-touch-wrapper">
+        <div><h2>Get in Touch</h2><div class="phone-email"><p>info@pinnacle.com</p><p>+234 (708) 345-3463</p></div></div>
+        <div><h2>Our Office</h2><div class="phone-email"><span>123 Main St, Anytown, Nigeria</span><p>Get Directions</p></div></div>
+        <div><h2>Connect with us</h2><div class="social-connect"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxNCIgZmlsbD0iIzMzMyIvPjwvc3ZnPg==" alt=""><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxNCIgZmlsbD0iIzMzMyIvPjwvc3ZnPg==" alt=""><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxNCIgZmlsbD0iIzMzMyIvPjwvc3ZnPg==" alt=""></div></div>
+      </div>
+      <div class="contact-section-1">
+        <div class="featured-head"><h1>Have a project in your mind?</h1><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMCAxOGMtNC40MSAwLTgtMy41OS04LThzMy41OS04IDgtOCA4IDMuNTkgOCA4LTMuNTkgOC04IDh6IiBmaWxsPSIjZmY1MjAwIi8+PC9zdmc+" alt=""></div>
+        <div class="contact-card-wrapper-1">
+          <div class="contact-card">
+            <form>
+              <div class="name"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48Y2lyY2xlIGN4PSI4IiBjeT0iNCIgcj0iNCIgZmlsbD0iI2NjYyIvPjxwYXRoIGQ9Ik0wIDE2YzAtNC40IDMuNi04IDgtOHM4IDMuNiA4IDhIMHoiIGZpbGw9IiNjY2MiLz48L3N2Zz4=" alt=""><input type="text" placeholder="Name"></div>
+              <div class="phone-code"><div class="name"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iMTIiIHg9IjAiIHk9IjIiIGZpbGw9IiNjY2MiLz48L3N2Zz4=" alt=""><select><option>+234</option><option>+1</option><option>+44</option></select></div><div class="name"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJNMTQgNHY4SDJWNCIgc3Ryb2tlPSIjY2NjIiBmaWxsPSJub25lIi8+PC9zdmc+"><input type="number" placeholder="Phone Number"></div></div>
+              <div class="name"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cmVjdCB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHg9IjEiIHk9IjMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2NjYyIvPjwvc3ZnPg=="><input type="email" placeholder="Business Email"></div>
+              <div class="name"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cmVjdCB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHg9IjIiIHk9IjIiIGZpbGw9IiNjY2MiLz48L3N2Zz4="><select><option>Select budget</option><option>$10,000 - $50,000</option><option>$50,000 - $100,000</option></select></div>
+              <div class="name"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cmVjdCB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHg9IjEiIHk9IjEiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2NjYyIvPjwvc3ZnPg=="><select><option>Service you are interested in</option><option>Residential Construction</option><option>Commercial Construction</option></select></div>
+              <div class="full-width name"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJNMiAybDEyIDhMMiAxMnoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2NjYyIvPjwvc3ZnPg=="><textarea placeholder="Message" rows="4"></textarea></div>
+              <div class="full-width">
+                <div class="check-box-wrapper">
+                  <div class="check-box"><input type="checkbox"><label>I agree with <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.</label></div>
+                  <div class="send"><button>Send <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJNMSA4bDE0LTdMMTIgMTUgMSA4eiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg=="></button></div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <section class="footer-container">
+      <div>
+        <div class="logo"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDMwIDMwIj48cG9seWdvbiBwb2ludHM9IjE1LDAgMzAsMTUgMTUsMzAgMCwxNSIgZmlsbD0iI2ZmNTIwMCIvPjwvc3ZnPg==" alt=""><h2>Pinnacle</h2></div>
+        <div class="input-wrapper"><input type="email" placeholder="Enter Your Email"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cmVjdCB3aWR0aD0iMTQiIGhlaWdodD0iMTAiIHg9IjEiIHk9IjMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2NjYyIvPjwvc3ZnPg==" id="mailEnv" alt=""><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBkPSJNMSA4bDE0LTdMMTIgMTUgMSA4eiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==" id="sendEmail" alt=""></div>
+      </div>
+      <div class="navigation-wrapper">
+        <div class="navigation"><h4>Navigation</h4><ul><li><a href="#">Home</a></li><li><a href="#">Properties</a></li><li><a href="#">Testimonials</a></li></ul></div>
+        <div class="navigation"><h4>About Us</h4><ul><li><a href="#">Our Story</a></li><li><a href="#">Our Value</a></li><li><a href="#">Our Team</a></li></ul></div>
+        <div class="navigation"><h4>Services</h4><ul><li><a href="#">Residential</a></li><li><a href="#">Commercial</a></li><li><a href="#">Property Mgmt</a></li></ul></div>
+        <div class="navigation"><h4>Contact</h4><ul><li><a href="#">Contact Form</a></li><li><a href="#">Our Offices</a></li></ul></div>
+      </div>
+    </section>
+    <footer class="all-right">
+      <p>&copy;2024 Pinnacle. All Rights Reserved.</p>
+      <div class="all-right-socials">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIgZmlsbD0iIzMzMyIvPjwvc3ZnPg==" alt="">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIgZmlsbD0iIzMzMyIvPjwvc3ZnPg==" alt="">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIgZmlsbD0iIzMzMyIvPjwvc3ZnPg==" alt="">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIgZmlsbD0iIzMzMyIvPjwvc3ZnPg==" alt="">
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // mobile nav toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', function() {
+      this.classList.toggle('open');
+      if (mobileNav.style.display === 'block') {
+        mobileNav.style.display = 'none';
+      } else {
+        mobileNav.style.display = 'block';
+      }
+    });
+
+    // service tabs
+    const tabs = document.querySelectorAll('.services-offered-btns button');
+    const wrappers = {
+      residential: document.getElementById('residential'),
+      management: document.getElementById('management'),
+      commercial: document.getElementById('commercial'),
+      development: document.getElementById('development')
+    };
+    tabs.forEach(btn => {
+      btn.addEventListener('click', function() {
+        tabs.forEach(b => b.classList.remove('active-service'));
+        this.classList.add('active-service');
+        const target = this.dataset.target;
+        Object.keys(wrappers).forEach(key => {
+          wrappers[key].classList.add('hidden');
+        });
+        if (wrappers[target]) wrappers[target].classList.remove('hidden');
+      });
+    });
+
+    // smooth anchor scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+          // close mobile nav
+          mobileNav.style.display = 'none';
+          hamburger.classList.remove('open');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

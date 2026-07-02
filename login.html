@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BuildTrack – Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<style>
+    .error {
+    color: #EF4444;
+    font-size: 12px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .success {
+    color: #22C55E;
+    font-size: 12px;
+    margin-bottom: 10px;
+    text-align: center;
+    }
+</style>
+<body>
+
+      <!-- this is for preloader -->
+            <div id="preloader">
+        <div class="logo-loader">
+            <img src="../images/Vector.png" alt="Pinnacle">
+            <h2>Pinnacle</h2>
+            <div class="spinner"></div>
+            <div class="loader-text">Loading...</div>
+        </div>
+    </div>
+
+<!-- ── LEFT PANEL ── -->
+<div class="panel-left">
+  <div class="grid-lines"></div>
+
+  <div class="brand">
+    <div class="brand-icon">
+      <!-- hard hat / crane icon -->
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 19H4v-1a7 7 0 0 1 7-7V4l6 3v3a7 7 0 0 1 4 6.33V19Zm-8-8a5 5 0 0 0-4.9 4h9.8A5 5 0 0 0 12 11Z"/>
+      </svg>
+    </div>
+    <div class="brand-name">Build<span>Track</span></div>
+    <div class="brand-tagline">Construction Project Management</div>
+  </div>
+
+  <div class="illustration">
+    <div class="city-scene" style="position:relative;">
+      <div class="building b1"></div>
+      <div class="building b2"></div>
+      <div class="building b3"></div>
+      <div class="building b4"></div>
+      <div class="building b5"></div>
+      <div class="building b6"></div>
+
+      <!-- crane overlay -->
+      <div style="position:absolute;bottom:0;left:52%;transform:translateX(-50%);">
+        <div style="position:relative;display:inline-block;">
+          <div class="crane-tower">
+            <div class="crane-arm">
+              <div class="crane-counter"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ground"></div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-badge">
+      <div class="num">500+</div>
+      <div class="lbl">Projects</div>
+    </div>
+    <div class="stat-badge">
+      <div class="num">98%</div>
+      <div class="lbl">On-time</div>
+    </div>
+    <div class="stat-badge">
+      <div class="num">12K</div>
+      <div class="lbl">Teams</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── RIGHT PANEL ── -->
+<div class="panel-right">
+  <div class="form-card">
+    <h1>Welcome Back!</h1>
+    <p class="sub">Login to your account</p>
+    <div class="divider"></div>
+
+    <form action="" id="loginForm" autocomplete="off">
+    <div class="field">
+      <label for="email">Email Address</label>
+      <div class="input-wrap">
+        <input id="email" type="email" placeholder="Enter your email" autocomplete="off"/>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="password">Password</label>
+      <div class="input-wrap">
+        <input id="password" type="password" placeholder="Enter your password" autocomplete="new-password"/>
+        <button class="toggle-pw" type="button" onclick="togglePw()" aria-label="Toggle password">
+          <svg id="eye-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="row-between">
+      <label class="checkbox-label">
+        <input type="checkbox" id="remember"/> Remember Me
+      </label>
+      <a href="#" class="forgot">Forgot Password?</a>
+    </div>
+<div id="message"></div>
+    <button class="btn-login" type="button" id="loginBtn">Login</button>
+    </form>
+    <div class="register-row">
+          <p style="color: #666; font-size: 13px; margin-top: 16px;">
+      Account are created by administrators. <br>
+      Contact your system administrator for access.
+     </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function togglePw() {
+    const inp = document.getElementById('password');
+    const icon = document.getElementById('eye-icon');
+    if (inp.type === 'password') {
+      inp.type = 'text';
+      icon.innerHTML = `
+        <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+        <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+        <line x1="1" y1="1" x2="23" y2="23"/>`;
+    } else {
+      inp.type = 'password';
+      icon.innerHTML = `
+        <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/>
+        <circle cx="12" cy="12" r="3"/>`;
+    }
+  }
+</script>
+
+<script src="js/data.js"></script>
+<script src="js/signup.js"></script>
+<script src="js/auth-check.js"></script>
+</body>
+</html>

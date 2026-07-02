@@ -1,0 +1,366 @@
+*, *::before, *::after {    
+    box-sizing: border-box;  
+    margin: 0;
+    padding: 0;
+}
+
+ /* ── PROFILE CARD ── */
+.profile-card {
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 0 4px 2px rgb(116, 116, 116);
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    overflow: hidden;
+    animation: fadeUp .45s ease both;
+    margin: 20px;
+}
+
+/* left dark panel */
+.profile-left {
+    /* background: #1A1A1A; */
+    box-shadow: var(--shadow-1);
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 220px;
+    gap: 16px;
+}
+
+.avatar-wrap {
+    position: relative;
+    width: 90px; 
+    height: 90px;
+}
+.avatar-img {
+    width: 90px; 
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #ff5200;
+    display: flex; align-items: flex-end; justify-content: center;
+    padding: 1px;
+}
+.avatar-img img {
+    width: 100%; 
+    height: 100%; 
+    border-radius: 50%;
+    border: 2px solid #000;
+    object-fit: cover;
+}
+/* SVG placeholder person */
+.avatar-img svg { 
+    width: 72px; 
+    height: 72px; 
+}
+.avatar-badge {
+    position: absolute; 
+    bottom: 2px; 
+    right: 2px;
+    width: 20px; 
+    height: 20px;
+    background: #22c55e;
+    border: 2px solid var(--navy);
+    border-radius: 50%;
+}
+
+.profile-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700; 
+    font-size: 1.1rem;
+    color: #fff; 
+    text-align: center;
+}
+.profile-role {
+    font-size: .8rem; 
+    color: rgba(255,255,255,.55);
+    text-align: center; 
+    margin-top: -10px;
+}
+.profile-company {
+    font-size: .78rem; 
+    color: rgba(255,255,255,.4);
+    text-align: center; 
+    margin-top: -8px;
+}
+
+.contact-list {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 8px;
+    width: 100%;
+    margin-top: 4px;
+}
+.contact-item {
+    display: flex; 
+    align-items: center; 
+    gap: 8px;
+    font-size: .78rem; 
+    color: rgba(255,255,255,.55);
+}
+.contact-item svg { 
+    width: 13px; 
+    height: 13px; 
+    flex-shrink: 0; 
+    color: var(--text-orange); }
+
+.socials {
+    display: flex; 
+    gap: 10px; 
+    margin-top: 4px;
+}
+.social-btn {
+    width: 30px; 
+    height: 30px; 
+    border-radius: 8px;
+    display: grid; 
+    place-items: center;
+    cursor: pointer; 
+    transition: opacity .18s;
+}
+.social-btn:hover { 
+    opacity: .8; 
+    background: #ff5200;
+}
+.social-btn svg { 
+    width: 14px; height: 14px; 
+}
+.s-li { 
+    background: #ff6c26; 
+}
+.s-fb { 
+    background: #ff6c26; 
+}
+.s-tw { 
+    background: #ff6c26; 
+}
+
+/* right content */
+.profile-right {
+    flex: 1;
+    padding: 32px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+/* stats row */
+.stats-row {
+    display: flex;
+    gap: 0;
+    border: none;
+    border-radius: 12px;
+    box-shadow:  0 0 4px 2px rgb(116, 116, 116);
+    overflow: hidden;
+}
+.stat-box {
+    flex: 1;
+    padding: 18px 24px;
+    text-align: center;
+    border-right: 1px solid #888888;
+    transition: background .18s;
+}
+.stat-box:last-child { 
+    border-right: none; 
+}
+.stat-box:hover { 
+    background: rgba(255,255,255,.04); 
+}
+.stat-lbl {
+    font-size: .72rem; 
+    color: var(--muted);
+    text-transform: uppercase; 
+    letter-spacing: .06em;
+    margin-bottom: 6px;
+}
+.stat-num {
+font-family: 'Syne', sans-serif;
+font-size: 2rem; font-weight: 800;
+color: var(--navy); line-height: 1;
+}
+
+/* activity */
+.section-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700; font-size: .95rem;
+    color: var(--navy); margin-bottom: 14px;
+}
+.activity-list { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 2px; 
+}
+.activity-item {
+display: flex; align-items: center; gap: 12px;
+padding: 11px 14px; border-radius: 10px;
+transition: background .15s;
+cursor: default;
+}
+.activity-item:hover { 
+    background: rgba(255,255,255,.04);
+ }
+.act-icon {
+    width: 30px; 
+    height: 30px; 
+    border-radius: 8px;
+    display: grid; 
+    place-items: center; 
+    flex-shrink: 0;
+    background: #454545;
+}
+.act-icon svg { 
+    width: 14px; 
+    height: 14px; 
+    color: var(--navy-mid); 
+}
+.act-text { 
+    flex: 1; 
+    font-size: .84rem; 
+    color: var(--text); 
+}
+.act-time { 
+    font-size: .75rem; 
+    color: var(--muted); 
+    white-space: nowrap; 
+}
+
+/* edit button */
+.edit-btn button{
+    align-self: flex-start;
+    display: flex; 
+    align-items: center; 
+    gap: 7px;
+    background: #ff6c26; 
+    color: #fff;
+    font-weight: 800;
+    text-decoration: none;
+    border: none; 
+    border-radius: 10px;
+    padding: 9px 20px; 
+    font-family: 'DM Sans', sans-serif;
+    font-size: .84rem; 
+    font-weight: 500;
+    cursor: pointer; 
+    transition: opacity .18s;
+}
+.edit-btn a {
+    text-decoration: none;
+}
+.edit-btn button:hover { 
+    opacity: .88; 
+    background: #ff5200;
+}
+.edit-btn svg { 
+    width: 13px; 
+    height: 13px; 
+}
+
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(14px); }
+to   { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+
+
+
+  const doSignup = document.getElementById('doSignup');
+
+    const fullname = document.getElementById('fullname');
+    const email = document.getElementById('email');
+    const phone = document.getElementById('phone');
+    const company = document.getElementById('company');
+    const role = document.getElementById('role');
+    const password = document.getElementById('password');
+    const confirm = document.getElementById('confirm');
+
+    const myForm = document.getElementById('myForm');
+
+    const messageDiv = document.getElementById('message')
+
+   myForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Validation
+            if (fullname.value === "" || email.value === "" || phone.value === "" || company.value === "" || password.value === "") {
+                messageDiv.innerHTML = '<div class="error">❌ Please fill all required fields</div>';
+                return;
+            }
+            if (role.value === "") {
+                messageDiv.textContent = "❌please select a role";
+                messageDiv.classList.add('error');
+            }
+           
+            if (password.value !== confirm.value) {
+                messageDiv.innerHTML = '<div class="error">❌ Passwords do not match</div>';
+                return;
+            }
+           
+            if (password.value.length < 6) {
+                messageDiv.innerHTML = '<div class="error">❌ Password must be at least 6 characters</div>';
+                return;
+            }
+           
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value)) {
+                messageDiv.innerHTML = '<div class="error">❌ Please enter a valid email address</div>';
+                return;
+            }
+        
+            // Get existing users from data.js
+            const users = getAllUsers();
+           
+            // Check if email already exists
+            const existingUser = users.find(u => u.email === email);
+            if (existingUser) {
+                messageDiv.innerHTML = '<div class="error">❌ Email already exists. Please login instead.</div>';
+                return;
+            }
+           
+            // Get avatar initials 
+            const initials = fullname.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+           
+            // Determine status (workers need approval, clients are active)
+            let status = 'active';
+            let roleFinal = role;
+           
+            if (role === 'worker') {
+                status = 'pending';  // Needs admin approval
+            }
+           
+            // Create new user object
+            const newUser = {
+                id: Date.now(), // Simple unique ID
+                name: fullname.value,
+                email: email.value,
+                phone: phone.value || '',
+                password: password.value ,
+                role: roleFinal,
+                department: company.value  || '',
+                avatar: initials,
+                status: status ,
+                clientProjectId: null,
+                createdAt: new Date().toISOString()
+            };
+           
+            // Add user using data.js function
+            addUser(newUser);
+           
+            // Show success message
+            if (role === 'worker') {
+                messageDiv.innerHTML = '<div class="success">✅ Account created! Your account is pending admin approval. You will be notified when approved.</div>';
+                // Clear form
+                document.getElementById('myForm').reset();
+            } else {
+                messageDiv.innerHTML = '<div class="success">✅ Account created successfully! Redirecting to login...</div>';
+               
+                // Redirect to login after 2 seconds
+                setTimeout(() => {
+                    window.location.href = '../login.html';
+                }, 2000);
+            }           
+   });

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/wo-dashboard.css">
+    <link rel="stylesheet" href="../boxicons-2.1.4/boxicons-2.1.4/css/boxicons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <title>Notifications - Worker Portal</title>
+    <style>
+    </style>
+</head>
+<body>
+   
+    <!-- Worker Sidebar -->
+    <aside class="aside-container">
+        <div class="logo">
+            <img src="../images/Vector.png" alt="">
+            <h2>Pinnacle</h2>
+        </div>
+        <nav>
+            <ul>
+                <a href="wo-dashboard.html">
+                    <div class="side-list">
+                        <i class="bx bx-home-alt"></i>
+                        <li>My Dashboard</li>
+                    </div>
+                </a>
+                <a href="wo-project.html">
+                    <div class="side-list">
+                        <i class="bx bx-briefcase"></i>
+                        <li>My Projects</li>
+                    </div>
+                </a>
+                <a href="wo-tasks.html">
+                    <div class="side-list">
+                        <i class="bx bx-task"></i>
+                        <li>My Tasks</li>
+                    </div>
+                </a>
+                <a href="wo-materials.html">
+                    <div class="side-list">
+                        <i class="bx bx-cube"></i>
+                        <li>Materials</li>
+                    </div>
+                </a>
+                <a href="wo-monitoring.html">
+                    <div class="side-list">
+                        <i class="bx bx-line-chart"></i>
+                        <li>Site Monitoring</li>
+                    </div>
+                </a>
+
+                <a href="wo-inbox.html">
+                    <div class="side-list">
+                        <i class="bx bx-message"></i>
+                        <li>Inbox</li>
+                    </div>
+                </a>
+
+                <a href="wo-profile.html">
+                    <div class="side-list">
+                        <i class="bx bx-user"></i>
+                        <li>My Profile</li>
+                    </div>
+                </a>
+                <a href="wo-notifications.html">
+                    <div class="side-list active">
+                        <i class="bx bx-bell bell"></i>
+                        <li>Notifications</li>
+                    </div>
+                </a>
+                <a href="wo-settings.html">
+                    <div class="side-list">
+                        <i class="bx bx-slider"></i>
+                        <li>Settings</li>
+                    </div>
+                </a>
+
+                <div class="logout-wrapper">
+                    <a href="../logout.html">
+                        <div class="logout">
+                            <i class="bx bx-log-out"></i>
+                            <li>Logout</li>
+                        </div>
+                    </a>
+                </div>
+            </ul>
+        </nav>
+    </aside>
+
+    <header>
+        <div class="bar-wrapper"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+        <div class="search-bar-wrapper"><i class="bx bx-search search" ></i><input type="search" placeholder="search notifications..."></div>
+        <div class="header-profile-wrapper">
+            <i class="bx bx-bell bell"></i><div class="notify-dot"></div>
+            <div class="header-profile">
+                <img src="../images/avatar2.jpg" alt="">
+                <div class="header-profile-text"><h3>John Doe</h3><p>Project Manager</p></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="main-content">
+            <div class="page-name">
+                <h1>Notifications</h1>
+                   <span onclick="deleteAllNotifications()" style="cursor: pointer;">Delete All</span>
+                <a href="#" onclick="markAllAsRead()" style="color: #FF5200; font-size: 14px;">Mark All as Read</a>
+            </div>
+
+            <div id="notificationsList">
+                <div   id="notificationsContainer"></div>
+                <!-- <div class="notify-card unread" data-id="1">
+                    <div class="notify-content">
+                        <div class="notify-icon">
+                            <i class="bx bx-task"></i>
+                        </div>
+                        <div class="notify-text">
+                            <h4>New Task Assigned</h4>
+                            <p>You have been assigned a new task for Sunrise Tower project</p>
+                            <div class="notify-time">10 minutes ago</div>
+                        </div>
+                    </div>
+                    <button class="mark-read" onclick="markAsRead(this)">Mark read</button>
+                </div>
+
+                <div class="notify-card unread" data-id="2">
+                    <div class="notify-content">
+                        <div class="notify-icon">
+                            <i class="bx bx-error-circle" style="color: #F59E0B;"></i>
+                        </div>
+                        <div class="notify-text">
+                            <h4>Material Running Low</h4>
+                            <p>Steel Rod quantity is running low in Metro Station project</p>
+                            <div class="notify-time">30 minutes ago</div>
+                        </div>
+                    </div>
+                    <button class="mark-read" onclick="markAsRead(this)">Mark read</button>
+                </div>
+
+                <div class="notify-card unread" data-id="3">
+                    <div class="notify-content">
+                        <div class="notify-icon">
+                            <i class="bx bx-calendar" style="color: #EF4444;"></i>
+                        </div>
+                        <div class="notify-text">
+                            <h4>Project Deadline Near</h4>
+                            <p>River Bridge project deadline is in 5 days</p>
+                            <div class="notify-time">1 hour ago</div>
+                        </div>
+                    </div>
+                    <button class="mark-read" onclick="markAsRead(this)">Mark read</button>
+                </div>
+
+                <div class="notify-card" data-id="4">
+                    <div class="notify-content">
+                        <div class="notify-icon">
+                            <i class="bx bx-check-circle" style="color: #22C55E;"></i>
+                        </div>
+                        <div class="notify-text">
+                            <h4>Task Completed</h4>
+                            <p>Your task "Foundation" has been approved by Admin</p>
+                            <div class="notify-time">Yesterday, 3:00 PM</div>
+                        </div>
+                    </div>
+                    <button class="mark-read" onclick="markAsRead(this)" style="visibility: hidden;">Mark read</button>
+                </div>
+
+                <div class="notify-card" data-id="5">
+                    <div class="notify-content">
+                        <div class="notify-icon">
+                            <i class="bx bx-file" style="color: #3b82f6;"></i>
+                        </div>
+                        <div class="notify-text">
+                            <h4>Report Approved</h4>
+                            <p>Your site report for Sunrise Tower has been approved</p>
+                            <div class="notify-time">Yesterday, 10:00 AM</div>
+                        </div>
+                    </div>
+                    <button class="mark-read" onclick="markAsRead(this)" style="visibility: hidden;">Mark read</button>
+                </div>
+
+                <div class="notify-card" data-id="6">
+                    <div class="notify-content">
+                        <div class="notify-icon">
+                            <i class="bx bx-message" style="color: #a855f7;"></i>
+                        </div>
+                        <div class="notify-text">
+                            <h4>New Message from Admin</h4>
+                            <p>Please submit weekly report by Friday</p>
+                            <div class="notify-time">Jun 09, 2026</div>
+                        </div>
+                    </div>
+                    <button class="mark-read" onclick="markAsRead(this)" style="visibility: hidden;">Mark read</button>
+                </div>
+            </div> -->
+
+            <div style="margin-top: 20px; text-align: center;">
+                <button class="role-badge" style="background: #2a2a2a; border: none; cursor: pointer;" onclick="loadMore()">
+                    Load More
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderNotifications();
+            loadNotification();
+           
+            
+        });
+
+
+
+        // Update dot count on load
+        updateNotificationCount();
+    </script>
+
+<script src="../js/data.js"></script>
+<script src="../js/auth-check.js"></script>
+<script src="../js/dashboard.js"></script>
+</body>
+</html>

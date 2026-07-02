@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/wo-dashboard.css">
+    <link rel="stylesheet" href="../boxicons-2.1.4/boxicons-2.1.4/css/boxicons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <title>Settings - Worker Portal</title>
+
+</head>
+<body>
+   
+   
+  <!-- Worker Sidebar -->
+    <aside class="aside-container">
+        <div class="logo">
+            <img src="../images/Vector.png" alt="">
+            <h2>Pinnacle</h2>
+        </div>
+        <nav>
+            <ul>
+                <a href="wo-dashboard.html">
+                    <div class="side-list">
+                        <i class="bx bx-home-alt"></i>
+                        <li>My Dashboard</li>
+                    </div>
+                </a>
+                <a href="wo-project.html">
+                    <div class="side-list">
+                        <i class="bx bx-briefcase"></i>
+                        <li>My Projects</li>
+                    </div>
+                </a>
+                <a href="wo-tasks.html">
+                    <div class="side-list">
+                        <i class="bx bx-task"></i>
+                        <li>My Tasks</li>
+                    </div>
+                </a>
+                <a href="wo-materials.html">
+                    <div class="side-list">
+                        <i class="bx bx-cube"></i>
+                        <li>Materials</li>
+                    </div>
+                </a>
+                <a href="wo-monitoring.html">
+                    <div class="side-list">
+                        <i class="bx bx-line-chart"></i>
+                        <li>Site Monitoring</li>
+                    </div>
+                </a>
+
+                <a href="wo-inbox.html">
+                    <div class="side-list">
+                        <i class="bx bx-message"></i>
+                        <li>Inbox</li>
+                    </div>
+                </a>
+
+                <a href="wo-profile.html">
+                    <div class="side-list">
+                        <i class="bx bx-user"></i>
+                        <li>My Profile</li>
+                    </div>
+                </a>
+                <a href="wo-notifications.html">
+                    <div class="side-list">
+                        <i class="bx bx-bell bell"></i>
+                        <li>Notifications</li>
+                    </div>
+                </a>
+                <a href="wo-settings.html">
+                    <div class="side-list active">
+                        <i class="bx bx-slider"></i>
+                        <li>Settings</li>
+                    </div>
+                </a>
+
+                <div class="logout-wrapper">
+                    <a href="../logout.html">
+                        <div class="logout">
+                            <i class="bx bx-log-out"></i>
+                            <li>Logout</li>
+                        </div>
+                    </a>
+                </div>
+            </ul>
+        </nav>
+    </aside>
+
+    <header>
+        <div class="bar-wrapper"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+        <div class="search-bar-wrapper"><i class="bx bx-search search"></i><input type="search" placeholder="search..."></div>
+        <div class="header-profile-wrapper">
+            <i class="bx bx-bell bell"></i><div class="notify-dot"></div>
+            <div class="header-profile">
+                <img src="../images/avatar2.jpg" alt="">
+                <div class="header-profile-text"><h3>John Doe</h3><p>Project Manager</p></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="main-content">
+            <div class="page-name">
+                <h1>Settings</h1>
+                <div class="role-badge"><i class="bx bx-slider"></i>Preferences</div>
+            </div>
+
+            <!-- Notification Settings -->
+            <div class="settings-card">
+                <div class="settings-title">Notification Preferences</div>
+                <div class="setting-row">
+                    <span class="setting-label">Email Notifications</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked id="emailNotify">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="setting-row">
+                    <span class="setting-label">Push Notifications</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked id="pushNotify">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="setting-row">
+                    <span class="setting-label">Task Assignment Alerts</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked id="taskNotify">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="setting-row">
+                    <span class="setting-label">Daily Report Reminders</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="reportNotify">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Appearance Settings -->
+            <div class="settings-card">
+                <div class="settings-title">Appearance</div>
+                <div class="setting-row">
+                    <span class="setting-label">Theme Mode</span>
+                    <select class="theme-select" id="themeSelect">
+                        <option value="dark" selected>Dark Mode</option>
+                        <option value="light">Light Mode</option>
+                        <option value="system">System Default</option>
+                    </select>
+                </div>
+                <div class="setting-row">
+                    <span class="setting-label">Compact View</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="compactView">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Password Settings -->
+            <div class="settings-card">
+                <div class="settings-title">Security</div>
+                <div class="setting-row">
+                    <span class="setting-label">Change Password</span>
+                    <button class="role-badge" style="background: #3b82f6; color: #fff; border: none; cursor: pointer;" onclick="togglePasswordChange()">Change</button>
+                </div>
+                <div id="passwordChangeForm" class="password-change">
+                    <input type="password" placeholder="Current Password" id="currentPwd">
+                    <input type="password" placeholder="New Password" id="newPwd">
+                    <input type="password" placeholder="Confirm New Password" id="confirmPwd">
+                    <button class="save-password-btn" onclick="changePassword()">Save Password</button>
+                </div>
+                <div class="setting-row">
+                    <span class="setting-label">Two-Factor Authentication</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="twoFactor">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function togglePasswordChange() {
+            const form = document.getElementById('passwordChangeForm');
+            if (form.style.display === 'none' || form.style.display === '') {
+                form.style.display = 'block';
+            } else {
+                form.style.display = 'none';
+            }
+        }
+       
+        function changePassword() {
+            const current = document.getElementById('currentPwd').value;
+            const newPwd = document.getElementById('newPwd').value;
+            const confirm = document.getElementById('confirmPwd').value;
+           
+            if (!current || !newPwd || !confirm) {
+                alert('Please fill all password fields');
+                return;
+            }
+           
+            if (newPwd !== confirm) {
+                alert('New passwords do not match');
+                return;
+            }
+           
+            if (newPwd.length < 6) {
+                alert('Password must be at least 6 characters');
+                return;
+            }
+           
+            alert('Password changed successfully!');
+            document.getElementById('currentPwd').value = '';
+            document.getElementById('newPwd').value = '';
+            document.getElementById('confirmPwd').value = '';
+            document.getElementById('passwordChangeForm').style.display = 'none';
+        }
+       
+        // Save preferences
+        document.getElementById('emailNotify').addEventListener('change', function() {
+            console.log('Email notifications:', this.checked);
+        });
+        document.getElementById('themeSelect').addEventListener('change', function() {
+            console.log('Theme changed to:', this.value);
+            // In a real app, you would apply the theme
+        });
+    </script>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/auth-check.js"></script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/wo-dashboard.css">
+    <link rel="stylesheet" href="../boxicons-2.1.4/boxicons-2.1.4/css/boxicons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <title>My Projects - Worker Portal</title>
+
+</head>
+<body>
+   
+  <!-- Worker Sidebar -->
+    <aside class="aside-container">
+        <div class="logo">
+            <img src="../images/Vector.png" alt="">
+            <h2>Pinnacle</h2>
+        </div>
+        <nav>
+            <ul>
+                <a href="wo-dashboard.html">
+                    <div class="side-list">
+                        <i class="bx bx-home-alt"></i>
+                        <li>My Dashboard</li>
+                    </div>
+                </a>
+                <a href="wo-project.html">
+                    <div class="side-list active">
+                        <i class="bx bx-briefcase"></i>
+                        <li>My Projects</li>
+                    </div>
+                </a>
+                <a href="wo-tasks.html">
+                    <div class="side-list">
+                        <i class="bx bx-task"></i>
+                        <li>My Tasks</li>
+                    </div>
+                </a>
+                <a href="wo-materials.html">
+                    <div class="side-list">
+                        <i class="bx bx-cube"></i>
+                        <li>Materials</li>
+                    </div>
+                </a>
+                <a href="wo-monitoring.html">
+                    <div class="side-list">
+                        <i class="bx bx-line-chart"></i>
+                        <li>Site Monitoring</li>
+                    </div>
+                </a>
+
+                <a href="wo-inbox.html">
+                    <div class="side-list">
+                        <i class="bx bx-message"></i>
+                        <li>Inbox</li>
+                    </div>
+                </a>
+
+                <a href="wo-profile.html">
+                    <div class="side-list">
+                        <i class="bx bx-user"></i>
+                        <li>My Profile</li>
+                    </div>
+                </a>
+                <a href="wo-notifications.html">
+                    <div class="side-list">
+                        <i class="bx bx-bell bell"></i>
+                        <li>Notifications</li>
+                    </div>
+                </a>
+                <a href="wo-settings.html">
+                    <div class="side-list">
+                        <i class="bx bx-slider"></i>
+                        <li>Settings</li>
+                    </div>
+                </a>
+
+                <div class="logout-wrapper">
+                    <a href="../logout.html">
+                        <div class="logout">
+                            <i class="bx bx-log-out"></i>
+                            <li>Logout</li>
+                        </div>
+                    </a>
+                </div>
+            </ul>
+        </nav>
+    </aside>
+
+
+    <header>
+        <div class="bar-wrapper"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+        <div class="search-bar-wrapper"><i class="bx bx-search search"></i><input type="search" placeholder="search projects..."></div>
+        <div class="header-profile-wrapper">
+            <i class="bx bx-bell bell"></i><div class="notify-dot"></div>
+            <div class="header-profile">
+                <img src="../images/avatar2.jpg" alt="">
+                <div class="header-profile-text"><h3>John Doe</h3><p>Project Manager</p></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="main-content">
+            <div class="page-name">
+                <h1>My Projects</h1>
+                <div class="role-badge"><i class="bx bx-briefcase"></i>Assigned to me</div>
+            </div>
+
+            <div class="project-card-container">
+                <div class="project-card-wrapper">
+                    
+                    <div  id="projectsContainer"></div>
+                   
+                    <!-- Project 1 -->
+                    <!-- <div class="project-card">
+                        <div class="project-card-head">
+                            <div class="project-card-text">
+                                <h4>Sunrise Tower</h4>
+                                <p>Dominican City</p>
+                            </div>
+                            <span style="color: #22C55E;">Active</span>
+                        </div>
+                        <div class="project-progress-container">
+                            <div class="project-progress-wrapper">
+                                <div class="project-progress" style="width: 85%;"></div>
+                            </div>
+                            <span>85%</span>
+                        </div>
+                        <div class="start-date">
+                            <p>My Role</p>
+                            <span>Project Manager</span>
+                        </div>
+                        <div class="start-date">
+                            <p>Due Date</p>
+                            <span>Sep 27, 2026</span>
+                        </div>
+
+                    <div class="view-details">
+                    <a href="projects-details.html">View Details</a>
+                    </div>
+                    </div> -->
+
+                    <!-- Project 2 -->
+                    <!-- <div class="project-card">
+                        <div class="project-card-head">
+                            <div class="project-card-text">
+                                <h4>Metro Station</h4>
+                                <p>Central City</p>
+                            </div>
+                            <span style="color: #22C55E;">Active</span>
+                        </div>
+                        <div class="project-progress-container">
+                            <div class="project-progress-wrapper">
+                                <div class="project-progress" style="width: 70%;"></div>
+                            </div>
+                            <span>70%</span>
+                        </div>
+                        <div class="start-date">
+                            <p>My Role</p>
+                            <span>Site Engineer</span>
+                        </div>
+                        <div class="start-date">
+                            <p>Due Date</p>
+                            <span>Dec 15, 2026</span>
+                        </div>
+                        <div class="start-date">
+                            <p>Due Date</p>
+                            <span>Dec 15, 2026</span>
+                        </div>
+                        <div class="view-details">
+                            <a href="projects-details.html">View Details</a>
+                        </div>
+                    </div> -->
+
+                    <!-- Project 3 -->
+                    <!-- <div class="project-card">
+                        <div class="project-card-head">
+                            <div class="project-card-text">
+                                <h4>River Bridge</h4>
+                                <p>Riverside Area</p>
+                            </div>
+                            <span style="color: #EF4444;">Delayed</span>
+                        </div>
+                        <div class="project-progress-container">
+                            <div class="project-progress-wrapper">
+                                <div class="project-progress" style="width: 30%; background-color: #EF4444;"></div>
+                            </div>
+                            <span>30%</span>
+                        </div>
+                        <div class="start-date">
+                            <p>My Role</p>
+                            <span>Structural Lead</span>
+                        </div>
+                        <div class="start-date">
+                            <p>Due Date</p>
+                            <span>Oct 30, 2026</span>
+                        </div>
+                        <div class="view-details">
+                            <a href="../admin/projects-details.html">View Details</a>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {  
+           renderWorkerProject();
+        });
+
+
+    </script>
+
+    <script src="../js/side-bar.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/auth-check.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

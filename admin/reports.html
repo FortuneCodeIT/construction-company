@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../boxicons-2.1.4/boxicons-2.1.4/css/boxicons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <title>Document</title>
+</head>
+<body>
+
+  <!-- this is for preloader -->
+            <div id="preloader">
+        <div class="logo-loader">
+            <img src="../images/Vector.png" alt="Pinnacle">
+            <h2>Pinnacle</h2>
+            <div class="spinner"></div>
+            <div class="loader-text">Loading...</div>
+        </div>
+    </div>
+    
+    <aside class="aside-container">
+        <div class="logo">
+            <img src="../images/Vector.png" alt="" style="color: black;">
+            <h2>Pinnacle</h2>
+        </div>
+
+        <nav>
+            <ul>
+                <a href="dashboard.html">
+                <div class="side-list">
+                    <i class="bx bx-home-alt"></i>
+                <li>Dashboard</li>
+                </div>
+                </a>
+
+                <a href="projects.html">
+                <div class="side-list">
+                    <i class="bx bx-briefcase"></i>
+                <li>Projects</li>
+                </div>
+                </a>
+
+                <a href="tasks.html">
+                <div class="side-list">
+                    <i class="bx bx-task"></i>
+                <li>Tasks</li>
+                </div>
+                </a>
+
+                <a href="materials.html">
+                <div class="side-list">
+                    <i class="bx bx-cube"></i>
+                <li>Materials</li>
+                </div>
+                </a>
+
+                <a href="budgets.html">
+                <div class="side-list">
+                    <i class="bx bx-money"></i>
+                <li>Budget</li>
+                </div>
+                </a>
+
+                <a href="teams.html">
+                <div class="side-list">
+                    <i class="bx bx-group"></i>
+                <li>Team</li>
+                </div>
+                </a>
+
+                <a href="monitoring.html">
+                <div class="side-list">
+                    <i class="bx bx-line-chart"></i>
+                <li>Monitoring</li>
+                </div>
+                </a>
+
+                <a href="reports.html">
+                <div class="side-list active">
+                    <i class="bx bx-file"></i>
+                <li>Reports</li>
+                </div>
+                </a>
+                
+                <a href="ad-inbox.html">
+                    <div class="side-list">
+                        <i class="bx bx-message"></i>
+                        <li>Inbox</li>
+                    </div>
+                </a>
+
+                <a href="notification.html">
+                <div class="side-list">
+                    <i class="bx bx-bell bell"></i>
+                <li>Notifications</li>
+                </div>
+                </a>
+
+                <a href="settings.html">
+                <div class="side-list">
+                    <i class="bx bx-slider"></i>
+                <li>Settings</li>
+                </div>
+                </a>
+                
+                <a href="user.html">
+                <div class="side-list">
+                    <i class="bx bx-user-plus"></i>
+                <li>User Management</li>
+                </div>
+                </a>
+
+
+                <div class="logout-wrapper">
+                <a href="../logout.html">
+                <div class="logout">
+                    <i class="bx bx-log-out"></i>
+                <li>Logout</li>
+                </div>
+                </a>
+
+                </div>
+
+            </ul>
+        </nav>
+    </aside>
+
+                  <header>
+  
+
+            <div class="search-bar-wrapper">
+                <i class="bx bx-search search"></i>
+                <input type="search" name="" id="" placeholder="search here...">
+                                
+            </div>
+
+            
+
+            <div style="display: flex; align-items: center; gap: 10px;">      
+            <div class="bar-wrapper">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="header-profile-wrapper">
+                 <i class="bx bx-bell bell"></i>
+                 <div class="notify-dot" id="notifyDot"></div>
+                
+                 <div class="header-profile">
+                    <img src="../images/avatar2.jpg" alt="">
+                    <div class="header-profile-text">
+                        <h3 id="userName"> John Doe</h3>
+                        <p id="userRole">Adminstration</p>
+                        
+                    </div>
+                 </div>
+            </div>
+
+            </div>
+
+      
+        </header>
+
+    <main class="main-container">
+
+<div class="main-content">
+
+        <div class="page-name">
+            <h1>Reports & Analytics</h1>
+
+            <div class="header-control">
+                <button>
+                    <i class="bx bx-export"></i>
+                    Export</button>
+           <select name="" id="">
+            <option value="" disabled selected>This Month</option>
+            <option value="">Last 7 Days</option>
+           </select>
+           </div>
+        </div>
+
+        <div class="dash-overview-container">
+
+            <div class="dash-overview-card" style="box-shadow:  0 6px 2px rgb(34, 197, 94);">
+                <div class="dash-overview-icon" style="background-color:rgba(34, 197, 94, 0.07);">
+                <i class="bx bx-task" style="font-size: 24px; color: #22C55E;"></i>
+                </div>
+                <div class="overview-card-content up">
+                    <p>Complete Projects</p>
+                    <h4>8</h4>
+                    <i class="bx bx-chevron-up"></i>
+                    +2 <span> vs last month</span>
+                
+                </div>
+            </div>
+
+            <div class="dash-overview-card" style="box-shadow:  0 6px 2px rgb(239, 68, 68);">
+                 <div class="dash-overview-icon" style="background-color: rgba(243, 70, 70, 0.07);">
+                <i class="bx bx-time-five" style="font-size: 24px; color: #EF4444;"></i>
+                 </div>
+                <div class="overview-card-content down">
+                    <p>Delayed Projects</p>
+                    <h4>3</h4>
+                    <i class="bx bx-chevron-down"></i>
+                 +1 <span> vs last month</span>
+                  
+                </div>
+            </div>
+
+            <div class="dash-overview-card" style="box-shadow: 0 6px 2px rgb(37, 101, 235) ;">
+                <div class="dash-overview-icon" style="background-color:rgba(37, 99, 235, 0.07);">
+                <i class="bx bx-pie-chart-alt-2" style="font-size: 24px; color: #2565EB;"></i>
+                </div>
+                <div class="overview-card-content up">
+                    <p>Budget Efficiency</p>
+                    <h4>85%</h4>
+                     <i class="bx bx-chevron-up"></i>
+                     +5%<span> vs last month</span>
+                </div>
+            </div>
+
+            <div class="dash-overview-card" style="box-shadow:  0 6px 2px rgb(245, 158, 11);">
+                 <div class="dash-overview-icon" style="background-color: rgba(245, 158, 11, 0.07);">  
+                <i class="bx bx-trending-up" style="font-size: 24px; color: #F59E0B;"></i>
+                 </div>
+                <div class="overview-card-content up">
+                    <p>Productivity Score</p>
+                    <h4>92%</h4>
+                    <i class="bx bx-chevron-up"></i>
+                    +8% <span> vs last month</span>
+                </div>
+            </div>
+
+        </div>
+
+
+            <!-- CHARTS ROW -->            
+    <div class="charts-row">
+      <!-- Bar Chart -->
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Monthly Project Overview</div>
+            <div class="card-sub">Completed vs Delayed — Jan to Jun 2026</div>
+          </div>
+          <span class="badge badge-green">↑ 14% growth</span>
+        </div>
+        <svg class="chart-svg" viewBox="0 0 580 200" style="height:200px">
+          <!-- Grid lines -->
+          <line x1="40" y1="10" x2="40" y2="170" stroke="#2a2a2a" stroke-width="1"/>
+          <line x1="40" y1="170" x2="570" y2="170" stroke="#2a2a2a" stroke-width="1"/>
+          <line x1="40" y1="130" x2="570" y2="130" stroke="#1f1f1f" stroke-width="1" stroke-dasharray="4"/>
+          <line x1="40" y1="90" x2="570" y2="90" stroke="#1f1f1f" stroke-width="1" stroke-dasharray="4"/>
+          <line x1="40" y1="50" x2="570" y2="50" stroke="#1f1f1f" stroke-width="1" stroke-dasharray="4"/>
+          <!-- Y labels -->
+          <text x="30" y="174" fill="#6b6b6b" font-size="11" text-anchor="end">0</text>
+          <text x="30" y="134" fill="#6b6b6b" font-size="11" text-anchor="end">2</text>
+          <text x="30" y="94" fill="#6b6b6b" font-size="11" text-anchor="end">4</text>
+          <text x="30" y="54" fill="#6b6b6b" font-size="11" text-anchor="end">6</text>
+          <!-- Bars: Jan -->
+          <rect x="55" y="90" width="26" height="80" rx="4" fill="#f05a1a" opacity=".9"/>
+          <rect x="85" y="150" width="26" height="20" rx="4" fill="#3b82f6" opacity=".8"/>
+          <!-- Feb -->
+          <rect x="145" y="70" width="26" height="100" rx="4" fill="#f05a1a" opacity=".9"/>
+          <rect x="175" y="140" width="26" height="30" rx="4" fill="#3b82f6" opacity=".8"/>
+          <!-- Mar -->
+          <rect x="235" y="50" width="26" height="120" rx="4" fill="#f05a1a" opacity=".9"/>
+          <rect x="265" y="130" width="26" height="40" rx="4" fill="#3b82f6" opacity=".8"/>
+          <!-- Apr -->
+          <rect x="325" y="90" width="26" height="80" rx="4" fill="#f05a1a" opacity=".9"/>
+          <rect x="355" y="155" width="26" height="15" rx="4" fill="#3b82f6" opacity=".8"/>
+          <!-- May -->
+          <rect x="415" y="30" width="26" height="140" rx="4" fill="#f05a1a" opacity=".9"/>
+          <rect x="445" y="140" width="26" height="30" rx="4" fill="#3b82f6" opacity=".8"/>
+          <!-- Jun -->
+          <rect x="505" y="50" width="26" height="120" rx="4" fill="#f05a1a" opacity=".9"/>
+          <rect x="535" y="150" width="26" height="20" rx="4" fill="#3b82f6" opacity=".8"/>
+          <!-- X labels -->
+          <text x="78"  y="188" fill="#6b6b6b" font-size="11" text-anchor="middle">Jan</text>
+          <text x="168" y="188" fill="#6b6b6b" font-size="11" text-anchor="middle">Feb</text>
+          <text x="258" y="188" fill="#6b6b6b" font-size="11" text-anchor="middle">Mar</text>
+          <text x="348" y="188" fill="#6b6b6b" font-size="11" text-anchor="middle">Apr</text>
+          <text x="438" y="188" fill="#6b6b6b" font-size="11" text-anchor="middle">May</text>
+          <text x="528" y="188" fill="#6b6b6b" font-size="11" text-anchor="middle">Jun</text>
+          <!-- Legend -->
+          <rect x="42" y="196" width="10" height="10" rx="2" fill="#f05a1a"/>
+          <text x="56" y="205" fill="#9a9a9a" font-size="11">Completed</text>
+          <rect x="120" y="196" width="10" height="10" rx="2" fill="#3b82f6"/>
+          <text x="134" y="205" fill="#9a9a9a" font-size="11">Delayed</text>
+        </svg>
+      </div>
+
+      <!-- Donut Chart -->
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Task Distribution</div>
+            <div class="card-sub">By status — current period</div>
+          </div>
+        </div>
+        <div class="donut-wrap">
+          <svg class="donut-svg" viewBox="0 0 160 160">
+            <!-- Done: 58% ~ 209deg, stroke-dasharray on r=60 circumference=377 -->
+            <!-- Done 58% = 218.66 of 377 -->
+            <circle cx="80" cy="80" r="60" fill="none" stroke="#22c55e" stroke-width="22"
+              stroke-dasharray="218 159" stroke-dashoffset="94" stroke-linecap="round"/>
+            <!-- In Progress 25% = 94 of 377 -->
+            <circle cx="80" cy="80" r="60" fill="none" stroke="#3b82f6" stroke-width="22"
+              stroke-dasharray="94 283" stroke-dashoffset="-124" stroke-linecap="round"/>
+            <!-- Delayed 17% = 64 of 377 -->
+            <circle cx="80" cy="80" r="60" fill="none" stroke="#ef4444" stroke-width="22"
+              stroke-dasharray="64 313" stroke-dashoffset="-218" stroke-linecap="round"/>
+            <text x="80" y="75" fill="#f0f0f0" font-family="Syne,sans-serif" font-size="22" font-weight="800" text-anchor="middle">58%</text>
+            <text x="80" y="92" fill="#6b6b6b" font-size="11" text-anchor="middle">Complete</text>
+          </svg>
+          <div class="donut-legend">
+            <div class="legend-item">
+              <div class="legend-left"><div class="legend-dot" style="background:#22c55e"></div><span class="legend-name">Completed</span></div>
+              <span class="legend-pct">58%</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-left"><div class="legend-dot" style="background:#3b82f6"></div><span class="legend-name">In Progress</span></div>
+              <span class="legend-pct">25%</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-left"><div class="legend-dot" style="background:#ef4444"></div><span class="legend-name">Delayed</span></div>
+              <span class="legend-pct">17%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <!-- TABLE + PROGRESS -->
+    <div class="bottom-row">
+      <!-- Project Table -->
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Recent Projects</div>
+            <div class="card-sub">Last 5 active projects</div>
+          </div>
+          <button class="btn btn-ghost" style="font-size:12px;padding:6px 12px;">View All</button>
+        </div>
+        <div class="report-chart-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Manager</th>
+              <th>Due Date</th>
+              <th>Budget Used</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tower Renovation</td>
+              <td>John Doe</td>
+              <td>Jun 15, 2026</td>
+              <td>$82,400</td>
+              <td><span class="status-pill done">Completed</span></td>
+            </tr>
+            <tr>
+              <td>Road Expansion</td>
+              <td>Sarah Lee</td>
+              <td>Jul 02, 2026</td>
+              <td>$210,000</td>
+              <td><span class="status-pill inprog">In Progress</span></td>
+            </tr>
+            <tr>
+              <td>Bridge Maintenance</td>
+              <td>Mike Chen</td>
+              <td>May 30, 2026</td>
+              <td>$54,800</td>
+              <td><span class="status-pill delayed">Delayed</span></td>
+            </tr>
+            <tr>
+              <td>Mall Construction</td>
+              <td>Emma Park</td>
+              <td>Aug 10, 2026</td>
+              <td>$430,000</td>
+              <td><span class="status-pill inprog">In Progress</span></td>
+            </tr>
+            <tr>
+              <td>Office Fit-out</td>
+              <td>James Obi</td>
+              <td>Jun 28, 2026</td>
+              <td>$97,200</td>
+              <td><span class="status-pill done">Completed</span></td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+
+      <!-- Budget Progress -->
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Budget Utilisation</div>
+            <div class="card-sub">By department — this month</div>
+          </div>
+          <span class="badge badge-orange">Live</span>
+        </div>
+        <div class="prog-list">
+          <div class="prog-item">
+            <div class="prog-header">
+              <span class="prog-name">Civil Engineering</span>
+              <span class="prog-pct">87%</span>
+            </div>
+            <div class="prog-track"><div class="prog-fill" style="width:87%;background:#ff5200;"></div></div>
+          </div>
+          <div class="prog-item">
+            <div class="prog-header">
+              <span class="prog-name">Architecture</span>
+              <span class="prog-pct">62%</span>
+            </div>
+            <div class="prog-track"><div class="prog-fill" style="width:62%;background:#2563EB;"></div></div>
+          </div>
+          <div class="prog-item">
+            <div class="prog-header">
+              <span class="prog-name">Procurement</span>
+              <span class="prog-pct">91%</span>
+            </div>
+            <div class="prog-track"><div class="prog-fill" style="width:91%;background:#22C55E;"></div></div>
+          </div>
+          <div class="prog-item">
+            <div class="prog-header">
+              <span class="prog-name">Safety & Compliance</span>
+              <span class="prog-pct">45%</span>
+            </div>
+            <div class="prog-track"><div class="prog-fill" style="width:45%;background:#F59E0B;"></div></div>
+          </div>
+          <div class="prog-item">
+            <div class="prog-header">
+              <span class="prog-name">IT & Systems</span>
+              <span class="prog-pct">73%</span>
+            </div>
+            <div class="prog-track"><div class="prog-fill" style="width:73%;background:#a855f7;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+        
+
+        <!-- ACTIVITY + TEAM -->
+    <div class="last-row">
+      <!-- Activity Feed -->
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Recent Activity</div>
+            <div class="card-sub">Latest updates across all projects</div>
+          </div>
+        </div>
+        <div class="activity-list">
+          <div class="activity-item">
+            <div class="act-line">
+              <div class="act-dot" style="background:#22c55e"></div>
+              <div class="act-connector"></div>
+            </div>
+            <div class="act-body">
+              <div class="act-text"><strong>Tower Renovation</strong> marked as completed by John Doe.</div>
+              <div class="act-time">2 hours ago</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="act-line">
+              <div class="act-dot" style="background:#ef4444"></div>
+              <div class="act-connector"></div>
+            </div>
+            <div class="act-body">
+              <div class="act-text"><strong>Bridge Maintenance</strong> flagged as delayed — awaiting material delivery.</div>
+              <div class="act-time">5 hours ago</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="act-line">
+              <div class="act-dot" style="background:#3b82f6"></div>
+              <div class="act-connector"></div>
+            </div>
+            <div class="act-body">
+              <div class="act-text"><strong>Budget report</strong> for Q2 submitted by Finance team.</div>
+              <div class="act-time">Yesterday, 3:42 PM</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="act-line">
+              <div class="act-dot" style="background:#f59e0b"></div>
+              <div class="act-connector"></div>
+            </div>
+            <div class="act-body">
+              <div class="act-text"><strong>Sarah Lee</strong> added 3 new tasks to Road Expansion project.</div>
+              <div class="act-time">Yesterday, 10:15 AM</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="act-line">
+              <div class="act-dot" style="background:#a855f7"></div>
+              <div class="act-connector"></div>
+            </div>
+            <div class="act-body">
+              <div class="act-text"><strong>Mall Construction</strong> milestone reached — foundation phase complete.</div>
+              <div class="act-time">Jun 05, 2026</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team Performance -->
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <div class="card-title">Team Performance</div>
+            <div class="card-sub">Tasks completed this month</div>
+          </div>
+        </div>
+        <div class="team-list">
+          <div class="team-item">
+            <div class="member-av" style="background:linear-gradient(135deg,#f05a1a,#ff8c5a)">
+              <img src="../images/founder.jpg" alt="">
+            </div>
+            <div class="member-info">
+              <div class="member-name">John Doe</div>
+              <div class="member-role">Project Manager</div>
+            </div>
+            <div class="member-tasks">24 tasks<span>completed</span></div>
+          </div>
+          <div class="team-item">
+            <div class="member-av" style="background:linear-gradient(135deg,#3b82f6,#60a5fa)">
+              <img src="../images/lady.png" alt="">
+            </div>
+            <div class="member-info">
+              <div class="member-name">Sarah Lee</div>
+              <div class="member-role">Site Engineer</div>
+            </div>
+            <div class="member-tasks">19 tasks<span>completed</span></div>
+          </div>
+          <div class="team-item">
+            <div class="member-av" style="background:linear-gradient(135deg,#22c55e,#4ade80)">
+              <img src="../images/avatar2.jpg" alt="">
+            </div>
+            <div class="member-info">
+              <div class="member-name">Mike Chen</div>
+              <div class="member-role">Structural Lead</div>
+            </div>
+            <div class="member-tasks">15 tasks<span>completed</span></div>
+          </div>
+          <div class="team-item">
+            <div class="member-av" style="background:linear-gradient(135deg,#a855f7,#c084fc)">
+              <img src="../images/avatar2.jpg" alt="">
+            </div>
+            <div class="member-info">
+              <div class="member-name">Emma Park</div>
+              <div class="member-role">Architect</div>
+            </div>
+            <div class="member-tasks">21 tasks<span>completed</span></div>
+          </div>
+          <div class="team-item">
+            <div class="member-av" style="background:linear-gradient(135deg,#f59e0b,#fbbf24)">
+              <img src="../images/founder.png" alt="">
+            </div>
+            <div class="member-info">
+              <div class="member-name">James Obi</div>
+              <div class="member-role">Procurement</div>
+            </div>
+            <div class="member-tasks">17 tasks<span>completed</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+ 
+</div>
+    </main>
+
+    <script src="../js/side-bar.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/auth-check.js"></script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/cl-dashboard.css">
+    <link rel="stylesheet" href="../boxicons-2.1.4/boxicons-2.1.4/css/boxicons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <title>Messages - Client Portal</title>
+    <style>
+    </style>
+</head>
+<body>
+    <!-- Client Sidebar -->
+    <aside class="aside-container">
+        <div class="logo">
+            <img src="../images/Vector.png" alt="">
+            <h2>Pinnacle</h2>
+        </div>
+
+        <nav>
+            <ul>
+                <a href="my-project.html">
+                    <div class="side-list">
+                        <i class="bx bx-home-alt"></i>
+                        <li>Project Overview</li>
+                    </div>
+                </a>
+
+                <a href="cl-project-status.html">
+                    <div class="side-list">
+                        <i class="bx bx-chart"></i>
+                        <li>Progress</li>
+                    </div>
+                </a>
+
+                <a href="cl-budget.html">
+                    <div class="side-list">
+                        <i class="bx bx-money"></i>
+                        <li>Budget</li>
+                    </div>
+                </a>
+
+                <a href="cl-document.html">
+                    <div class="side-list">
+                        <i class="bx bx-file"></i>
+                        <li>Documents</li>
+                    </div>
+                </a>
+
+                <a href="cl-messages.html">
+                    <div class="side-list active">
+                        <i class="bx bx-message"></i>
+                        <li>Messages</li>
+                    </div>
+                </a>
+
+                <a href="cl-profile.html">
+                    <div class="side-list">
+                        <i class="bx bx-user"></i>
+                        <li>My Profile</li>
+                    </div>
+                </a>
+
+                <a href="cl-support.html">
+                    <div class="side-list">
+                        <i class="bx bx-help-circle"></i>
+                        <li>Support</li>
+                    </div>
+                </a>
+
+                <div class="logout-wrapper">
+                    <a href="../logout.html">
+                        <div class="logout">
+                            <i class="bx bx-log-out"></i>
+                            <li>Logout</li>
+                        </div>
+                    </a>
+                </div>
+            </ul>
+        </nav>
+    </aside>
+
+    <header>
+        <div class="bar-wrapper"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+        <div class="search-bar-wrapper"><i class="bx bx-search search"></i><input type="search" placeholder="search..."></div>
+        <div class="header-profile-wrapper">
+            <i class="bx bx-bell bell"></i><div class="notify-dot"></div>
+            <div class="header-profile">
+                <img src="../images/avatar2.jpg" alt="">
+                <div class="header-profile-text"><h3>Sarah Johnson</h3><p>Client</p></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="main-content">
+            <div class="page-name">
+                <h1>Messages</h1>
+                <div class="read-only-badge"><i class="bx bx-message"></i>Direct Chat with PM</div>
+            </div>
+
+            <div class="chat-container">
+                <!-- Conversations Sidebar -->
+                <div class="chat-sidebar">
+                    <div class="conversation-item active">
+                        <div class="conv-name">John Doe</div>
+                        <div class="conv-preview">Structural framework is ahead of...</div>
+                        <div class="conv-time">Today, 10:30 AM</div>
+                    </div>
+                    <div class="conversation-item">
+                        <div class="conv-name">Sarah Williams (Admin)</div>
+                        <div class="conv-preview">Your invoice #1042 has been...</div>
+                        <div class="conv-time">Yesterday, 2:15 PM</div>
+                    </div>
+                    <div class="conversation-item">
+                        <div class="conv-name">Support Team</div>
+                        <div class="conv-preview">Welcome to Pinnacle Client Portal!...</div>
+                        <div class="conv-time">Jan 15, 2026</div>
+                    </div>
+                </div>
+
+                <!-- Active Conversation -->
+                <div class="chat-conversation">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message-bubble received">
+                            <div>
+                                <div class="bubble">Good morning Sarah! Just wanted to update you that the structural framework is progressing well. We're on track for July completion.</div>
+                                <div class="message-time">John Doe • Today, 9:00 AM</div>
+                            </div>
+                        </div>
+                        <div class="message-bubble sent">
+                            <div>
+                                <div class="bubble">That's great news! Thank you for the update. Can you share any photos of the progress?</div>
+                                <div class="message-time">You • Today, 9:15 AM</div>
+                            </div>
+                        </div>
+                        <div class="message-bubble received">
+                            <div>
+                                <div class="bubble">Absolutely! I've uploaded site photos from this week to the Documents section. You can view them there. Let me know if you need anything else!</div>
+                                <div class="message-time">John Doe • Today, 10:30 AM</div>
+                            </div>
+                        </div>
+                        <div class="message-bubble sent">
+                            <div>
+                                <div class="bubble">Perfect, thank you John. I'll check them out!</div>
+                                <div class="message-time">You • Just now</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" placeholder="Type your message here..." id="messageInput">
+                        <button class="send-btn" onclick="sendMessage()">
+                            <i class="bx bx-send"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+            if (message === '') return;
+           
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message-bubble sent';
+            messageDiv.innerHTML = `
+                <div>
+                    <div class="bubble">${escapeHtml(message)}</div>
+                    <div class="message-time">You • Just now</div>
+                </div>
+            `;
+            messagesContainer.appendChild(messageDiv);
+            input.value = '';
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+       
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+    </script>
+
+<script src="../js/data.js"></script>
+<script src="../js/auth-check.js"></script>
+</body>
+</html>

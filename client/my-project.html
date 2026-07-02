@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/cl-dashboard.css">
+    <link rel="stylesheet" href="../boxicons-2.1.4/boxicons-2.1.4/css/boxicons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <title>My Project - Pinnacle Client Portal</title>
+    <style>
+
+    </style>
+</head>
+<body>
+   
+    <!-- Client Sidebar -->
+    <aside class="aside-container">
+        <div class="logo">
+            <img src="../images/Vector.png" alt="">
+            <h2>Pinnacle</h2>
+        </div>
+
+        <nav>
+            <ul>
+                <a href="my-project.html">
+                    <div class="side-list active">
+                        <i class="bx bx-home-alt"></i>
+                        <li>Project Overview</li>
+                    </div>
+                </a>
+
+                <a href="cl-project-status.html">
+                    <div class="side-list">
+                        <i class="bx bx-chart"></i>
+                        <li>Progress</li>
+                    </div>
+                </a>
+
+                <a href="cl-budget.html">
+                    <div class="side-list">
+                        <i class="bx bx-money"></i>
+                        <li>Budget</li>
+                    </div>
+                </a>
+
+                <a href="cl-document.html">
+                    <div class="side-list">
+                        <i class="bx bx-file"></i>
+                        <li>Documents</li>
+                    </div>
+                </a>
+
+                <a href="cl-messages.html">
+                    <div class="side-list">
+                        <i class="bx bx-message"></i>
+                        <li>Messages</li>
+                    </div>
+                </a>
+
+                <a href="cl-profile.html">
+                    <div class="side-list">
+                        <i class="bx bx-user"></i>
+                        <li>My Profile</li>
+                    </div>
+                </a>
+
+                <a href="cl-support.html">
+                    <div class="side-list">
+                        <i class="bx bx-help-circle"></i>
+                        <li>Support</li>
+                    </div>
+                </a>
+
+                <div class="logout-wrapper">
+                    <a href="../logout.html">
+                        <div class="logout">
+                            <i class="bx bx-log-out"></i>
+                            <li>Logout</li>
+                        </div>
+                    </a>
+                </div>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Header -->
+    <header>
+        <div class="bar-wrapper">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+
+        <div class="search-bar-wrapper">
+            <i class="bx bx-search search"></i>
+            <input type="search" placeholder="search documents...">
+        </div>
+
+        <div class="header-profile-wrapper">
+            <i class="bx bx-bell bell"></i>
+            <div class="notify-dot"></div>
+           
+            <div class="header-profile">
+                <img src="../images/avatar2.jpg" alt="">
+                <div class="header-profile-text">
+                    <h3>Sarah Johnson</h3>
+                    <p>Client / Homeowner</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <div class="main-content">
+
+            <!-- Page Header -->
+            <div class="page-name">
+                <h1>My Project</h1>
+                    
+                <div class="read-only-badge">
+                    <i class="bx bx-user"></i>
+                   <span  style="color: #9a9a9a; font-size: 14px;" id="roleDisplay"></span>
+                </div>
+             
+                
+            </div>
+
+            <!-- Active Project Card -->
+            <div class="project-card" style="margin-bottom: 24px;">
+                <div class="project-card-head">
+                    <div class="project-card-text">
+                        <h4>Sunrise Tower</h4>
+                        <p>Dominican City</p>
+                    </div>
+                    <span class="status-badge status-on-track">● On Track</span>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="project-progress-container">
+                    <div class="project-progress-wrapper">
+                        <div class="project-progress" style="width: 85%;"></div>
+                    </div>
+                    <span>85% Complete</span>
+                </div>
+
+                <div class="start-date">
+                    <p>Start Date</p>
+                    <span>Jan 20, 2026</span>
+                </div>
+                <div class="start-date">
+                    <p>Estimated Completion</p>
+                    <span>Sep 27, 2026</span>
+                </div>
+                <div class="start-date">
+                    <p>Project Manager</p>
+                    <span>John Doe</span>
+                </div>
+            </div>
+
+            <!-- Two Column Layout -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
+               
+                <!-- Milestones Card -->
+                <div class="dash-progress-card">
+                    <div class="dash-progress-card-title">
+                        <p>Project Milestones</p>
+                    </div>
+                   
+                    <div class="milestone-card-wrapper" style="margin-top: 16px;">
+                        <div class="milestone-card">
+                            <i class="bx bx-check-circle" style="color: #22C55E; font-size: 22px;"></i>
+                            <div class="milestone-card-text">
+                                <p>Foundation</p>
+                                <span style="color: #22C55E;">Completed</span>
+                            </div>
+                        </div>
+
+                        <div class="milestone-card">
+                            <i class="bx bx-loader-circle" style="color: #FF5200; font-size: 22px;"></i>
+                            <div class="milestone-card-text">
+                                <p>Structure</p>
+                                <span style="color: #FF5200;">In Progress (85%)</span>
+                            </div>
+                        </div>
+
+                        <div class="milestone-card">
+                            <i class="bx bx-hourglass" style="color: #6b6b6b; font-size: 22px;"></i>
+                            <div class="milestone-card-text">
+                                <p>Walls & Finishing</p>
+                                <span style="color: #6b6b6b;">Not Started</span>
+                            </div>
+                        </div>
+
+                        <div class="milestone-card">
+                            <i class="bx bx-hourglass" style="color: #6b6b6b; font-size: 22px;"></i>
+                            <div class="milestone-card-text">
+                                <p>Final Inspection</p>
+                                <span style="color: #6b6b6b;">Not Started</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Budget Summary Card (Read-Only) -->
+                <div class="dash-progress-card">
+                    <div class="dash-progress-card-title">
+                        <p>Budget Summary</p>
+                    </div>
+
+                    <div style="padding: 16px 0;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+                            <span style="color: #9a9a9a;">Total Contract</span>
+                            <span style="font-weight: 600; color: #fff;">₦1,100,000,000</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+                            <span style="color: #9a9a9a;">Invoiced to Date</span>
+                            <span style="font-weight: 600; color: #fff;">₦825,000,000</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+                            <span style="color: #9a9a9a;">Amount Paid</span>
+                            <span style="font-weight: 600; color: #22C55E;">₦700,000,000</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding-top: 16px; border-top: 1px solid #2a2a2a;">
+                            <span style="color: #9a9a9a;">Outstanding Balance</span>
+                            <span style="font-weight: 700; color: #F59E0B;">₦125,000,000</span>
+                        </div>
+                    </div>
+
+                    <!-- Progress Bar for Budget -->
+                    <div class="project-progress-container" style="margin-top: 8px;">
+                        <div class="project-progress-wrapper">
+                            <div class="project-progress" style="width: 75%; background-color: #3b82f6;"></div>
+                        </div>
+                        <span>75% Invoiced</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Documents & Activity Row -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+               
+                <!-- Recent Documents -->
+                <div class="dash-progress-card">
+                    <div class="dash-progress-card-title">
+                        <p>Recent Documents</p>
+                    </div>
+
+                    <div style="margin-top: 16px;">
+                        <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #2a2a2a;">
+                            <a href="#" class="document-link">
+                                <i class="bx bx-file-pdf" style="color: #EF4444;"></i>
+                                Monthly Report - May 2026
+                            </a>
+                            <span style="font-size: 12px; color: #6b6b6b;">Jun 01, 2026</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #2a2a2a;">
+                            <a href="#" class="document-link">
+                                <i class="bx bx-receipt" style="color: #22C55E;"></i>
+                                Invoice #1042
+                            </a>
+                            <span class="invoice-status invoice-paid">Paid</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #2a2a2a;">
+                            <a href="#" class="document-link">
+                                <i class="bx bx-image" style="color: #3b82f6;"></i>
+                                Site Photos - Week 22
+                            </a>
+                            <span style="font-size: 12px; color: #6b6b6b;">May 28, 2026</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding: 12px 0;">
+                            <a href="#" class="document-link">
+                                <i class="bx bx-file" style="color: #F59E0B;"></i>
+                                Permit Approval
+                            </a>
+                            <span style="font-size: 12px; color: #6b6b6b;">Jan 15, 2026</span>
+                        </div>
+                    </div>
+
+                    <div class="addtask-btn" style="margin-top: 16px;">
+                        <a href="documents.html">
+                            <button style="width: 100%; background: transparent; border: 1px solid #2a2a2a;">
+                                <i class="bx bx-folder-open"></i>
+                                View All Documents
+                            </button>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="dash-progress-card">
+                    <div class="dash-progress-card-title">
+                        <p>Recent Activity</p>
+                    </div>
+
+                    <div class="activity-list" style="margin-top: 16px;">
+                        <div class="activity-item" style="padding: 12px 0; border-bottom: 1px solid #2a2a2a;">
+                            <div class="act-icon" style="background: rgba(34, 197, 94, 0.1); border-radius: 8px; padding: 6px;">
+                                <i class="bx bx-check-circle" style="color: #22C55E;"></i>
+                            </div>
+                            <div class="act-text" style="flex: 1; margin-left: 12px;">
+                                <strong>Foundation phase</strong> completed
+                                <div class="act-time" style="font-size: 11px; color: #6b6b6b;">2 days ago</div>
+                            </div>
+                        </div>
+                        <div class="activity-item" style="padding: 12px 0; border-bottom: 1px solid #2a2a2a;">
+                            <div class="act-icon" style="background: rgba(59, 130, 246, 0.1); border-radius: 8px; padding: 6px;">
+                                <i class="bx bx-file" style="color: #3b82f6;"></i>
+                            </div>
+                            <div class="act-text" style="flex: 1; margin-left: 12px;">
+                                <strong>Weekly report</strong> submitted by John Doe
+                                <div class="act-time" style="font-size: 11px; color: #6b6b6b;">5 days ago</div>
+                            </div>
+                        </div>
+                        <div class="activity-item" style="padding: 12px 0;">
+                            <div class="act-icon" style="background: rgba(245, 158, 11, 0.1); border-radius: 8px; padding: 6px;">
+                                <i class="bx bx-money" style="color: #F59E0B;"></i>
+                            </div>
+                            <div class="act-text" style="flex: 1; margin-left: 12px;">
+                                <strong>Invoice #1042</strong> was paid
+                                <div class="act-time" style="font-size: 11px; color: #6b6b6b;">1 week ago</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Message Project Manager Button -->
+            <div style="margin-top: 32px; text-align: center;">
+                <a href="cl-messages.html">
+                    <button class="message-pm-btn">
+                        <i class="bx bx-message"></i>
+                        Message Your Project Manager
+                    </button>
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="../js/side-bar.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/auth-check.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

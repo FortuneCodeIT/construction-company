@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/wo-dashboard.css">
+    <link rel="stylesheet" href="../boxicons-2.1.4/boxicons-2.1.4/css/boxicons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <title>My Tasks - Worker Portal</title>
+    <style>
+        .role-badge {
+            background: rgba(255, 82, 0, 0.1);
+            color: #FF5200;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+     
+       
+    </style>
+</head>
+<body>
+        <!-- <div id="preloader">
+        <div class="logo-loader">
+            <img src="../images/Vector.png" alt="Pinnacle">
+            <h2>Pinnacle</h2>
+            <div class="spinner"></div>
+            <div class="loader-text">Loading...</div>
+        </div>
+    </div> -->
+
+   
+   
+  <!-- Worker Sidebar -->
+    <aside class="aside-container">
+        <div class="logo">
+            <img src="../images/Vector.png" alt="">
+            <h2>Pinnacle</h2>
+        </div>
+        <nav>
+            <ul>
+                <a href="wo-dashboard.html">
+                    <div class="side-list">
+                        <i class="bx bx-home-alt"></i>
+                        <li>My Dashboard</li>
+                    </div>
+                </a>
+                <a href="wo-project.html">
+                    <div class="side-list">
+                        <i class="bx bx-briefcase"></i>
+                        <li>My Projects</li>
+                    </div>
+                </a>
+                <a href="wo-tasks.html">
+                    <div class="side-list active">
+                        <i class="bx bx-task"></i>
+                        <li>My Tasks</li>
+                    </div>
+                </a>
+                <a href="wo-materials.html">
+                    <div class="side-list">
+                        <i class="bx bx-cube"></i>
+                        <li>Materials</li>
+                    </div>
+                </a>
+                <a href="wo-monitoring.html">
+                    <div class="side-list">
+                        <i class="bx bx-line-chart"></i>
+                        <li>Site Monitoring</li>
+                    </div>
+                </a>
+
+                <a href="wo-inbox.html">
+                    <div class="side-list">
+                        <i class="bx bx-message"></i>
+                        <li>Inbox</li>
+                    </div>
+                </a>
+
+                <a href="wo-profile.html">
+                    <div class="side-list">
+                        <i class="bx bx-user"></i>
+                        <li>My Profile</li>
+                    </div>
+                </a>
+                <a href="wo-notifications.html">
+                    <div class="side-list">
+                        <i class="bx bx-bell bell"></i>
+                        <li>Notifications</li>
+                    </div>
+                </a>
+                <a href="wo-settings.html">
+                    <div class="side-list">
+                        <i class="bx bx-slider"></i>
+                        <li>Settings</li>
+                    </div>
+                </a>
+
+                <div class="logout-wrapper">
+                    <a href="../logout.html">
+                        <div class="logout">
+                            <i class="bx bx-log-out"></i>
+                            <li>Logout</li>
+                        </div>
+                    </a>
+                </div>
+            </ul>
+        </nav>
+    </aside>
+
+    <header>
+        <div class="bar-wrapper"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+        <div class="search-bar-wrapper"><i class="bx bx-search search"></i><input type="search" placeholder="search tasks..."></div>
+        <div class="header-profile-wrapper">
+            <i class="bx bx-bell bell"></i><div class="notify-dot"></div>
+            <div class="header-profile">
+                <img src="../images/avatar2.jpg" alt="">
+                <div class="header-profile-text"><h3>John Doe</h3><p>Project Manager</p></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="main-content">
+            <div class="page-name">
+                <h1>My Tasks</h1>
+                <div class="role-badge"><i class="bx bx-task"></i>Update Status</div>
+            </div>
+
+            <!-- Task Filters -->
+            <div class="projects-btn-wrapper">
+                <button class="active-btn" id="allTasksBtn">All Tasks</button>
+                <button id="pendingTasksBtn">Pending</button>
+                <button id="completedTasksBtn">Completed</button>
+            </div>
+
+            
+
+            <div id="tasksContainer"></div>
+
+            <!-- Task List -->
+            <!-- <div id="taskList" >
+                <div class="task-card" data-status="in-progress">
+                    <div class="task-header">
+                        <span class="task-title">Excavation Work</span>
+                        <select class="status-select" onchange="updateTaskStatus(this, 'Excavation Work')">
+                            <option value="pending">Pending</option>
+                            <option value="in-progress" selected>In Progress</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                    <div class="task-project">Sunrise Tower</div>
+                    <div style="display: flex; justify-content: space-between; margin-top: 12px;">
+                        <span class="task-due">Due: Jan 20, 2026</span>
+                        <span class="priority-high">● High Priority</span>
+                    </div>
+                </div>
+
+                <div class="task-card" data-status="completed">
+                    <div class="task-header">
+                        <span class="task-title">Steel Reinforcement</span>
+                        <select class="status-select" onchange="updateTaskStatus(this, 'Steel Reinforcement')">
+                            <option value="pending">Pending</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="completed" selected>Completed</option>
+                        </select>
+                    </div>
+                    <div class="task-project">Metro Station</div>
+                    <div style="display: flex; justify-content: space-between; margin-top: 12px;">
+                        <span class="task-due">Due: Mar 18, 2026</span>
+                        <span class="priority-medium">● Medium Priority</span>
+                    </div>
+                </div>
+
+                <div class="task-card" data-status="pending">
+                    <div class="task-header">
+                        <span class="task-title">Plumbing Installation</span>
+                        <select class="status-select" onchange="updateTaskStatus(this, 'Plumbing Installation')">
+                            <option value="pending" selected>Pending</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                    <div class="task-project">Residential Complex</div>
+                    <div style="display: flex; justify-content: space-between; margin-top: 12px;">
+                        <span class="task-due">Due: July 5, 2025</span>
+                        <span class="priority-high">● High Priority (Overdue)</span>
+                    </div>
+                </div>
+
+                <div class="task-card" data-status="in-progress">
+                    <div class="task-header">
+                        <span class="task-title">Electrical Wiring</span>
+                        <select class="status-select" onchange="updateTaskStatus(this, 'Electrical Wiring')">
+                            <option value="pending">Pending</option>
+                            <option value="in-progress" selected>In Progress</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                    <div class="task-project">River Bridge</div>
+                    <div style="display: flex; justify-content: space-between; margin-top: 12px;">
+                        <span class="task-due">Due: Mar 20, 2026</span>
+                        <span class="priority-low">● Low Priority</span>
+                    </div>
+                </div>
+
+                <div class="task-card" data-status="pending">
+                    <div class="task-header">
+                        <span class="task-title">Foundation Inspection</span>
+                        <select class="status-select" onchange="updateTaskStatus(this, 'Foundation Inspection')">
+                            <option value="pending" selected>Pending</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                    <div class="task-project">Sunrise Tower</div>
+                    <div style="display: flex; justify-content: space-between; margin-top: 12px;">
+                        <span class="task-due">Due: Jun 25, 2026</span>
+                        <span class="priority-medium">● Medium Priority</span>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </main>
+
+    <script>
+
+
+        document.getElementById('DOMContentLoaded', () => {
+            renderWorkerTasks();
+            renderWorkerProject();
+        });
+     
+
+
+  
+        function updateTaskStatus(select, taskName) {
+            const status = select.value;
+            const taskCard = select.closest('.task-card');
+            taskCard.setAttribute('data-status', status);
+           
+            // In a real app, you would send this to your backend
+            console.log(`Task "${taskName}" updated to ${status}`);
+           
+            // Show confirmation
+            const originalText = select.style.color;
+            select.style.color = '#22C55E';
+            setTimeout(() => {
+                select.style.color = '';
+            }, 500);
+        }
+
+        
+
+        // Filter tasks
+        document.getElementById('allTasksBtn').addEventListener('click', function() {
+            showAllTasks();
+            setActiveButton(this);
+        });
+       
+        document.getElementById('pendingTasksBtn').addEventListener('click', function() {
+            filterTasks('pending');
+            setActiveButton(this);
+        });
+       
+        document.getElementById('completedTasksBtn').addEventListener('click', function() {
+            filterTasks('completed');
+            setActiveButton(this);
+        });
+       
+        function filterTasks(status) {
+            const tasks = document.querySelectorAll('.task-card');
+            tasks.forEach(task => {
+                if (task.getAttribute('data-status') === status) {
+                    task.style.display = 'block';
+                } else {
+                    task.style.display = 'none';
+                }
+            });
+        }
+       
+        function showAllTasks() {
+            const tasks = document.querySelectorAll('.task-card');
+            tasks.forEach(task => {
+                task.style.display = 'block';
+            });
+        }
+       
+        function setActiveButton(activeBtn) {
+            const buttons = document.querySelectorAll('.projects-btn-wrapper button');
+            buttons.forEach(btn => {
+                btn.classList.remove('active-btn');
+            });
+            activeBtn.classList.add('active-btn');
+        }
+    </script>
+
+    <script src="../js/auth-check.js"></script>   
+    <script src="../js/data.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../boxicons-2.1.4/boxicons-2.1.4/css/boxicons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    
+    
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Document</title>
+</head>
+<style>
+.blue {
+    color: #FF5200;
+    text-transform: uppercase;
+}
+.progress-container {
+  width: 100%;
+  max-width: 500px;
+  font-family: Arial, sans-serif;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  background:#4CAF50;
+  transition: width 0.5s ease;
+  border-radius: 10px;
+}
+.progress-fill-1 {
+  height: 100%;
+  background: #FF9800;
+  transition: width 0.5s ease;
+  border-radius: 10px;
+}
+.progress-fill-2 {
+  height: 100%;
+  background: #f44336;
+  transition: width 0.5s ease;
+  border-radius: 10px;
+}
+
+.progress-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.completed { 
+    color: #4CAF50; 
+    stroke: #4CAF50;
+    transition: stroke-dashoffset 0.8s ease;
+}
+.in-progress { 
+        stroke: #FF9800;
+    transition: stroke-dashoffset 0.8s ease;
+    color: #FF9800; 
+}
+.not-started { 
+        stroke: #f44336;
+    transition: stroke-dashoffset 0.8s ease;
+    color: #f44336; 
+}
+
+
+.view-details
+  /* scrollbar */
+::-webkit-scrollbar { 
+    width: 5px; 
+}
+::-webkit-scrollbar-track { 
+    background: #0d0d0d; 
+}
+::-webkit-scrollbar-thumb { 
+    background: #2a2a2a; 
+    border-radius: 99px; 
+}
+
+
+  .circular-progress {
+    position: relative;
+    width: 200px;
+    height: 200px;
+  }
+
+  .circular-progress svg {
+    transform: rotate(-90deg);
+  }
+
+  .circular-progress circle {
+    fill: none;
+    stroke-width: 15;
+    stroke-linecap: round;
+  }
+
+  .bg-circle {
+    stroke: #2d2d44;
+  }
+
+  .segment-completed {
+    stroke: #4CAF50;
+    transition: stroke-dashoffset 0.8s ease;
+  }
+
+  .segment-inprogress {
+    stroke: #FF9800;
+    transition: stroke-dashoffset 0.8s ease;
+  }
+
+  .segment-notstarted {
+    stroke: #f44336;
+    transition: stroke-dashoffset 0.8s ease;
+  }
+
+  .center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+  }
+
+  .center-text .percentage {
+    font-size: 32px;
+    font-weight: bold;
+  }
+
+  .center-text .label {
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+  }
+
+  .legend {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    justify-content: center;
+    color: white;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+  }
+
+  .legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  .controls {
+    margin-top: 30px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .controls button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s;
+  }
+
+  .controls button:hover {
+    transform: scale(1.05);
+  }
+
+  .btn-complete { 
+    background: #4CAF50; 
+    color: white; 
+}
+  .btn-progress { background: #FF9800; color: white; }
+  .btn-notstarted { background: #f44336; color: white; }
+  .btn-reset { background: #555; color: white; }
+</style>
+<body>
+<!-- this is for preloader -->
+            <div id="preloader">
+        <div class="logo-loader">
+            <img src="../images/Vector.png" alt="Pinnacle">
+            <h2>Pinnacle</h2>
+            <div class="spinner"></div>
+            <div class="loader-text">Loading...</div>
+        </div>
+    </div>
+
+    
+    <aside class="aside-container">
+        <div class="logo">
+            <img src="../images/Vector.png" alt="" style="color: black;">
+            <h2>Pinnacle</h2>
+        </div>
+
+        <nav>
+            <ul>
+                <a href="dashboard.html">
+                <div class="side-list active">
+                    <i class="bx bx-home-alt"></i>
+                <li>Dashboard</li>
+                </div>
+                </a>
+
+                <a href="projects.html">
+                <div class="side-list">
+                    <i class="bx bx-briefcase"></i>
+                <li>Projects</li>
+                </div>
+                </a>
+
+                <a href="tasks.html">
+                <div class="side-list">
+                    <i class="bx bx-task"></i>
+                <li>Tasks</li>
+                </div>
+                </a>
+
+                <a href="materials.html">
+                <div class="side-list">
+                    <i class="bx bx-cube"></i>
+                <li>Materials</li>
+                </div>
+                </a>
+
+                <a href="budgets.html">
+                <div class="side-list">
+                    <i class="bx bx-money"></i>
+                <li>Budget</li>
+                </div>
+                </a>
+
+                <a href="teams.html">
+                <div class="side-list">
+                    <i class="bx bx-group"></i>
+                <li>Team</li>
+                </div>
+                </a>
+
+                <a href="monitoring.html">
+                <div class="side-list">
+                    <i class="bx bx-line-chart"></i>
+                <li>Monitoring</li>
+                </div>
+                </a>
+
+                <a href="reports.html">
+                <div class="side-list">
+                    <i class="bx bx-file"></i>
+                <li>Reports</li>
+                </div>
+                </a>
+                
+                <a href="ad-inbox.html">
+                    <div class="side-list">
+                        <i class="bx bx-message"></i>
+                        <li>Inbox</li>
+                    </div>
+                </a>
+
+                <a href="notification.html">
+                <div class="side-list">
+                    <i class="bx bx-bell bell"></i>
+                <li>Notifications</li>
+                </div>
+                </a>
+
+                <a href="settings.html">
+                <div class="side-list">
+                    <i class="bx bx-slider"></i>
+                <li>Settings</li>
+                </div>
+                </a>
+
+                <a href="user.html">
+                <div class="side-list">
+                    <i class="bx bx-user-plus"></i>
+                <li>User Management</li>
+                </div>
+                </a>
+
+                <div class="logout-wrapper">
+                <a href="../logout.html">
+                <div class="logout">
+                    <i class="bx bx-log-out"></i>
+                <li>Logout</li>
+                </div>
+                </a>
+
+                </div>
+
+            </ul>
+        </nav>
+    </aside>
+
+            <header>
+  
+
+            <div class="search-bar-wrapper">
+                <i class="bx bx-search search"></i>
+                <input type="search" name="" id="" placeholder="search here...">
+                                
+            </div>
+
+            
+
+            <div style="display: flex; align-items: center; gap: 10px;">      
+            <div class="bar-wrapper">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="header-profile-wrapper">
+                 <i class="bx bx-bell bell"></i>
+                 <div class="notify-dot" id="notifyDot"></div>
+                
+                 <div class="header-profile">
+                    <img src="../images/avatar2.jpg" alt="">
+                    <div class="header-profile-text">
+                        <h3 id="userName"> John Doe</h3>
+                        <p id="userRole">Adminstration</p>
+                        
+                    </div>
+                 </div>
+            </div>
+
+            </div>
+
+      
+        </header>
+
+    <main class="main-container">
+
+        <div class="main-content">
+
+        <div class="page-name">
+            <h1>Dashboard</h1>
+            <span  style="color: #9a9a9a; font-size: 14px;" id="roleDisplay"></span>
+        </div>
+
+        <div class="dash-overview-container">
+
+            <div class="dash-overview-card" style="box-shadow:  0 6px 2px rgb(34, 197, 94);">
+                <div class="dash-overview-icon" style="background-color:rgba(34, 197, 94, 0.07);">
+                <i class="bx bx-layer" style="font-size: 24px; color: #22C55E;"></i>
+                </div>
+                <div class="overview-card-content">
+                    <p>Total Projects</p>
+                    <h4 id="totalProjects">0</h4>
+                </div>
+            </div>
+
+            <div class="dash-overview-card" style="box-shadow: 0 6px 2px rgb(37, 101, 235) ;">
+                <div class="dash-overview-icon" style="background-color:rgba(37, 99, 235, 0.07);">
+                <i class="bx bx-trending-up" style="font-size: 24px; color: #2565EB;"></i>
+                </div>
+                <div class="overview-card-content">
+                    <p>Active Projects</p>
+                    <h4 id="activeProjects">0</h4>
+                </div>
+            </div>
+
+            <div class="dash-overview-card" style="box-shadow:  0 6px 2px rgb(239, 68, 68);">
+                 <div class="dash-overview-icon" style="background-color: rgba(243, 70, 70, 0.07);">               
+                <i class="bx bx-time-five" style="font-size: 24px; color: #EF4444;"></i>
+                </div>
+                <div class="overview-card-content">
+                    <p>Delayed Projects</p>
+                    <h4 id="delayedProjects">0</h4>
+                </div>
+            </div>
+
+            <div class="dash-overview-card" style="box-shadow:  0 6px 2px rgb(245, 158, 11);">
+                 <div class="dash-overview-icon" style="background-color: rgba(245, 158, 11, 0.07);">  
+                <i class="bx bx-wallet" style="font-size: 24px; color: #F59E0B;"></i>
+                 </div>
+                <div class="overview-card-content">
+                    <p>Total Budget</p>
+                    <h4 id="totalBudget">&#8358;0</h4>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="dash-progress-wrapper" id="chartsContainer">
+            
+            <div class="dash-progress-card">
+            <div class="dash-progress-card-title">
+                <p>Project Progress</p>
+            </div>
+
+                <div class="progress-wrapper">
+                  
+
+                      <div id="projectStatusChart" style="text-align: center; padding: 20px;">
+                        <p style="color: #6b6b6b;">No projects to display</p>
+                    </div>
+                   
+          
+                </div>
+            </div>
+
+            <div class="dash-progress-card">
+                <div class="dash-progress-card-title">
+                <p>Budget Overview</p>
+                </div>
+
+                <div class="progress-wrapper">
+                    <div id="projectStatusChart" style="text-align: center; padding: 20px;">
+                        <p style="color: #6b6b6b;">No projects to display</p>
+                    </div>
+
+
+                    <!-- <canvas class="canvas-overview"></canvas>
+
+                    <div class="progress-content-wrapper">
+
+                        <div class="progress-content">
+                        <div class="progress-text">
+                            <div class="dot spent"></div>
+                            <p>Spent</p>
+                        </div>
+                            <span>&#8358;1.54B</span>
+                        </div>
+
+                        <div class="progress-content">
+                        <div class="progress-text">
+                            <div class="dot remain"></div>
+                            <p>Remaining</p>
+                        </div>
+                            <span>&#8358;1.12B</span>
+                        </div>
+
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="activities-container">
+            <div class="activities-wrapper">
+                <div class="activities-head">
+                    <p>Recent Activities</p>
+                    <button>View all</button>
+                </div>
+
+                <div class="activities-table" id="containerId">
+
+            
+                    <!-- <table style="width: 100%;">
+                        <thead>
+                            <tr class="table-bg">
+                                <th>Activity</th>
+                                <th>Project</th>
+                                <th>User</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>
+                                    site report submitted
+                                </td>
+                                <td>
+                                   Sunrise Tower
+                                </td>
+                                <td>
+                                    Micheal Brown
+                                </td>
+                                <td>
+                                    May 15, 2026
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    site report submitted
+                                </td>
+                                <td>
+                                   Sunrise Tower
+                                </td>
+                                <td>
+                                    Micheal Brown
+                                </td>
+                                <td>
+                                    May 15, 2026
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    site report submitted
+                                </td>
+                                <td>
+                                   Sunrise Tower
+                                </td>
+                                <td>
+                                    Micheal Brown
+                                </td>
+                                <td>
+                                    May 15, 2026
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    site report submitted
+                                </td>
+                                <td>
+                                   Sunrise Tower
+                                </td>
+                                <td>
+                                    Micheal Brown
+                                </td>
+                                <td>
+                                    May 15, 2026
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    site report submitted
+                                </td>
+                                <td>
+                                   Sunrise Tower
+                                </td>
+                                <td>
+                                    Micheal Brown
+                                </td>
+                                <td>
+                                    May 15, 2026
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    site report submitted
+                                </td>
+                                <td>
+                                   Sunrise Tower
+                                </td>
+                                <td>
+                                    Micheal Brown
+                                </td>
+                                <td>
+                                    May 15, 2026
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table> -->
+                </div>
+
+            
+            </div>
+        </div>
+
+        </div>
+    </main>
+
+    <script>
+        class CircularProgress {
+  constructor() {
+    this.circumference = 2 * Math.PI * 85; // 534.07
+   
+    this.completedSegment = document.getElementById('completed-segment');
+    this.inprogressSegment = document.getElementById('inprogress-segment');
+    this.notstartedSegment = document.getElementById('notstarted-segment');
+   
+    this.totalPercent = document.getElementById('totalPercentage');
+    this.completedPercent = document.getElementById('completedPercent');
+    this.inprogressPercent = document.getElementById('inprogressPercent');
+    this.notstartedPercent = document.getElementById('notstartedPercent');
+  }
+
+  update(completed, inProgress, notStarted) {
+    // Ensure values are valid
+    const total = completed + inProgress + notStarted;
+    if (total !== 100) {
+      console.warn('Percentages must sum to 100. Adjusting...');
+      const ratio = 100 / total;
+      completed *= ratio;
+      inProgress *= ratio;
+      notStarted = 100 - completed - inProgress;
+    }
+
+    // Update each segment
+    this.setSegment(this.completedSegment, completed, '#4CAF50');
+    this.setSegment(this.inprogressSegment, inProgress, '#FF9800');
+    this.setSegment(this.notstartedSegment, notStarted, '#f44336');
+
+    // Update text
+    const completedRounded = Math.round(completed);
+    const inProgressRounded = Math.round(inProgress);
+    const notStartedRounded = Math.round(notStarted);
+   
+    this.totalPercent.textContent = completedRounded + '%';
+    this.completedPercent.textContent = completedRounded;
+    this.inprogressPercent.textContent = inProgressRounded;
+    this.notstartedPercent.textContent = notStartedRounded;
+
+    // Update total percentage color based on completion
+    if (completedRounded === 100) {
+      this.totalPercent.style.color = '#4CAF50';
+    } else if (completedRounded >= 50) {
+      this.totalPercent.style.color = '#8BC34A';
+    } else {
+      this.totalPercent.style.color = '#FF9800';
+    }
+  }
+
+  setSegment(element, percentage, color) {
+    const offset = this.circumference - (percentage / 100) * this.circumference;
+    element.style.strokeDashoffset = offset;
+    element.style.stroke = color;
+   
+    // If percentage is 0, hide the segment
+    if (percentage === 0) {
+      element.style.opacity = '0';
+    } else {
+      element.style.opacity = '1';
+    }
+  }
+
+  // Get progress from tasks
+  calculateFromTasks(tasks) {
+    const total = tasks.length;
+    if (total === 0) return { completed: 0, inProgress: 0, notStarted: 0 };
+   
+    const completed = tasks.filter(t => t.status === 'completed').length;
+    const inProgress = tasks.filter(t => t.status === 'in-progress').length;
+    const notStarted = tasks.filter(t => t.status === 'not-started').length;
+   
+    return {
+      completed: (completed / total) * 100,
+      inProgress: (inProgress / total) * 100,
+      notStarted: (notStarted / total) * 100
+    };
+  }
+
+  // Update from project tasks
+  updateFromProject(project) {
+    const stats = this.calculateFromTasks(project.tasks);
+    this.update(stats.completed, stats.inProgress, stats.notStarted);
+  }
+}
+
+// Initialize
+const progress = new CircularProgress();
+
+// Example project data
+const myProject = {
+  name: "Website Redesign",
+  tasks: [
+    { title: "Design", status: "completed" },
+    { title: "Frontend", status: "in-progress" },
+    { title: "Backend", status: "not-started" },
+    { title: "Testing", status: "not-started" },
+    { title: "Deployment", status: "not-started" }
+  ]
+};
+
+// Function to update from project
+function updateFromProject() {
+  progress.updateFromProject(myProject);
+}
+
+// Test function for controls
+function updateProgress(c, i, n) {
+  progress.update(c, i, n);
+}
+
+// Initialize with default values
+updateProgress(75, 25, 0);
+
+// Example: Change a task status and update
+function changeTaskStatus(taskIndex, newStatus) {
+  myProject.tasks[taskIndex].status = newStatus;
+  progress.updateFromProject(myProject);
+}
+
+// Uncomment to test:
+// setTimeout(() => changeTaskStatus(2, 'completed'), 2000);
+// setTimeout(() => changeTaskStatus(3, 'in-progress'), 4000);
+    </script>
+
+    <script src="../js/side-bar.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/auth-check.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>
