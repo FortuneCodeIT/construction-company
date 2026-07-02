@@ -1,5 +1,5 @@
     //  this is for preloader
-       document.getElementById('DOMContentLoaded', () => {
+       document.addEventListener('DOMContentLoaded', () => {
 
             const preloader = document.getElementById('preloader');
             if (preloader) {
@@ -25,8 +25,8 @@ function checkAuth() {
         console.log("❌ No user session found - redirecting to login");
     
         
-        const currentPage = window.location.pathname;
-        console.log(" current page:", currentPage)
+        // const currentPage = window.location.pathname;
+        // console.log(" current page:", currentPage)
 
     //     if (currentPage.includes('login.html')) {
     //         console.log("Already on login page - no redirect");

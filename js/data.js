@@ -132,6 +132,13 @@ function addUser(userData) {
 
         const initials = userData.name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
 
+        let cleanRole = userData.role || 'client';
+
+        if (typeof cleanRole === 'string') {
+            cleanRole = userData.role.replace(/-/g, '_');
+        }
+
+
         const newUser = {
             id: newId,
             name: userData.name,
@@ -139,16 +146,15 @@ function addUser(userData) {
             phone: userData.phone || '',
             password: userData.password,
             confirmPassword: userData.confirmPassword,
-            role: userData.role,
+            role: cleanRole,
             department: userData.department || '',
             status: userData.status,
             clientProjectId: null,
             createdAt: new Date().toISOString()
         };
-
         users.push(newUser);
         localStorage.setItem('users', JSON.stringify(users));
-        console.log('New user added:', newUser.name);
+        console.log('New user added:', newUser.name, 'Role:', newUser.role);
 
 
         addActivity('New user ${newUser.name} created as ${newUser.role}', "user");

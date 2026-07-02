@@ -43,7 +43,6 @@
         .modal-content input, .modal-content select, .modal-content textarea {
             width: 100%;
             padding: 12px;
-            background: #1a1a1a;
             border: 1px solid #2a2a2a;
             border-radius: 8px;
             color: #fff;
@@ -647,8 +646,8 @@
                     <option value="Finance">Finance</option>
                 </select>
                
-                <input type="password" id="userPassword" placeholder="Password" id="pwdField">
-                <input type="password" id="userConfirmPassword" placeholder="Confirm Password" id="confirmField">
+                <input type="password" id="userPassword" placeholder="Password" >
+                <input type="password" id="userConfirmPassword" placeholder="Confirm Password">
                
                 <select id="userStatus">
                     <option value="active">Active</option>
@@ -694,11 +693,19 @@
         document.getElementById('userRole').textContent = 'Administrator';
 
     function openCreateUserModal() {
+        
         document.getElementById('createUserModal').style.display = 'flex';
     document.getElementById('modalTitle').textContent = 'Create New User';
     document.getElementById('createUserForm').reset();
     document.getElementById('UserPassword').required = true;
     document.getElementById('UserConfirmPassword').required = true;
+
+       const roleSelect = document.getElementById('userRole');
+        console.log('Role dropdown found:', !roleSelect);
+    if (roleSelect) {
+        console.log('Role option:', roleSelect.innerHtml);
+        console.log('Role option:', roleSelect.value);
+    }
 
 }
     function closeCreateUserModal() {
@@ -969,7 +976,7 @@
             }
         }
     </script> -->
-
+<script src="../js/side-bar.js"></script>
 <script src="../js/data.js"></script>
 <script src="../js/auth-check.s"></script>
 <script src="../js/dashboard.js"></script>
