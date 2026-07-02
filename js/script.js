@@ -30,10 +30,12 @@ openNav.addEventListener('click', () => {
 
     if (openNav.classList.contains('open')) {
         mobileNav.style.display = 'flex';
+        mobileNav.style.transform = 'translateX(0)';
         desktopNav.style.display= 'none';
     }
     else {
-        mobileNav.style.display= 'none';
+        mobileNav.style.transform = 'translateX(-100%)';
+        mobileNav.style.display = 'none';
     }
 });
 

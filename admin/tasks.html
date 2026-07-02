@@ -421,11 +421,24 @@ function openTaskModal() {
 
     const assigneeSelect = document.getElementById('taskAssignee');
     const users = getAllUsers();
-    const workers = users.filter(u => u.role !== 'client' && u.role !== 'admin');
+    const workers = users.filter(u => u.role !== 'client' && u.role !== 'admin' && u.status === 'active');
+
+    const roleDisplayNames = {
+        'project_manager': 'Project Manager',
+        'engineer': 'Engineer',
+        'supervisor': 'Supervisor',
+        'worker': 'Worker'
+    };
 
     assigneeSelect.innerHTML = `<option value="">Select Team Member</option>`;
-    workers.forEach(worker => {
-        assigneeSelect.innerHTML += `<option value="${worker.id}">${worker.name}</option>`;
+
+    workers.sort((a, b) => {
+        if (a.role !== b.role) return a.role.localeCompare(b.role);
+        return a.name.localeCompare(b.name);
+    });
+    workers.forEach(u => {
+        const roleLabel = roleDisplayNames[u.role] || u.role;
+        assigneeSelect.innerHTML += `<option value="${u.id}">${u.name} (${roleLabel})</option>`;
     });
 
     const today = new Date().toISOString().split('T')[0];

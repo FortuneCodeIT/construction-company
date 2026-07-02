@@ -626,7 +626,7 @@
                 <input type="email" id="userEmail" placeholder="Email Address" required>
                 <input type="tel" id="userPhone" placeholder="Phone Number">
                
-                <select id="userRole" required>
+                <select id="userModalRole" required>
                     <option value="">Select Role</option>
                     <option value="admin">Admin</option>
                     <option value="project_manager">Project Manager</option>
@@ -646,13 +646,8 @@
                     <option value="Finance">Finance</option>
                 </select>
                
-<<<<<<< HEAD
                 <input type="password" id="userPassword" placeholder="Password" >
                 <input type="password" id="userConfirmPassword" placeholder="Confirm Password">
-=======
-                <input type="password" id="userPassword" placeholder="Password" id="pwdField">
-                <input type="password" id="userConfirmPassword" placeholder="Confirm Password" id="confirmField">
->>>>>>> c5491b9d34073c1e38491f7641db556e7dbc1c85
                
                 <select id="userStatus">
                     <option value="active">Active</option>
@@ -705,7 +700,7 @@
     document.getElementById('UserPassword').required = true;
     document.getElementById('UserConfirmPassword').required = true;
 
-       const roleSelect = document.getElementById('userRole');
+       const roleSelect = document.getElementById('userModalRole');
         console.log('Role dropdown found:', !roleSelect);
     if (roleSelect) {
         console.log('Role option:', roleSelect.innerHtml);

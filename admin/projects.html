@@ -135,7 +135,6 @@
 
 
           <header>
-  
 
             <div class="search-bar-wrapper">
                 <i class="bx bx-search search"></i>
@@ -156,10 +155,10 @@
                  <div class="notify-dot" id="notifyDot"></div>
                 
                  <div class="header-profile">
-                    <img src="../images/avatar2.jpg" alt="">
+                    <img src="../images/r1.jpg" alt="">
                     <div class="header-profile-text">
-                        <h3 id="userName"> John Doe</h3>
-                        <p id="userRole">Adminstration</p>
+                        <h3 id="userName"></h3>
+                        <p id="userRole"></p>
                         
                     </div>
                  </div>
@@ -258,6 +257,11 @@
                 <option value="Emma_Park">Emma Park</option> -->
             </select>
 
+            <select id="projectAssignee">
+                <option value="">Select Team Member</option>
+
+            </select>
+
 
             <select id="client">
                 <option value="">Select Client</option>
@@ -272,13 +276,13 @@
                 <option value="on-hold" style="color: var(--spent);">On Hold</option>
             </select>
 
-            <label for="" style="font-size: 12px;">Initial Progress</label>
+            <!-- <label for="" style="font-size: 12px;">Initial Progress</label>
             <input type="range" name="" id="range" min="0" max="100" value="0" oninput="updateProgressValue(this.value)">
             <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
                 <span style="font-size: 12px; color: #9a9a9a;">0%</span>
                 <span style="font-size: 14px; color: #FF5200; font-weight: 600;">0%</span>
                 <span style="font-size: 12px; color: #9a9a9a;">100%</span>
-            </div>
+            </div> -->
 
             <textarea name="" id="description" placeholder="Brief description of the project..."></textarea>
             <p id="formError" style="font-size: 12px; color: red;"></p>

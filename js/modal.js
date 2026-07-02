@@ -65,6 +65,29 @@
         pmSelect.innerHTML += `<option value="${u.id}">${u.name}</option>`;
     });
 
+    const assignTeam = document.getElementById('projectAssignee')
+
+    const workers = users.filter(t => t.role !== 'admin' && t.role !== 'client' && t.role !== 'project_manager' && t.status === 'active');
+
+    const roleGroup = {
+        'engineer': 'Engineers',
+        'supervisor': 'Supervisors',
+        'worker': 'Workers'
+    }
+
+
+    assignTeam.innerHTML = `<option value="">Select Other Teams</option>`;
+
+    Object.keys(roleGroup).forEach(role => {
+        const roleWorkers = workers.filter(t => t.role === role);
+        if (roleWorkers.length > 0) {
+            assignTeam.innerHTML += `<option disabled style="color: #FF5200; font-weight: bold;" >-- ${roleGroup[role]} --</option>`;
+            roleWorkers.forEach(t => {
+                assignTeam.innerHTML += `<option value="${t.id}">${t.name}</option>`;
+            });
+        }
+    });
+
 
     const clientSelect = document.getElementById('client');
     const clients = users.filter(u => u.role === 'client');
@@ -115,6 +138,7 @@ function handleAddProject(event) {
         const endDate = document.getElementById("endDate").value;
         const budget = document.getElementById("budget").value;
         const projectManagerId = document.getElementById("manager").value;
+        const assigneeId = document.getElementById("projectAssignee").value;
         const clientId = document.getElementById("client").value;
         const status = document.getElementById("status").value;
         const range = document.getElementById("range").value;
@@ -155,6 +179,7 @@ function handleAddProject(event) {
             endDate: endDate,
             budget: Number(budget),
             projectManagerId: projectManagerId,
+            assigneeId: assigneeId,
             clientId: clientId,
             status: status,
             description: description,
@@ -327,7 +352,7 @@ function createUser() {
     const name = document.getElementById('userFullName').value.trim();
     const email = document.getElementById('userEmail').value;
     const phone = document.getElementById('userPhone').value;
-    const role = document.getElementById('userRole').value;
+    const role = document.getElementById('userModalRole').value;
     const department = document.getElementById('userDepartment').value;
     const password = document.getElementById('userPassword').value;
     const confirmPassword = document.getElementById('userConfirmPassword').value;

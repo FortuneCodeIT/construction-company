@@ -587,7 +587,7 @@ function loadProjectDetails() {
                                 <td>₦ ${project.budget.toLocaleString()}</td>
                             </tr>
                             <tr>
-                                <th>Engineer</th>
+                                <th>Projects Manager</th>
                                 <td>${managerName}</td>
                             </tr>
                         </table>
@@ -1909,93 +1909,93 @@ function renderWorkerProjects(projects) {
 
 
 
-        function renderWorkerTasks(tasks) {
-            console.log("🔵 renderWorkerTasks() called");
-            
-            // const user = getCurrentUser();
-            // if (!user) return;
-            
-            // const allTasks = getAllTasks();
-            // const myTasks = allTasks.filter(t => t.assignedTo === user.id);
-          tasks.sort((a, b) => {
-                 return new Date(b.createdAt) - new Date(a.createdAt);
-             });
+function renderWorkerTasks(tasks) {
+    console.log("🔵 renderWorkerTasks() called");
+    
+    // const user = getCurrentUser();
+    // if (!user) return;
+    
+    // const allTasks = getAllTasks();
+    // const myTasks = allTasks.filter(t => t.assignedTo === user.id);
+    tasks.sort((a, b) => {
+            return new Date(b.createdAt) - new Date(a.createdAt);
+        });
 
-            
-            const container = document.getElementById('tasksContainer');
-            if (!container) return;
-   
-          container.innerHTML = `hgnghnghc`
+    
+    const container = document.getElementById('tasksContainer');
+    if (!container) return;
 
-            if (!tasks || tasks.length === 0) {
-                container.innerHTML = `
-                     <div class="empty-state">
-                        <i class="bx bx-check-circle"></i>
-                        <h4>No Tasks</h4>
-                        <p>You have no tasks assigned.</p>
-                    </div>
-                `;
-                return;
-            }
+    container.innerHTML = `hgnghnghc`
 
-            container.innerHTML = tasks.slice(0, 10).map(t => {
-                const statusClass = t.status === 'pending' ? 'status-pending' : 
-                                   t.status === 'in_progress' ? 'status-progress' : 'status-completed';
-                const statusDisplay = t.status === 'in_progress' ? 'In Progress' : 
-                                     t.status === 'done' ? 'Completed' : 
-                                     t.status || 'Pending';
+    if (!tasks || tasks.length === 0) {
+        container.innerHTML = `
+                <div class="empty-state">
+                <i class="bx bx-check-circle"></i>
+                <h4>No Tasks</h4>
+                <p>You have no tasks assigned.</p>
+            </div>
+        `;
+        return;
+    }
 
-                const priorityClass = t.priority === 'high' ? 'priority-high' :
-                                     t.priority === 'medium' ? 'priority-medium' : 'priority-low';
-                const priorityDisplay = t.priority ? t.priority.charAt(0).toUpperCase() + t.priority.slice(1) : 'medium';
-                                     
-                const projectName = getProjectName(t.projectId);
+    container.innerHTML = tasks.slice(0, 10).map(t => {
+        const statusClass = t.status === 'pending' ? 'status-pending' : 
+                            t.status === 'in_progress' ? 'status-progress' : 'status-completed';
+        const statusDisplay = t.status === 'in_progress' ? 'In Progress' : 
+                                t.status === 'done' ? 'Completed' : 
+                                t.status || 'Pending';
 
-                // Due Date
-                const dueDate = t.dueDate ? formatDate(t.dueDate) : 'No date';
+        const priorityClass = t.priority === 'high' ? 'priority-high' :
+                                t.priority === 'medium' ? 'priority-medium' : 'priority-low';
+        const priorityDisplay = t.priority ? t.priority.charAt(0).toUpperCase() + t.priority.slice(1) : 'medium';
+                                
+        const projectName = getProjectName(t.projectId);
+
+        // Due Date
+        const dueDate = t.dueDate ? formatDate(t.dueDate) : 'No date';
 
 
-              
-                // OverDue Date
-                const isOverDue = t.dueDate && new Date(t.dueDate) < new Date() && t.status !== 'completed';
-              
-                return `
-
-                <div class="task-card" data-status="in-progress">
-                    <div class="task-header">
-                        <span class="task-title">${t.title}</span>
-
-                        <select class="status-select" onchange="updateTaskStatus(${t.id}, this.value)">
-                            <option value="pending" ${t.status === 'pending' ? 'selected' : ''}>Pending</option>
-                            <option value="in_progress" ${t.status === 'in_progress' ? 'selected' : ''}>In Progress</option>
-                            <option value="completed" ${t.status === 'completed' ? 'selected' : ''}>Completed</option>
-                            <option value="delayed" ${t.status === 'delayed' ? 'selected' : ''}>Delayed</option>
-                        </select>
-                    </div>
-                    <div class="task-project">📁 ${projectName}</div>
-                    <div style="display: flex; justify-content: space-between; margin-top: 12px;">
-                    <div>
-                        <span class="task-due">Due: ${dueDate}</span>
-                    </div>
-                        <span class="priority-high ${priorityClass}">● ${priorityDisplay}</span>
-                    </div>
-                </div>
-                    <div class="task-item">
-            
-                        <span class="task-status ${statusClass}"></span>
-                    </div>
-                `;
-            }).join('');
-
-              if (!dueDate) {
-                document.querySelector('.task-due').textContent = `OverDue: ${dueDate}`
-            }
-            else {
-                document.querySelector('.task-due').textContent = `isOverDue: ${isOverDue}`
-            }
         
+        // OverDue Date
+        const isOverDue = t.dueDate && new Date(t.dueDate) < new Date() && t.status !== 'completed';
+        
+        return `
 
-        }
+        <div class="task-card" data-status="in-progress">
+            <div class="task-header">
+                <span class="task-title">${t.title}</span>
+
+                <select class="status-select" onchange="updateTaskStatus(${t.id}, this.value)">
+                    <option value="pending" ${t.status === 'pending' ? 'selected' : ''}>Pending</option>
+                    <option value="in_progress" ${t.status === 'in_progress' ? 'selected' : ''}>In Progress</option>
+                    <option value="completed" ${t.status === 'completed' ? 'selected' : ''}>Completed</option>
+                    <option value="delayed" ${t.status === 'delayed' ? 'selected' : ''}>Delayed</option>
+                </select>
+            </div>
+            <div class="task-project">📁 ${projectName}</div>
+            <div style="display: flex; justify-content: space-between; margin-top: 12px;">
+            <div>
+                <span class="task-due">Due: ${dueDate}</span>
+            </div>
+                <span class="priority-high ${priorityClass}">● ${priorityDisplay}</span>
+            </div>
+        </div>
+            <div class="task-item">
+    
+                <span class="task-status ${statusClass}"></span>
+            </div>
+        `;
+    }).join('');
+
+        if (!dueDate) {
+        document.querySelector('.task-due').textContent = `OverDue: ${dueDate}`
+    }
+    else {
+        document.querySelector('.task-due').textContent = `isOverDue: ${isOverDue}`
+    }
+
+
+}
 
 // ============================================
 // UPDATE TASK STATUS

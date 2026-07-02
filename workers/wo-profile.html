@@ -88,17 +88,40 @@
         </nav>
     </aside>
 
-    <header>
-        <div class="bar-wrapper"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
-        <div class="search-bar-wrapper"><i class="bx bx-search search"></i><input type="search" placeholder="search..."></div>
-        <div class="header-profile-wrapper">
-            <i class="bx bx-bell bell"></i><div class="notify-dot"></div>
-            <div class="header-profile">
-                <img src="../images/avatar2.jpg" alt="">
-                <div class="header-profile-text"><h3>John Doe</h3><p>Project Manager</p></div>
+       <header>
+
+            <div class="search-bar-wrapper">
+                <i class="bx bx-search search"></i>
+                <input type="search" name="" id="" placeholder="search here...">
+                                
             </div>
-        </div>
-    </header>
+
+            
+
+            <div style="display: flex; align-items: center; gap: 10px;">      
+            <div class="bar-wrapper">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="header-profile-wrapper">
+                 <i class="bx bx-bell bell"></i>
+                 <div class="notify-dot" id="notifyDot"></div>
+                
+                 <div class="header-profile">
+                    <img src="../images/r1.jpg" alt="">
+                    <div class="header-profile-text">
+                        <h3 id="userName"></h3>
+                        <p id="userRole"></p>
+                        
+                    </div>
+                 </div>
+            </div>
+
+            </div>
+
+      
+        </header>
 
     <main class="main-container">
         <div class="main-content">
@@ -201,8 +224,9 @@
             alert(`${hours} hours logged for ${project}`);
         }
     </script>
-
+  <script src="../js/side-bar.js"></script>
 <script src="../js/data.js"></script>
 <script src="../js/auth-check.js"></script>
+  <script src="../js/dashboard.js"></script>
 </body>
 </html>

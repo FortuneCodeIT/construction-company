@@ -111,6 +111,8 @@ body {
     display: flex;
     min-height: 100vh;
 }
+
+
 .aside-container { 
     background: #1A1A1A;
     min-height: 100vh;
