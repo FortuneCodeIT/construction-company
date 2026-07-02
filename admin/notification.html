@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../boxicons-2.1.4/boxicons-2.1.4/css/boxicons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- this is for preloader -->
+            <div id="preloader">
+        <div class="logo-loader">
+            <img src="../images/Vector.png" alt="Pinnacle">
+            <h2>Pinnacle</h2>
+            <div class="spinner"></div>
+            <div class="loader-text">Loading...</div>
+        </div>
+    </div>
+    
+    <aside class="aside-container">
+        <div class="logo">
+            <img src="../images/Vector.png" alt="" style="color: black;">
+            <h2>Pinnacle</h2>
+        </div>
+
+        <nav>
+            <ul>
+                <a href="dashboard.html">
+                <div class="side-list">
+                    <i class="bx bx-home-alt"></i>
+                <li>Dashboard</li>
+                </div>
+                </a>
+
+                <a href="projects.html">
+                <div class="side-list">
+                    <i class="bx bx-briefcase"></i>
+                <li>Projects</li>
+                </div>
+                </a>
+
+                <a href="tasks.html">
+                <div class="side-list">
+                    <i class="bx bx-task"></i>
+                <li>Tasks</li>
+                </div>
+                </a>
+
+                <a href="materials.html">
+                <div class="side-list">
+                    <i class="bx bx-cube"></i>
+                <li>Materials</li>
+                </div>
+                </a>
+
+                <a href="budgets.html">
+                <div class="side-list">
+                    <i class="bx bx-money"></i>
+                <li>Budget</li>
+                </div>
+                </a>
+
+                <a href="teams.html">
+                <div class="side-list">
+                    <i class="bx bx-group"></i>
+                <li>Team</li>
+                </div>
+                </a>
+
+                <a href="monitoring.html">
+                <div class="side-list">
+                    <i class="bx bx-line-chart"></i>
+                <li>Monitoring</li>
+                </div>
+                </a>
+
+                <a href="reports.html">
+                <div class="side-list">
+                    <i class="bx bx-file"></i>
+                <li>Reports</li>
+                </div>
+                </a>
+                
+                <a href="ad-inbox.html">
+                    <div class="side-list">
+                        <i class="bx bx-message"></i>
+                        <li>Inbox</li>
+                    </div>
+                </a>
+
+                <a href="notification.html">
+                <div class="side-list active">
+                    <i class="bx bx-bell bell"></i>
+                <li>Notifications</li>
+                </div>
+                </a>
+
+                <a href="settings.html">
+                <div class="side-list">
+                    <i class="bx bx-slider"></i>
+                <li>Settings</li>
+                </div>
+                </a>
+                
+                <a href="user.html">
+                <div class="side-list">
+                    <i class="bx bx-user-plus"></i>
+                <li>User Management</li>
+                </div>
+                </a>
+
+
+                <div class="logout-wrapper">
+                <a href="../logout.html">
+                <div class="logout">
+                    <i class="bx bx-log-out"></i>
+                <li>Logout</li>
+                </div>
+                </a>
+
+                </div>
+
+            </ul>
+        </nav>
+    </aside>
+
+               <header>
+  
+
+            <div class="search-bar-wrapper">
+                <i class="bx bx-search search"></i>
+                <input type="search" name="" id="" placeholder="search here...">
+                                
+            </div>
+
+            
+
+            <div style="display: flex; align-items: center; gap: 10px;">      
+            <div class="bar-wrapper">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="header-profile-wrapper">
+                 <i class="bx bx-bell bell"></i>
+                 <div class="notify-dot" id="notifyDot"></div>
+                
+                 <div class="header-profile">
+                    <img src="../images/avatar2.jpg" alt="">
+                    <div class="header-profile-text">
+                        <h3 id="userName"> John Doe</h3>
+                        <p id="userRole">Adminstration</p>
+                        
+                    </div>
+                 </div>
+            </div>
+
+            </div>
+
+      
+        </header>
+
+    <main class="main-container">
+
+        <div class="main-content">
+
+        <div class="page-name">
+            <h1>Notifications</h1>
+            <a href="">Mark All as read</a>
+        </div>
+
+        <div class="notify-container">
+            
+            <div class="notify-card unread">
+                <div class="notify-content">
+                    <div class="notify-icon">
+                    <i class="bx bxs-bell new"></i>
+                    </div>
+
+                    <div class="notify-text">
+                        <h2>New Task Assigned</h2>
+                        <p>You have been assigned a new task for Sunrise Tower project</p>
+                        <div class="notify-time">10 minutes ago</div>
+                    </div>
+                </div>
+
+                <button class="mark-read" onclick="markAsRead(this)">Mark read</button>
+            </div>
+
+            <div class="notify-card unread">
+                <div class="notify-content">
+                    <div class="notify-icon">
+                    <i class="bx bxs-error-circle" style="color: #F59E0B;"></i>
+                    </div>
+
+                    <div class="notify-text">
+                        <h2>Material Running Low</h2>
+                        <p>Short Rod quantity is running low in Metro Station project</p>
+                        <div class="notify-time">10 minutes ago</div>
+                    </div>
+                </div>
+
+                <button class="mark-read" onclick="markAsRead(this)">Mark read</button>
+            </div>
+
+            <div class="notify-card unread">
+                <div class="notify-content">
+                    <div class="notify-icon">
+                    <i class="bx bx-calendar" style="color: #EF4444;"></i>
+                    </div>
+
+                    <div class="notify-text">
+                        <h2>Project Deadline Near</h2>
+                        <p>River Bridge project deadline is in 5 days</p>
+                        <div class="notify-time">10 minutes ago</div>
+                    </div>
+                </div>
+
+                <button class="mark-read" onclick="markAsRead(this)">Mark read</button>
+            </div>
+       
+            <div class="notify-card">
+                <div class="notify-content">
+                    <div class="notify-icon">
+                    <i class="bx bx-trending-down" style="color: #EF4444;"></i>
+                    </div>
+
+                    <div class="notify-text">
+                        <h2>Budget Exceeded</h2>
+                        <p>Budget exceeded for Residential Complex project</p>
+                        <div class="notify-time">10 minutes ago</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="notify-card">
+                <div class="notify-content">
+                    <div class="notify-icon">
+                    <i class="bx bxs-file" style="color: #22C55E;"></i>
+                    </div>
+
+                    <div class="notify-text">
+                        <h2>Site Report Submitted</h2>
+                        <p>Site report has been submitted for Sunrise Tower</p>
+                         <div class="notify-time">10 minutes ago</div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    </main>
+
+<script src="../js/side-bar.js"></script>
+<script src="../js/data.js"></script>
+<script src="../js/auth-check.js"></script>
+</body>
+</html>

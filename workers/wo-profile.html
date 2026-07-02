@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/wo-dashboard.css">
+    <link rel="stylesheet" href="../boxicons-2.1.4/boxicons-2.1.4/css/boxicons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <title>My Profile - Worker Portal</title>
+</head>
+<body>
+   
+  <!-- Worker Sidebar -->
+    <aside class="aside-container">
+        <div class="logo">
+            <img src="../images/Vector.png" alt="">
+            <h2>Pinnacle</h2>
+        </div>
+        <nav>
+            <ul>
+                <a href="wo-dashboard.html">
+                    <div class="side-list">
+                        <i class="bx bx-home-alt"></i>
+                        <li>My Dashboard</li>
+                    </div>
+                </a>
+                <a href="wo-project.html">
+                    <div class="side-list">
+                        <i class="bx bx-briefcase"></i>
+                        <li>My Projects</li>
+                    </div>
+                </a>
+                <a href="wo-tasks.html">
+                    <div class="side-list">
+                        <i class="bx bx-task"></i>
+                        <li>My Tasks</li>
+                    </div>
+                </a>
+                <a href="wo-materials.html">
+                    <div class="side-list">
+                        <i class="bx bx-cube"></i>
+                        <li>Materials</li>
+                    </div>
+                </a>
+                <a href="wo-monitoring.html">
+                    <div class="side-list">
+                        <i class="bx bx-line-chart"></i>
+                        <li>Site Monitoring</li>
+                    </div>
+                </a>
+
+                <a href="wo-inbox.html">
+                    <div class="side-list">
+                        <i class="bx bx-message"></i>
+                        <li>Inbox</li>
+                    </div>
+                </a>
+
+                <a href="wo-profile.html">
+                    <div class="side-list active">
+                        <i class="bx bx-user"></i>
+                        <li>My Profile</li>
+                    </div>
+                </a>
+                <a href="wo-notifications.html">
+                    <div class="side-list">
+                        <i class="bx bx-bell bell"></i>
+                        <li>Notifications</li>
+                    </div>
+                </a>
+                <a href="wo-settings.html">
+                    <div class="side-list">
+                        <i class="bx bx-slider"></i>
+                        <li>Settings</li>
+                    </div>
+                </a>
+
+                <div class="logout-wrapper">
+                    <a href="../logout.html">
+                        <div class="logout">
+                            <i class="bx bx-log-out"></i>
+                            <li>Logout</li>
+                        </div>
+                    </a>
+                </div>
+            </ul>
+        </nav>
+    </aside>
+
+    <header>
+        <div class="bar-wrapper"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+        <div class="search-bar-wrapper"><i class="bx bx-search search"></i><input type="search" placeholder="search..."></div>
+        <div class="header-profile-wrapper">
+            <i class="bx bx-bell bell"></i><div class="notify-dot"></div>
+            <div class="header-profile">
+                <img src="../images/avatar2.jpg" alt="">
+                <div class="header-profile-text"><h3>John Doe</h3><p>Project Manager</p></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="main-content">
+            <div class="page-name">
+                <h1>My Profile</h1>
+                <div class="role-badge"><i class="bx bx-edit"></i>Edit Profile</div>
+            </div>
+
+            <div class="profile-form">
+                <form id="profileForm">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" value="John Doe" id="fullName">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" value="john.doe@pinnacle.com" id="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" value="+234 (704) 543 4589" id="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Role</label>
+                        <select id="role">
+                            <option value="Project Manager" selected>Project Manager</option>
+                            <option value="Site Engineer">Site Engineer</option>
+                            <option value="Supervisor">Supervisor</option>
+                            <option value="Worker">Worker</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Department</label>
+                        <select id="department">
+                            <option value="Construction" selected>Construction</option>
+                            <option value="Engineering">Engineering</option>
+                            <option value="Safety">Safety</option>
+                            <option value="Procurement">Procurement</option>
+                        </select>
+                    </div>
+
+                    <button type="button" class="save-btn" onclick="saveProfile()">Save Changes</button>
+                </form>
+
+                <!-- Log Hours Section -->
+                <div class="hours-log">
+                    <h4>Log Work Hours</h4>
+                    <div class="hours-input">
+                        <select id="hoursProject">
+                            <option value="">Select Project</option>
+                            <option value="Sunrise Tower">Sunrise Tower</option>
+                            <option value="Metro Station">Metro Station</option>
+                            <option value="River Bridge">River Bridge</option>
+                        </select>
+                        <input type="number" id="hoursWorked" placeholder="Hours" step="0.5">
+                        <button class="hours-log-btn" onclick="logHours()">Log Hours</button>
+                    </div>
+                    <div id="hoursHistory" style="margin-top: 12px; font-size: 13px; color: #9a9a9a;">
+                        Today's total: 0 hours
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let todayHours = 0;
+       
+        function saveProfile() {
+            const name = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const role = document.getElementById('role').value;
+            const department = document.getElementById('department').value;
+           
+            alert(`Profile updated!\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nRole: ${role}\nDepartment: ${department}`);
+        }
+       
+        function logHours() {
+            const project = document.getElementById('hoursProject').value;
+            const hours = parseFloat(document.getElementById('hoursWorked').value);
+           
+            if (!project) {
+                alert('Please select a project');
+                return;
+            }
+            if (!hours || hours <= 0) {
+                alert('Please enter valid hours');
+                return;
+            }
+           
+            todayHours += hours;
+            document.getElementById('hoursHistory').innerHTML = `Today's total: ${todayHours} hours<br>Last logged: ${project} - ${hours} hours`;
+            document.getElementById('hoursWorked').value = '';
+           
+            alert(`${hours} hours logged for ${project}`);
+        }
+    </script>
+
+<script src="../js/data.js"></script>
+<script src="../js/auth-check.js"></script>
+</body>
+</html>

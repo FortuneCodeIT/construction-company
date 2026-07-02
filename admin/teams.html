@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../boxicons-2.1.4/boxicons-2.1.4/css/boxicons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <title>Document</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+  <!-- this is for preloader -->
+            <div id="preloader">
+        <div class="logo-loader">
+            <img src="../images/Vector.png" alt="Pinnacle">
+            <h2>Pinnacle</h2>
+            <div class="spinner"></div>
+            <div class="loader-text">Loading...</div>
+        </div>
+    </div>
+    
+    <aside class="aside-container">
+        <div class="logo">
+            <img src="../images/Vector.png" alt="" style="color: black;">
+            <h2>Pinnacle</h2>
+        </div>
+
+        <nav>
+            <ul>
+                <a href="dashboard.html">
+                <div class="side-list">
+                    <i class="bx bx-home-alt"></i>
+                <li>Dashboard</li>
+                </div>
+                </a>
+
+                <a href="projects.html">
+                <div class="side-list">
+                    <i class="bx bx-briefcase"></i>
+                <li>Projects</li>
+                </div>
+                </a>
+
+                <a href="tasks.html">
+                <div class="side-list">
+                    <i class="bx bx-task"></i>
+                <li>Tasks</li>
+                </div>
+                </a>
+
+                <a href="materials.html">
+                <div class="side-list">
+                    <i class="bx bx-cube"></i>
+                <li>Materials</li>
+                </div>
+                </a>
+
+                <a href="budgets.html">
+                <div class="side-list">
+                    <i class="bx bx-money"></i>
+                <li>Budget</li>
+                </div>
+                </a>
+
+                <a href="teams.html">
+                <div class="side-list active">
+                    <i class="bx bx-group"></i>
+                <li>Team</li>
+                </div>
+                </a>
+
+                <a href="monitoring.html">
+                <div class="side-list">
+                    <i class="bx bx-line-chart"></i>
+                <li>Monitoring</li>
+                </div>
+                </a>
+
+                <a href="reports.html">
+                <div class="side-list">
+                    <i class="bx bx-file"></i>
+                <li>Reports</li>
+                </div>
+                </a>
+                
+                <a href="ad-inbox.html">
+                    <div class="side-list">
+                        <i class="bx bx-message"></i>
+                        <li>Inbox</li>
+                    </div>
+                </a>
+
+                <a href="notification.html">
+                <div class="side-list">
+                    <i class="bx bx-bell bell"></i>
+                <li>Notifications</li>
+                </div>
+                </a>
+
+                <a href="settings.html">
+                <div class="side-list">
+                    <i class="bx bx-slider"></i>
+                <li>Settings</li>
+                </div>
+                </a>
+                
+                <a href="user.html">
+                <div class="side-list">
+                    <i class="bx bx-user-plus"></i>
+                <li>User Management</li>
+                </div>
+                </a>
+
+
+                <div class="logout-wrapper">
+                <a href="../logout.html">
+                <div class="logout">
+                    <i class="bx bx-log-out"></i>
+                <li>Logout</li>
+                </div>
+                </a>
+
+                </div>
+
+            </ul>
+        </nav>
+    </aside>
+
+                 <header>
+  
+
+            <div class="search-bar-wrapper">
+                <i class="bx bx-search search"></i>
+                <input type="search" name="" id="" placeholder="search here...">
+                                
+            </div>
+
+            
+
+            <div style="display: flex; align-items: center; gap: 10px;">      
+            <div class="bar-wrapper">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="header-profile-wrapper">
+                 <i class="bx bx-bell bell"></i>
+                 <div class="notify-dot" id="notifyDot"></div>
+                
+                 <div class="header-profile">
+                    <img src="../images/avatar2.jpg" alt="">
+                    <div class="header-profile-text">
+                        <h3 id="userName"> John Doe</h3>
+                        <p id="userRole">Adminstration</p>
+                        
+                    </div>
+                 </div>
+            </div>
+
+            </div>
+
+      
+        </header>
+
+    <main class="main-container">
+
+<div class="main-content">
+
+        <div class="page-name">
+            <h1>Team Members</h1>
+
+                 <div style="display: flex; gap:10px;">
+            <button id="openModal">
+                <i class="bx bx-plus"></i>
+                Add Member
+            </button>
+
+            <select name="" id="roleFilter" onchange="filterMembers()">
+              <option value="all">All Roles</option>
+              <option value="project_manager">Project Manager</option>
+              <option value="engineer">Engineer</option>
+              <option value="supervisor">Supervisor</option>
+              <option value="worker">Worker</option>
+            </select>
+
+            <select name="" id="statusFilter" onchange="filterMembers()">
+              <option value="all">All Status</option>
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+            </select>
+
+            </div>
+        </div>
+
+        <div class="dash-overview-container">
+
+          
+            <div class="dash-overview-card" style="box-shadow:  0 6px 2px rgb(239, 68, 68);">
+                 <div class="dash-overview-icon" style="background-color: rgba(243, 70, 70, 0.07);">
+                <i class="bx bx-user-check" style="font-size: 24px; color: #EF4444;"></i>
+                 </div>
+                <div class="overview-card-content">
+                    <p>Project managers</p>
+                    <h4 id="totalProjectManager">0</h4>
+                </div>
+            </div>
+
+            <div class="dash-overview-card" style="box-shadow: 0 6px 2px rgb(37, 101, 235) ;">
+                <div class="dash-overview-icon" style="background-color:rgba(37, 99, 235, 0.07);">
+                <i class="bx bx-hard-hat" style="font-size: 24px; color: #2563EB;"></i>
+                </div>
+                <div class="overview-card-content">
+                    <p>Engineer</p>
+                    <h4 id="totalEngineer">0</h4>
+                </div>
+            </div>
+
+            <div class="dash-overview-card" style="box-shadow:  0 6px 2px rgb(34, 197, 94);">
+                <div class="dash-overview-icon" style="background-color:rgba(34, 197, 94, 0.07);">
+                <i class="bx bx-group" style="font-size: 24px; color: #22C55E;"></i>
+                </div>
+                <div class="overview-card-content">
+                    <p>Workers</p>
+                    <h4 id="totalWorker">0</h4>
+                </div>
+            </div>
+
+            <div class="dash-overview-card" style="box-shadow:  0 6px 2px rgb(245, 158, 11);">
+                 <div class="dash-overview-icon" style="background-color: rgba(245, 158, 11, 0.07);">
+                <i class="bx bx-user-pin" style="font-size: 24px; color: #F59E0B;"></i>
+                 </div>
+                <div class="overview-card-content">
+                    <p>Team Members</p>
+                    <h4 id="totalMembers">0</h4>
+                </div>
+            </div>
+
+        </div>
+
+    <!-- Members Section -->
+        <div class="team-member-card-container">
+    <div class="members-header">
+      <div class="members-title">All Members</div>
+    </div>
+
+    <div class="members-grid" id="teamContainer">
+
+      <div class="member-card engineer-team">
+        <div class="mc-top">
+          <div class="mc-left">
+            <div class="mc-avatar" style="background:linear-gradient(135deg,#f05a1a,#ff8c5a)">
+                <img src="../images/founder.jpg" alt="">
+            </div>
+            <div>
+              <div class="mc-name">Micheal Brown</div>
+              <div class="mc-role">Engineer</div>
+            </div>
+          </div>
+          <div class="online-badge"><div class="online-dot"></div>Online</div>
+        </div>
+        <div class="mc-divider"></div>
+        <div class="mc-info">
+          <div class="mc-info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            michealbrown@gmail.com
+          </div>
+          <div class="mc-info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.83a16 16 0 0 0 6.29 6.29l1.17-.78a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +234 706 768 5678
+          </div>
+        </div>
+        <div class="mc-actions">
+         <a href="profile-detail.html" class="mc-btn mc-btn-primary">View Profile</a>
+          <button class="mc-btn mc-btn-ghost" id="message">Message</button>
+        </div>
+      </div>
+
+
+      <div class="member-card supervisor-team">
+        <div class="mc-top">
+          <div class="mc-left">
+            <div class="mc-avatar" style="background:linear-gradient(135deg,#3b82f6,#60a5fa)">
+                <img src="../images/lady.png" alt="">
+            </div>
+            <div>
+              <div class="mc-name">sonia james</div>
+              <div class="mc-role">Supervisor</div>
+            </div>
+          </div>
+          <div class="online-badge"><div class="online-dot"></div>Online</div>
+        </div>
+        <div class="mc-divider"></div>
+        <div class="mc-info">
+          <div class="mc-info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            soniajames@gmail.com
+          </div>
+          <div class="mc-info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.83a16 16 0 0 0 6.29 6.29l1.17-.78a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +234 706 768 5678
+          </div>
+        </div>
+        <div class="mc-actions">
+         <a href="profile-detail.html" class="mc-btn mc-btn-primary">View Profile</a>
+          <button class="mc-btn mc-btn-ghost" id="message">Message</button>
+        </div>
+      </div>
+
+
+      <div class="member-card worker-team">
+        <div class="mc-top">
+          <div class="mc-left">
+            <div class="mc-avatar" style="background:linear-gradient(135deg,#3b82f6,#60a5fa)">
+                <img src="../images/lady.png" alt="">
+            </div>
+            <div>
+              <div class="mc-name">sonia james</div>
+              <div class="mc-role">Worker</div>
+            </div>
+          </div>
+          <div class="online-badge"><div class="online-dot"></div>Online</div>
+        </div>
+        <div class="mc-divider"></div>
+        <div class="mc-info">
+          <div class="mc-info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            soniajames@gmail.com
+          </div>
+          <div class="mc-info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.83a16 16 0 0 0 6.29 6.29l1.17-.78a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +234 706 768 5678
+          </div>
+        </div>
+        <div class="mc-actions">
+         <a href="profile-detail.html" class="mc-btn mc-btn-primary">View Profile</a>
+          <button class="mc-btn mc-btn-ghost" id="message">Message</button>
+        </div>
+      </div>
+
+
+      <div class="member-card engineer-team">
+        <div class="mc-top">
+          <div class="mc-left">
+            <div class="mc-avatar" style="background:linear-gradient(135deg,#3b82f6,#60a5fa)">
+                <img src="../images/lady.png" alt="">
+            </div>
+            <div>
+              <div class="mc-name">sonia james</div>
+              <div class="mc-role">Engineer</div>
+            </div>
+          </div>
+          <div class="online-badge"><div class="online-dot"></div>Online</div>
+        </div>
+        <div class="mc-divider"></div>
+        <div class="mc-info">
+          <div class="mc-info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            soniajames@gmail.com
+          </div>
+          <div class="mc-info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.83a16 16 0 0 0 6.29 6.29l1.17-.78a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +234 706 768 5678
+          </div>
+        </div>
+        <div class="mc-actions">
+         <a href="profile-detail.html" class="mc-btn mc-btn-primary">View Profile</a>
+          <button class="mc-btn mc-btn-ghost" id="message">Message</button>
+        </div>
+      </div>
+
+
+      <div class="member-card supervisor-team">
+        <div class="mc-top">
+          <div class="mc-left">
+            <div class="mc-avatar" style="background:linear-gradient(135deg,#3b82f6,#60a5fa)">
+                <img src="../images/lady.png" alt="">
+            </div>
+            <div>
+              <div class="mc-name">sonia james</div>
+              <div class="mc-role">Supervisor</div>
+            </div>
+          </div>
+          <div class="online-badge"><div class="online-dot"></div>Online</div>
+        </div>
+        <div class="mc-divider"></div>
+        <div class="mc-info">
+          <div class="mc-info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            soniajames@gmail.com
+          </div>
+          <div class="mc-info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.83a16 16 0 0 0 6.29 6.29l1.17-.78a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +234 706 768 5678
+          </div>
+        </div>
+        <div class="mc-actions">
+         <a href="profile-detail.html" class="mc-btn mc-btn-primary">View Profile</a>
+          <button class="mc-btn mc-btn-ghost" id="message">Message</button>
+        </div>
+      </div>
+
+
+      <div class="member-card worker-team">
+        <div class="mc-top">
+          <div class="mc-left">
+            <div class="mc-avatar" style="background:linear-gradient(135deg,#3b82f6,#60a5fa)">
+                <img src="../images/lady.png" alt="">
+            </div>
+            <div>
+              <div class="mc-name">sonia james</div>
+              <div class="mc-role">Worker</div>
+            </div>
+          </div>
+          <div class="offline-badge"><div class="offline-dot"></div>Offline</div>
+        </div>
+        <div class="mc-divider"></div>
+        <div class="mc-info">
+          <div class="mc-info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            soniajames@gmail.com
+          </div>
+          <div class="mc-info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.83a16 16 0 0 0 6.29 6.29l1.17-.78a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +234 706 768 5678
+          </div>
+        </div>
+        <div class="mc-actions">
+         <a href="profile-detail.html" class="mc-btn mc-btn-primary">View Profile</a>
+          <button class="mc-btn mc-btn-ghost" id="message">Message</button>
+        </div>
+      </div>
+
+
+      <div class="member-card supervisor-team">
+        <div class="mc-top">
+          <div class="mc-left">
+            <div class="mc-avatar" style="background:linear-gradient(135deg,#3b82f6,#60a5fa)">
+                <img src="../images/lady.png" alt="">
+            </div>
+            <div>
+              <div class="mc-name">sonia james</div>
+              <div class="mc-role">Supervisor</div>
+            </div>
+          </div>
+          <div class="online-badge"><div class="online-dot"></div>Online</div>
+        </div>
+        <div class="mc-divider"></div>
+        <div class="mc-info">
+          <div class="mc-info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            soniajames@gmail.com
+          </div>
+          <div class="mc-info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.83a16 16 0 0 0 6.29 6.29l1.17-.78a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +234 706 768 5678
+          </div>
+        </div>
+        <div class="mc-actions">
+         <a href="profile-detail.html" class="mc-btn mc-btn-primary">View Profile</a>
+          <button class="mc-btn mc-btn-ghost" id="message">Message</button>
+        </div>
+      </div>
+
+
+      <div class="member-card engineer-team">
+        <div class="mc-top">
+          <div class="mc-left">
+            <div class="mc-avatar" style="background:linear-gradient(135deg,#3b82f6,#60a5fa)">
+                <img src="../images/lady.png" alt="">
+            </div>
+            <div>
+              <div class="mc-name">sonia james</div>
+              <div class="mc-role">Engineer</div>
+            </div>
+          </div>
+          <div class="offline-badge"><div class="offline-dot"></div>offline</div>
+        </div>
+        <div class="mc-divider"></div>
+        <div class="mc-info">
+          <div class="mc-info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            soniajames@gmail.com
+          </div>
+          <div class="mc-info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.83a16 16 0 0 0 6.29 6.29l1.17-.78a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +234 706 768 5678
+          </div>
+        </div>
+        <div class="mc-actions">
+         <a href="profile-detail.html" class="mc-btn mc-btn-primary">View Profile</a>
+          <button class="mc-btn mc-btn-ghost" id="message">Message</button>
+        </div>
+      </div>
+
+
+      <div class="member-card worker-team">
+        <div class="mc-top">
+          <div class="mc-left">
+            <div class="mc-avatar" style="background:linear-gradient(135deg,#3b82f6,#60a5fa)">
+                <img src="../images/lady.png" alt="">
+            </div>
+            <div>
+              <div class="mc-name">sonia james</div>
+              <div class="mc-role">Worker</div>
+            </div>
+          </div>
+          <div class="online-badge"><div class="online-dot"></div>Online</div>
+        </div>
+        <div class="mc-divider"></div>
+        <div class="mc-info">
+          <div class="mc-info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            soniajames@gmail.com
+          </div>
+          <div class="mc-info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.83a16 16 0 0 0 6.29 6.29l1.17-.78a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +234 706 768 5678
+          </div>
+        </div>
+        <div class="mc-actions">
+         <a href="profile-detail.html" class="mc-btn mc-btn-primary">View Profile</a>
+          <button class="mc-btn mc-btn-ghost" id="message">Message</button>
+        </div>
+      </div>
+
+
+      <div class="member-card supervisor-team">
+        <div class="mc-top">
+          <div class="mc-left">
+            <div class="mc-avatar" style="background:linear-gradient(135deg,#3b82f6,#60a5fa)">
+                <img src="../images/lady.png" alt="">
+            </div>
+            <div>
+              <div class="mc-name">sonia james</div>
+              <div class="mc-role">Supervisor</div>
+            </div>
+          </div>
+          <div class="offline-badge"><div class="offline-dot"></div>Offline</div>
+        </div>
+        <div class="mc-divider"></div>
+        <div class="mc-info">
+          <div class="mc-info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            soniajames@gmail.com
+          </div>
+          <div class="mc-info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.83a16 16 0 0 0 6.29 6.29l1.17-.78a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +234 706 768 5678
+          </div>
+        </div>
+        <div class="mc-actions">
+         <a href="profile-detail.html" class="mc-btn mc-btn-primary">View Profile</a>
+          <button class="mc-btn mc-btn-ghost" id="message">Message</button>
+        </div>
+      </div>
+
+
+      <div class="member-card engineer-team">
+        <div class="mc-top">
+          <div class="mc-left">
+            <div class="mc-avatar" style="background:linear-gradient(135deg,#3b82f6,#60a5fa)">
+                <img src="../images/lady.png" alt="">
+            </div>
+            <div>
+              <div class="mc-name">sonia james</div>
+              <div class="mc-role">Engineer</div>
+            </div>
+          </div>
+          <div class="online-badge"><div class="online-dot"></div>Online</div>
+        </div>
+        <div class="mc-divider"></div>
+        <div class="mc-info">
+          <div class="mc-info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            soniajames@gmail.com
+          </div>
+          <div class="mc-info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.83a16 16 0 0 0 6.29 6.29l1.17-.78a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +234 706 768 5678
+          </div>
+        </div>
+        <div class="mc-actions">
+         <a href="profile-detail.html" class="mc-btn mc-btn-primary">View Profile</a>
+          <button class="mc-btn mc-btn-ghost" id="message">Message</button>
+        </div>
+      </div>
+
+
+      <div class="member-card worker-team">
+        <div class="mc-top">
+          <div class="mc-left">
+            <div class="mc-avatar" style="background:linear-gradient(135deg,#3b82f6,#60a5fa)">
+                <img src="../images/lady.png" alt="">
+            </div>
+            <div>
+              <div class="mc-name">sonia james</div>
+              <div class="mc-role">Worker</div>
+            </div>
+          </div>
+          <div class="online-badge"><div class="online-dot"></div>Online</div>
+        </div>
+        <div class="mc-divider"></div>
+        <div class="mc-info">
+          <div class="mc-info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            soniajames@gmail.com
+          </div>
+          <div class="mc-info-row">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.83a16 16 0 0 0 6.29 6.29l1.17-.78a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +234 706 768 5678
+          </div>
+        </div>
+        <div class="mc-actions">
+         <a href="profile-detail.html" class="mc-btn mc-btn-primary">View Profile</a>
+          <button class="mc-btn mc-btn-ghost" id="message">Message</button>
+        </div>
+      </div>
+
+    </div><!-- /members-grid -->
+
+    </div>
+
+    <div class="pagination">
+      <div class="pg-btn">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </div>
+      <div class="pg-btn active">1</div>
+      <div class="pg-btn">2</div>
+      <div class="pg-btn">3</div>
+      <div class="pg-btn">4</div>
+      <div class="pg-btn">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+    </div>
+ 
+</div>
+</main>
+
+      <!-- Request Modal -->
+    <div class="request-modal" id="requestModal">
+        <div class="modal-content">
+            <h3 style="margin-bottom: 20px;">Add Member</h3>
+
+          <form action="" id="memberForm">
+            <input type="text" id="memberName" placeholder="Full Name" required>
+            <input type="email" id="memberEmail" placeholder="example@pinnacle.com" >
+            <input type="tel" id="memberPhone" placeholder="+234 XXX XXX XXXX">
+
+            <select id="memberRole">
+                <option value="">Select Role</option>
+                <option value="engineer">Engineer</option>
+                <option value="supervisor">Supervisor</option>
+                <option value="worker">Worker</option>
+                <option value="project-manager">Project Manager</option>
+                <option value="architect">Architect</option>
+                <option value="safety-officer">Safety Officer</option>
+            </select>
+            <select id="memberDepartment">
+                <option value="">Select Department</option>
+                <option value="construction">Construction</option>
+                <option value="engineering">Engineering</option>
+                <option value="safety">Safety</option>
+                <option value="procurement">Procurement</option>
+                <option value="architecture">Architecture</option>
+                <option value="management">Management</option>
+            </select>
+            <select id="memberStatus">
+                <option value="">Status</option>
+                <option value="active" style="color: var(--success);">Online</option>
+                <option value="inactive" style="color: var(--sub);">Offline</option>
+            </select>
+            <div>
+              <input type="password" class="memberPassword" id="memberPassword" placeholder="Create a password" >
+              <p style="padding: 10px 0 ; color: var(--spent); font-size:12px;"></p>
+            </div>
+            <input type="password" id="memberConfirmPassword" class="password" placeholder="Confirm password" required>
+
+            <div class="checkbox">
+              <input type="checkbox" id="memberCheckBox">
+             <p style="color: var(--sub); font-size: 12px;">Send welcome email with login instruction</p> 
+            </div>
+
+            <p id="memberError" style="color: #EF4444;"></p>
+
+            <div class="modal-buttons">
+                  <button class="cancel-btn" onclick="closeMemberModal()">Cancel</button>
+                  <button class="request-btn" type="button" onclick="handleAddMember()">Submit Request</button>
+              </div>
+
+            </form>
+        </div>
+
+    </div>
+        <!-- messageMember();
+        viewProfile(); -->
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    renderMembers();
+    filterMembers();
+
+  });
+
+
+function closeMemberModal() {
+    const modal = document.getElementById('requestModal');
+    modal.style.display = 'none';
+}
+
+</script>
+
+<script src="../js/team.js"></script>
+<script src="../js/auth-check.js"></script>
+<script src="../js/side-bar.js"></script>
+<script src="../js/modal.js"></script>
+<script src="../js/data.js"></script>
+<script src="../js/dashboard.js"></script>
+
+</body>
+</html>

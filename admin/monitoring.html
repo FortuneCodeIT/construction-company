@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../boxicons-2.1.4/boxicons-2.1.4/css/boxicons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- this is for preloader -->
+            <div id="preloader">
+        <div class="logo-loader">
+            <img src="../images/Vector.png" alt="Pinnacle">
+            <h2>Pinnacle</h2>
+            <div class="spinner"></div>
+            <div class="loader-text">Loading...</div>
+        </div>
+    </div>
+    
+    <aside class="aside-container">
+        <div class="logo">
+            <img src="../images/Vector.png" alt="" style="color: black;">
+            <h2>Pinnacle</h2>
+        </div>
+
+        <nav>
+            <ul>
+                <a href="dashboard.html">
+                <div class="side-list">
+                    <i class="bx bx-home-alt"></i>
+                <li>Dashboard</li>
+                </div>
+                </a>
+
+                <a href="projects.html">
+                <div class="side-list">
+                    <i class="bx bx-briefcase"></i>
+                <li>Projects</li>
+                </div>
+                </a>
+
+                <a href="tasks.html">
+                <div class="side-list">
+                    <i class="bx bx-task"></i>
+                <li>Tasks</li>
+                </div>
+                </a>
+
+                <a href="materials.html">
+                <div class="side-list">
+                    <i class="bx bx-cube"></i>
+                <li>Materials</li>
+                </div>
+                </a>
+
+                <a href="budgets.html">
+                <div class="side-list">
+                    <i class="bx bx-money"></i>
+                <li>Budget</li>
+                </div>
+                </a>
+
+                <a href="teams.html">
+                <div class="side-list">
+                    <i class="bx bx-group"></i>
+                <li>Team</li>
+                </div>
+                </a>
+
+                <a href="monitoring.html">
+                <div class="side-list active">
+                    <i class="bx bx-line-chart"></i>
+                <li>Monitoring</li>
+                </div>
+                </a>
+
+                <a href="reports.html">
+                <div class="side-list">
+                    <i class="bx bx-file"></i>
+                <li>Reports</li>
+                </div>
+                </a>
+                
+                <a href="ad-inbox.html">
+                    <div class="side-list">
+                        <i class="bx bx-message"></i>
+                        <li>Inbox</li>
+                    </div>
+                </a>
+
+                <a href="notification.html">
+                <div class="side-list">
+                    <i class="bx bx-bell bell"></i>
+                <li>Notifications</li>
+                </div>
+                </a>
+
+                <a href="settings.html">
+                <div class="side-list">
+                    <i class="bx bx-slider"></i>
+                <li>Settings</li>
+                </div>
+                </a>
+                
+                <a href="user.html">
+                <div class="side-list">
+                    <i class="bx bx-user-plus"></i>
+                <li>User Management</li>
+                </div>
+                </a>
+
+
+                <div class="logout-wrapper">
+                <a href="../logout.html">
+                <div class="logout">
+                    <i class="bx bx-log-out"></i>
+                <li>Logout</li>
+                </div>
+                </a>
+
+                </div>
+
+            </ul>
+        </nav>
+    </aside>
+
+                  <header>
+  
+
+            <div class="search-bar-wrapper">
+                <i class="bx bx-search search"></i>
+                <input type="search" name="" id="" placeholder="search here...">
+                                
+            </div>
+
+            
+
+            <div style="display: flex; align-items: center; gap: 10px;">      
+            <div class="bar-wrapper">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="header-profile-wrapper">
+                 <i class="bx bx-bell bell"></i>
+                 <div class="notify-dot" id="notifyDot"></div>
+                
+                 <div class="header-profile">
+                    <img src="../images/avatar2.jpg" alt="">
+                    <div class="header-profile-text">
+                        <h3 id="userName"> John Doe</h3>
+                        <p id="userRole">Adminstration</p>
+                        
+                    </div>
+                 </div>
+            </div>
+
+            </div>
+
+      
+        </header>
+
+    <main class="main-container">
+
+<div class="main-content">
+
+        <div class="page-name">
+            <h1>Site Monitoring</h1>
+            <button>
+                <i class="bx bx-plus"></i>
+                Add Report
+            </button>
+        </div>
+
+        <div class="dash-overview-container">
+
+            <div class="dash-overview-card" style="box-shadow: 0 6px 2px rgb(37, 101, 235) ;">
+                <div class="dash-overview-icon" style="background-color:rgba(37, 99, 235, 0.07);">
+                <i class="bx bx-sun" style="font-size: 24px; color: #2563EB;"></i>
+                </div>
+                <div class="overview-card-content">
+                    <p>Weather</p>
+                    <h4>28<sup>o</sup>C</h4>
+                    <span style="font-size: 12px;">Sunny</span>
+                </div>
+            </div>
+
+            <div class="dash-overview-card" style="box-shadow:  0 6px 2px rgb(239, 68, 68);">
+                 <div class="dash-overview-icon" style="background-color: rgba(243, 70, 70, 0.07);">               
+                <i class="bx bx-check-circle" style="font-size: 24px; color: #EF4444;"></i>
+                 </div>
+                <div class="overview-card-content up">
+                    <p>Workers Present</p>
+                    <h4>45</h4>
+                    <i class="bx bx-chevron-up"></i>
+                    +5 <span style="font-size: 12px;"> from yesterday</span>
+                </div>
+            </div>
+
+            <div class="dash-overview-card" style="box-shadow:  0 6px 2px rgb(34, 197, 94);">
+                <div class="dash-overview-icon" style="background-color:rgba(34, 197, 94, 0.07);">
+                <i class="bx bx-shield" style="font-size: 24px; color: #22C55E;"></i>
+                </div>
+                <div class="overview-card-content">
+                    <p>Safety Status</p>
+                    <h4 style="color: #22C55E;">Good</h4>
+                </div>
+            </div>
+
+            <div class="dash-overview-card" style="box-shadow:  0 6px 2px rgb(245, 158, 11);">
+                 <div class="dash-overview-icon" style="background-color: rgba(245, 158, 11, 0.07);">
+                <i class="bx bx-pulse" style="font-size: 24px; color: #F59E0B;"></i>
+                 </div>
+                <div class="overview-card-content">
+                    <p>Today's progress</p>
+                    <h4>65%</h4>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="site-report-container">
+            <div class="site-report-wrapper">
+                <h4>Site Report</h4>
+            <form action="">               
+                <label for=""> Project</label>    <br>       
+                <select name="" id="">
+                    <option value="">Select A Project</option>
+                    <option value="">Sunrise Tower</option>
+                    <option value="">Dominican City</option>
+                </select> <br>
+
+                <label for="">Date</label> <br>
+                <input type="date" name="" id=""> <br>
+
+                <label for="">Progress Update</label> <br>
+                <input type="text" name="" id=""> <br>
+
+                <label for="">Issues Encountered</label> <br>
+                <input type="text" name="" id=""> <br>
+
+                <label for="">Recommendation</label> <br>
+                <input type="text" name="" id=""> <br>
+
+                <button>Submit Report</button>
+            </form>
+            </div>
+            <div class="site-report-wrapper">
+                <div class="site-report-photos">
+                    <h4>Site Photos</h4>  
+                    <a href="">View All</a>          
+                </div> 
+
+                <div class="site-report-images">
+                    <img src="../images/Card-image (3).png" alt="">
+                    <img src="../images/Card-image (3).png" alt="">
+                    <img src="../images/Card-image (3).png" alt="">
+                    <img src="../images/Card-image (3).png" alt="">
+                </div>
+                
+            </div>
+        </div>
+
+</div>
+    </main>
+
+    <script src="../js/side-bar.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/auth-check.js"></script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/cl-dashboard.css">
+    <link rel="stylesheet" href="../boxicons-2.1.4/boxicons-2.1.4/css/boxicons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <title>Support - Client Portal</title>
+    <style>
+    </style>
+</head>
+<body>
+   
+    <!-- Client Sidebar -->
+    <aside class="aside-container">
+        <div class="logo">
+            <img src="../images/Vector.png" alt="">
+            <h2>Pinnacle</h2>
+        </div>
+
+        <nav>
+            <ul>
+                <a href="my-project.html">
+                    <div class="side-list">
+                        <i class="bx bx-home-alt"></i>
+                        <li>Project Overview</li>
+                    </div>
+                </a>
+
+                <a href="cl-project-status.html">
+                    <div class="side-list">
+                        <i class="bx bx-chart"></i>
+                        <li>Progress</li>
+                    </div>
+                </a>
+
+                <a href="cl-budget.html">
+                    <div class="side-list">
+                        <i class="bx bx-money"></i>
+                        <li>Budget</li>
+                    </div>
+                </a>
+
+                <a href="cl-document.html">
+                    <div class="side-list">
+                        <i class="bx bx-file"></i>
+                        <li>Documents</li>
+                    </div>
+                </a>
+
+                <a href="cl-messages.html">
+                    <div class="side-list">
+                        <i class="bx bx-message"></i>
+                        <li>Messages</li>
+                    </div>
+                </a>
+
+                <a href="cl-profile.html">
+                    <div class="side-list">
+                        <i class="bx bx-user"></i>
+                        <li>My Profile</li>
+                    </div>
+                </a>
+
+                <a href="cl-support.html">
+                    <div class="side-list active">
+                        <i class="bx bx-help-circle"></i>
+                        <li>Support</li>
+                    </div>
+                </a>
+
+                <div class="logout-wrapper">
+                    <a href="../logout.html">
+                        <div class="logout">
+                            <i class="bx bx-log-out"></i>
+                            <li>Logout</li>
+                        </div>
+                    </a>
+                </div>
+            </ul>
+        </nav>
+    </aside>
+
+
+    <header>
+        <div class="bar-wrapper"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+        <div class="search-bar-wrapper"><i class="bx bx-search search"></i><input type="search" placeholder="search FAQ..."></div>
+        <div class="header-profile-wrapper">
+            <i class="bx bx-bell bell"></i><div class="notify-dot"></div>
+            <div class="header-profile">
+                <img src="../images/avatar2.jpg" alt="">
+                <div class="header-profile-text"><h3>Sarah Johnson</h3><p>Client</p></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="main-content">
+            <div class="page-name">
+                <h1>Support Center</h1>
+                <div class="read-only-badge"><i class="bx bx-help-circle"></i>FAQ & Contact</div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="dash-progress-card" style="margin: 20px;">
+                <div class="dash-progress-card-title">
+                    <p>Frequently Asked Questions</p>
+                </div>
+                <div style="margin-top: 16px;">
+                   
+                    <div class="faq-question">
+                        <div class="faq-question-header" onclick="toggleFAQ(this)">
+                            <h4>How can I view my project progress?</h4>
+                            <i class="bx bx-chevron-down" style="font-size: 20px;"></i>
+                        </div>
+                        <div class="faq-answer">
+                            You can view your project progress by clicking on the "Progress" tab in the sidebar. There you'll find a detailed timeline, completion percentage, and updates from your project manager.
+                        </div>
+                    </div>
+
+                    <div class="faq-question">
+                        <div class="faq-question-header" onclick="toggleFAQ(this)">
+                            <h4>How do I download my invoices?</h4>
+                            <i class="bx bx-chevron-down" style="font-size: 20px;"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Navigate to the "Budget" section in the sidebar. You'll find a complete list of all invoices. Click the "Download" button next to any invoice to save a PDF copy.
+                        </div>
+                    </div>
+
+                    <div class="faq-question">
+                        <div class="faq-question-header" onclick="toggleFAQ(this)">
+                            <h4>Can I make changes to my project?</h4>
+                            <i class="bx bx-chevron-down" style="font-size: 20px;"></i>
+                        </div>
+                        <div class="faq-answer">
+                            To request changes to your project, please message your Project Manager directly from the "Messages" section. They will review your request and provide guidance on any additional costs or timeline adjustments.
+                        </div>
+                    </div>
+
+                    <div class="faq-question">
+                        <div class="faq-question-header" onclick="toggleFAQ(this)">
+                            <h4>How often are progress reports updated?</h4>
+                            <i class="bx bx-chevron-down" style="font-size: 20px;"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Progress reports are updated weekly, every Friday. Major milestones are updated in real-time. You'll receive email notifications when new reports are available.
+                        </div>
+                    </div>
+
+                    <div class="faq-question">
+                        <div class="faq-question-header" onclick="toggleFAQ(this)">
+                            <h4>How do I reset my password?</h4>
+                            <i class="bx bx-chevron-down" style="font-size: 20px;"></i>
+                        </div>
+                        <div class="faq-answer">
+                            On the login page, click "Forgot Password". You'll receive an email with instructions to reset your password. If you don't receive the email, please contact support.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Support -->
+            <div class="support-card">
+                <i class="bx bx-headphone" style="font-size: 48px; color: #FF5200;"></i>
+                <h3 style="margin-top: 16px;">Need more help?</h3>
+                <p style="color: #9a9a9a;">Our support team is available Monday-Friday, 9am-6pm</p>
+               
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="bx bx-phone"></i>
+                        <p>Call Us</p>
+                        <a href="tel:+2347083453463">+234 (708) 345-3463</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="bx bx-envelope"></i>
+                        <p>Email</p>
+                        <a href="mailto:support@pinnacle.com">support@pinnacle.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="bx bx-chat"></i>
+                        <p>Live Chat</p>
+                        <a href="#" onclick="alert('Live chat would open here')">Start Chat</a>
+                    </div>
+                </div>
+
+                <button class="support-btn" onclick="alert('Support ticket would be created here')">
+                    <i class="bx bx-ticket"></i>
+                    Submit Support Ticket
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('i');
+           
+            answer.classList.toggle('open');
+           
+            if (answer.classList.contains('open')) {
+                icon.classList.remove('bx-chevron-down');
+                icon.classList.add('bx-chevron-up');
+            } else {
+                icon.classList.remove('bx-chevron-up');
+                icon.classList.add('bx-chevron-down');
+            }
+        }
+    </script>
+
+<script src="../js/data.js"></script>
+<script src="../js/auth-check.js"></script>
+</body>
+</html>

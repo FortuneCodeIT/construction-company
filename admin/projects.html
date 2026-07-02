@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../boxicons-2.1.4/boxicons-2.1.4/css/boxicons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <title>Document</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- this is for preloader -->
+            <div id="preloader">
+        <div class="logo-loader">
+            <img src="../images/Vector.png" alt="Pinnacle">
+            <h2>Pinnacle</h2>
+            <div class="spinner"></div>
+            <div class="loader-text">Loading...</div>
+        </div>
+    </div>
+
+
+    <aside class="aside-container">
+        <div class="logo">
+            <img src="../images/Vector.png" alt="" style="color: black;">
+            <h2>Pinnacle</h2>
+        </div>
+
+        <nav>
+            <ul>
+                <a href="dashboard.html">
+                <div class="side-list">
+                    <i class="bx bx-home-alt"></i>
+                <li>Dashboard</li>
+                </div>
+                </a>
+
+                <a href="projects.html">
+                <div class="side-list active">
+                    <i class="bx bx-briefcase"></i>
+                <li>Projects</li>
+                </div>
+                </a>
+
+                <a href="tasks.html">
+                <div class="side-list">
+                    <i class="bx bx-task"></i>
+                <li>Tasks</li>
+                </div>
+                </a>
+
+                <a href="materials.html">
+                <div class="side-list">
+                    <i class="bx bx-cube"></i>
+                <li>Materials</li>
+                </div>
+                </a>
+
+                <a href="budgets.html">
+                <div class="side-list">
+                    <i class="bx bx-money"></i>
+                <li>Budget</li>
+                </div>
+                </a>
+
+                <a href="teams.html">
+                <div class="side-list">
+                    <i class="bx bx-group"></i>
+                <li>Team</li>
+                </div>
+                </a>
+
+                <a href="monitoring.html">
+                <div class="side-list">
+                    <i class="bx bx-line-chart"></i>
+                <li>Monitoring</li>
+                </div>
+                </a>
+
+                <a href="reports.html">
+                <div class="side-list">
+                    <i class="bx bx-file"></i>
+                <li>Reports</li>
+                </div>
+                </a>
+                
+                <a href="ad-inbox.html">
+                    <div class="side-list">
+                        <i class="bx bx-message"></i>
+                        <li>Inbox</li>
+                    </div>
+                </a>
+
+                <a href="notification.html">
+                <div class="side-list">
+                    <i class="bx bx-bell bell"></i>
+                <li>Notifications</li>
+                </div>
+                </a>
+
+                <a href="settings.html">
+                <div class="side-list">
+                    <i class="bx bx-slider"></i>
+                <li>Settings</li>
+                </div>
+                </a>
+                
+                <a href="user.html">
+                <div class="side-list">
+                    <i class="bx bx-user-plus"></i>
+                <li>User Management</li>
+                </div>
+                </a>
+
+
+                <div class="logout-wrapper">
+                <a href="../logout.html">
+                <div class="logout">
+                    <i class="bx bx-log-out"></i>
+                <li>Logout</li>
+                </div>
+                </a>
+
+                </div>
+
+            </ul>
+        </nav>
+    </aside>
+
+
+          <header>
+  
+
+            <div class="search-bar-wrapper">
+                <i class="bx bx-search search"></i>
+                <input type="search" name="" id="" placeholder="search here...">
+                                
+            </div>
+
+            
+
+            <div style="display: flex; align-items: center; gap: 10px;">      
+            <div class="bar-wrapper">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="header-profile-wrapper">
+                 <i class="bx bx-bell bell"></i>
+                 <div class="notify-dot" id="notifyDot"></div>
+                
+                 <div class="header-profile">
+                    <img src="../images/avatar2.jpg" alt="">
+                    <div class="header-profile-text">
+                        <h3 id="userName"> John Doe</h3>
+                        <p id="userRole">Adminstration</p>
+                        
+                    </div>
+                 </div>
+            </div>
+
+            </div>
+
+      
+        </header>
+
+
+    <main class="main-container">
+
+        <div class="main-content">
+
+        <div class="page-name">
+            <h1>Projects</h1>
+            <button onclick="openProjectModal()">
+                <i class="bx bx-plus"></i>
+                New Project
+            </button>
+        </div>
+
+        <div class="projects-btn-wrapper">
+            <button class="active-btn" id="allProjectBtn" onclick="filterProjects('all')">All</button>
+            <button id="activeProjectBtn" onclick="filterProjects('active')">Active</button>
+            <button id="completedProjectBtn" onclick="filterProjects('completed')">Completed</button>
+            <button id="delayedProjectBtn" onclick="filterProjects('delayed')">Delayed</button>
+        </div>
+
+        <div class="project-card-container">
+            <div class="project-card-wrapper"  id="projectsContainer">
+
+             <!-- <div class="project-card activeProject" >
+                    <div class="project-card-head">
+                        <div class="project-card-text">
+                            <h4>Sunrise Tower</h4>
+                            <p>Dominican City</p>
+                        </div>
+                        <span style="color: #22C55E;">Active</span>
+                    </div>
+                    <div class="project-progress-container">
+                        <div class="project-progress-wrapper">
+                            <div class="project-progress" style=" width: 80%;"></div>
+                        </div>
+                        <span>85%</span>
+                    </div>
+                    <div class="start-date">
+                        <p>Start Date</p>
+                        <span>Jan 20, 2026 </span>
+                    </div>
+                    <div class="start-date">
+                        <p>End Date</p>
+                        <span>Sep 27, 2026</span>
+                    </div>
+                    <div class="start-date">
+                        <p>Engineer</p>
+                        <span>Micheal Brown </span>
+                    </div>
+
+                    <div class="view-details">
+                    <a href="projects-details.html">View Details</a>
+                    <a href="">Delete</a>
+                    </div>
+                </div> -->
+                
+            </div>
+                 
+        </div>
+              <div id="pagination"></div>
+ 
+    </div>
+    </main>
+
+            <!-- Request Modal -->
+    <div class="request-modal" id="addProjectModal">
+        <div class="modal-content">
+            <h3 style="margin-bottom: 20px;">Add Project</h3>
+
+            <form action="" id="projectForm">
+            <input type="text" id="projectName" placeholder="Project Name">
+            <input type="text" id="location" placeholder="Location">
+            <div>
+                <label for="" style="font-size: 12px;">Start Date</label>
+                <input type="date" name="" id="startDate" placeholder="Start Date" style="margin-top: 5px;">
+                 <label for="" style="font-size: 12px;">End Date</label>
+                <input type="date" name="" id="endDate" placeholder="End Date" style="margin-top: 5px;">
+            </div>
+            <input type="number" name="" id="budget" placeholder="Budget">
+
+            <select id="manager">
+                <!-- <option value="">Select Project Manager</option> -->             
+                <!-- <option value="John_Doe">John Doe</option>
+                <option value="Sarah_Lee">Sarah Lee</option>
+                <option value="Mike_Chen">Mike Chen</option>
+                <option value="Emma_Park">Emma Park</option> -->
+            </select>
+
+
+            <select id="client">
+                <option value="">Select Client</option>
+
+            </select>
+
+            <select id="status">
+                <option value="">Status</option>
+                <option value="active" style="color: var(--success);" selected>Active</option>
+                <option value="completed" style="color: var(--warning);">Completed</option>
+                <option value="delayed" style="color: var(--spent);">Delayed</option>
+                <option value="on-hold" style="color: var(--spent);">On Hold</option>
+            </select>
+
+            <label for="" style="font-size: 12px;">Initial Progress</label>
+            <input type="range" name="" id="range" min="0" max="100" value="0" oninput="updateProgressValue(this.value)">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+                <span style="font-size: 12px; color: #9a9a9a;">0%</span>
+                <span style="font-size: 14px; color: #FF5200; font-weight: 600;">0%</span>
+                <span style="font-size: 12px; color: #9a9a9a;">100%</span>
+            </div>
+
+            <textarea name="" id="description" placeholder="Brief description of the project..."></textarea>
+            <p id="formError" style="font-size: 12px; color: red;"></p>
+            <div class="modal-buttons">
+                <button class="cancel-btn"  type="button" onclick="closeProjectModal()">Cancel</button>
+                <button class="request-btn" type="button" onclick="handleAddProject()">Submit Request</button>
+            </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+
+function closeProjectModal() {
+    document.getElementById('addProjectModal').style.display = 'none';
+}
+
+
+    </script>
+    
+
+    <!-- const assigneeSelect = document.getElementById('taskAssignee');   
+    const workers = users.filter(u => u.role !== 'client' && u.role !== 'admin');
+
+    assigneeSelect.innerHTML = `<option value="">Select Team Member</option>`;
+    workers.forEach(worker => {
+        assigneeSelect.innerHTML += `<option value="${worker.id}">${worker.name}</option>`;
+    }); -->
+
+    <script src="../js/projects.js"></script>
+    <script src="../js/side-bar.js"></script>
+    <script src="../js/modal.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/auth-check.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

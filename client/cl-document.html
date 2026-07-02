@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/cl-dashboard.css">
+    <link rel="stylesheet" href="../boxicons-2.1.4/boxicons-2.1.4/css/boxicons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <title>Documents - Client Portal</title>
+    <style>
+
+    </style>
+</head>
+<body>
+   
+    <!-- Client Sidebar -->
+    <aside class="aside-container">
+        <div class="logo">
+            <img src="../images/Vector.png" alt="">
+            <h2>Pinnacle</h2>
+        </div>
+
+        <nav>
+            <ul>
+                <a href="my-project.html">
+                    <div class="side-list">
+                        <i class="bx bx-home-alt"></i>
+                        <li>Project Overview</li>
+                    </div>
+                </a>
+
+                <a href="cl-project-status.html">
+                    <div class="side-list">
+                        <i class="bx bx-chart"></i>
+                        <li>Progress</li>
+                    </div>
+                </a>
+
+                <a href="cl-budget.html">
+                    <div class="side-list">
+                        <i class="bx bx-money"></i>
+                        <li>Budget</li>
+                    </div>
+                </a>
+
+                <a href="cl-document.html">
+                    <div class="side-list active">
+                        <i class="bx bx-file"></i>
+                        <li>Documents</li>
+                    </div>
+                </a>
+
+                <a href="cl-messages.html">
+                    <div class="side-list">
+                        <i class="bx bx-message"></i>
+                        <li>Messages</li>
+                    </div>
+                </a>
+
+                <a href="cl-profile.html">
+                    <div class="side-list">
+                        <i class="bx bx-user"></i>
+                        <li>My Profile</li>
+                    </div>
+                </a>
+
+                <a href="cl-support.html">
+                    <div class="side-list">
+                        <i class="bx bx-help-circle"></i>
+                        <li>Support</li>
+                    </div>
+                </a>
+
+                <div class="logout-wrapper">
+                    <a href="../logout.html">
+                        <div class="logout">
+                            <i class="bx bx-log-out"></i>
+                            <li>Logout</li>
+                        </div>
+                    </a>
+                </div>
+            </ul>
+        </nav>
+    </aside>
+
+    <header>
+        <div class="bar-wrapper"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+        <div class="search-bar-wrapper"><i class="bx bx-search search"></i><input type="search" placeholder="search documents..."></div>
+        <div class="header-profile-wrapper">
+            <i class="bx bx-bell bell"></i><div class="notify-dot"></div>
+            <div class="header-profile">
+                <img src="../images/avatar2.jpg" alt="">
+                <div class="header-profile-text"><h3>Sarah Johnson</h3><p>Client</p></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="main-content">
+            <div class="page-name">
+                <h1>Project Documents</h1>
+                <div class="read-only-badge"><i class="bx bx-show"></i>View Only</div>
+            </div>
+
+            <!-- Document Categories -->
+            <div class="projects-btn-wrapper" style="margin-bottom: 24px;">
+                <button class="active-btn">All Documents</button>
+                <button>Contracts</button>
+                <button>Invoices</button>
+                <button>Reports</button>
+                <button>Permits</button>
+                <button>Photos</button>
+            </div>
+
+            <!-- Documents List -->
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+               
+                <div class="doc-card">
+                    <div class="doc-info">
+                        <div class="doc-icon"><i class="bx bx-file-pdf"></i></div>
+                        <div>
+                            <h4 style="margin-bottom: 4px;">Construction Contract</h4>
+                            <p style="font-size: 12px; color: #9a9a9a;">Signed Jan 10, 2026 · <span class="category-tag">Contract</span></p>
+                        </div>
+                    </div>
+                    <button class="download-btn"><i class="bx bx-download"></i> Download</button>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-info">
+                        <div class="doc-icon"><i class="bx bx-receipt"></i></div>
+                        <div>
+                            <h4 style="margin-bottom: 4px;">Invoice #1042 - Structure Phase</h4>
+                            <p style="font-size: 12px; color: #9a9a9a;">Issued May 15, 2026 · <span class="category-tag">Invoice</span></p>
+                        </div>
+                    </div>
+                    <button class="download-btn"><i class="bx bx-download"></i> Download</button>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-info">
+                        <div class="doc-icon"><i class="bx bx-file"></i></div>
+                        <div>
+                            <h4 style="margin-bottom: 4px;">Monthly Progress Report - May 2026</h4>
+                            <p style="font-size: 12px; color: #9a9a9a;">Submitted Jun 01, 2026 · <span class="category-tag">Report</span></p>
+                        </div>
+                    </div>
+                    <button class="download-btn"><i class="bx bx-download"></i> Download</button>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-info">
+                        <div class="doc-icon"><i class="bx bx-certification"></i></div>
+                        <div>
+                            <h4 style="margin-bottom: 4px;">Building Permit</h4>
+                            <p style="font-size: 12px; color: #9a9a9a;">Approved Jan 15, 2026 · <span class="category-tag">Permit</span></p>
+                        </div>
+                    </div>
+                    <button class="download-btn"><i class="bx bx-download"></i> Download</button>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-info">
+                        <div class="doc-icon"><i class="bx bx-image"></i></div>
+                        <div>
+                            <h4 style="margin-bottom: 4px;">Site Photos - Week 22</h4>
+                            <p style="font-size: 12px; color: #9a9a9a;">Uploaded May 28, 2026 · <span class="category-tag">Photos</span></p>
+                        </div>
+                    </div>
+                    <button class="download-btn"><i class="bx bx-download"></i> Download</button>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-info">
+                        <div class="doc-icon"><i class="bx bx-file-pdf"></i></div>
+                        <div>
+                            <h4 style="margin-bottom: 4px;">Structural Engineering Report</h4>
+                            <p style="font-size: 12px; color: #9a9a9a;">Submitted Mar 10, 2026 · <span class="category-tag">Report</span></p>
+                        </div>
+                    </div>
+                    <button class="download-btn"><i class="bx bx-download"></i> Download</button>
+                </div>
+
+                <div class="doc-card">
+                    <div class="doc-info">
+                        <div class="doc-icon"><i class="bx bx-receipt"></i></div>
+                        <div>
+                            <h4 style="margin-bottom: 4px;">Invoice #1041 - Foundation Phase</h4>
+                            <p style="font-size: 12px; color: #9a9a9a;">Issued Jan 25, 2026 · <span class="category-tag">Invoice</span></p>
+                        </div>
+                    </div>
+                    <button class="download-btn"><i class="bx bx-download"></i> Download</button>
+                </div>
+
+            </div>
+
+            <!-- No Documents Message (hidden by default) -->
+            <!-- <div class="dash-progress-card" style="text-align: center; padding: 40px;">
+                <i class="bx bx-folder-open" style="font-size: 48px; color: #2a2a2a;"></i>
+                <p style="color: #6b6b6b; margin-top: 12px;">No documents uploaded yet.</p>
+            </div> -->
+        </div>
+    </main>
+
+    <script src="../js/side-bar.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/auth-check.js"></script>
+</body>
+</html>

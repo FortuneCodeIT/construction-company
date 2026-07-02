@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/cl-dashboard.css">
+    <link rel="stylesheet" href="../boxicons-2.1.4/boxicons-2.1.4/css/boxicons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <title>Project Progress - Client Portal</title>
+    <style>
+
+    </style>
+</head>
+<body>
+   
+    <!-- Client Sidebar -->
+    <aside class="aside-container">
+        <div class="logo">
+            <img src="../images/Vector.png" alt="">
+            <h2>Pinnacle</h2>
+        </div>
+
+        <nav>
+            <ul>
+                <a href="my-project.html">
+                    <div class="side-list">
+                        <i class="bx bx-home-alt"></i>
+                        <li>Project Overview</li>
+                    </div>
+                </a>
+
+                <a href="cl-project-status.html">
+                    <div class="side-list active">
+                        <i class="bx bx-chart"></i>
+                        <li>Progress</li>
+                    </div>
+                </a>
+
+                <a href="cl-budget.html">
+                    <div class="side-list">
+                        <i class="bx bx-money"></i>
+                        <li>Budget</li>
+                    </div>
+                </a>
+
+                <a href="cl-document.html">
+                    <div class="side-list">
+                        <i class="bx bx-file"></i>
+                        <li>Documents</li>
+                    </div>
+                </a>
+
+                <a href="cl-messages.html">
+                    <div class="side-list">
+                        <i class="bx bx-message"></i>
+                        <li>Messages</li>
+                    </div>
+                </a>
+
+                <a href="cl-profile.html">
+                    <div class="side-list">
+                        <i class="bx bx-user"></i>
+                        <li>My Profile</li>
+                    </div>
+                </a>
+
+                <a href="cl-support.html">
+                    <div class="side-list">
+                        <i class="bx bx-help-circle"></i>
+                        <li>Support</li>
+                    </div>
+                </a>
+
+                <div class="logout-wrapper">
+                    <a href="../logout.html">
+                        <div class="logout">
+                            <i class="bx bx-log-out"></i>
+                            <li>Logout</li>
+                        </div>
+                    </a>
+                </div>
+            </ul>
+        </nav>
+    </aside>
+
+    <header>
+        <div class="bar-wrapper"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+        <div class="search-bar-wrapper"><i class="bx bx-search search"></i><input type="search" placeholder="search..."></div>
+        <div class="header-profile-wrapper">
+            <i class="bx bx-bell bell"></i><div class="notify-dot"></div>
+            <div class="header-profile">
+                <img src="../images/avatar2.jpg" alt="">
+                <div class="header-profile-text"><h3>Sarah Johnson</h3><p>Client</p></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="main-content">
+            <div class="page-name">
+                <h1>Project Progress</h1>
+                <div class="read-only-badge"><i class="bx bx-show"></i>Live Updates</div>
+            </div>
+
+            <!-- Overall Progress Card -->
+            <div class="dash-progress-card" style="margin: 20px;">
+                <div class="dash-progress-card-title">
+                    <p>Overall Completion</p>
+                </div>
+                <div style="text-align: center; padding: 20px;">
+                    <div style="position: relative; display: inline-block;">
+                        <svg width="120" height="120" viewBox="0 0 120 120">
+                            <circle cx="60" cy="60" r="52" fill="none" stroke="#2a2a2a" stroke-width="8"/>
+                            <circle cx="60" cy="60" r="52" fill="none" stroke="#FF5200" stroke-width="8"
+                                    stroke-dasharray="326" stroke-dashoffset="49"
+                                    transform="rotate(-90 60 60)" stroke-linecap="round"/>
+                        </svg>
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                            <span style="font-size: 28px; font-weight: 700;">85%</span>
+                        </div>
+                    </div>
+                    <p style="color: #9a9a9a; margin-top: 16px;">Estimated completion: <strong style="color: #fff;">September 27, 2026</strong></p>
+                </div>
+            </div>
+
+            <!-- Two Column Layout -->
+            <div class="cl-progress-grid">
+               
+                <!-- Timeline View -->
+                <div class="dash-progress-card">
+                    <div class="dash-progress-card-title">
+                        <p>Project Timeline</p>
+                    </div>
+                    <div class="timeline-container" style="margin-top: 16px;">
+                       
+                        <div class="timeline-item">
+                            <div class="timeline-dot completed"></div>
+                            <div class="timeline-date">Jan 20 - Feb 28, 2026</div>
+                            <div class="timeline-title">Foundation</div>
+                            <p style="font-size: 13px; color: #9a9a9a;">Excavation, grading, and concrete pouring completed</p>
+                            <span class="progress-chip chip-completed">✓ Completed</span>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot in-progress"></div>
+                            <div class="timeline-date">Mar 01 - Jul 15, 2026</div>
+                            <div class="timeline-title">Structure Framework</div>
+                            <p style="font-size: 13px; color: #9a9a9a;">Steel reinforcement, columns, beams, and flooring</p>
+                            <span class="progress-chip chip-progress">● In Progress (85%)</span>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot pending"></div>
+                            <div class="timeline-date">Jul 16 - Aug 30, 2026</div>
+                            <div class="timeline-title">Walls & Finishing</div>
+                            <p style="font-size: 13px; color: #9a9a9a;">Masonry, plastering, painting, and flooring</p>
+                            <span class="progress-chip chip-pending">○ Not Started</span>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot pending"></div>
+                            <div class="timeline-date">Sep 01 - Sep 27, 2026</div>
+                            <div class="timeline-title">Final Inspection & Handover</div>
+                            <p style="font-size: 13px; color: #9a9a9a;">Quality checks, permits, and project completion</p>
+                            <span class="progress-chip chip-pending">○ Not Started</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gantt Chart View -->
+                <div class="dash-progress-card">
+                    <div class="dash-progress-card-title">
+                        <p>Schedule Overview</p>
+                    </div>
+                    <div style="margin-top: 16px;">
+                       
+                        <div style="margin-bottom: 20px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                                <span style="font-size: 13px;">Foundation</span>
+                                <span style="font-size: 12px; color: #22C55E;">Completed</span>
+                            </div>
+                            <div class="gantt-bar">
+                                <div class="gantt-fill completed" style="width: 100%;"></div>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-top: 4px;">
+                                <span style="font-size: 10px; color: #6b6b6b;">Jan 20</span>
+                                <span style="font-size: 10px; color: #6b6b6b;">Feb 28</span>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                                <span style="font-size: 13px;">Structure Framework</span>
+                                <span style="font-size: 12px; color: #FF5200;">85%</span>
+                            </div>
+                            <div class="gantt-bar">
+                                <div class="gantt-fill progress" style="width: 85%;"></div>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-top: 4px;">
+                                <span style="font-size: 10px; color: #6b6b6b;">Mar 01</span>
+                                <span style="font-size: 10px; color: #6b6b6b;">Jul 15</span>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                                <span style="font-size: 13px;">Walls & Finishing</span>
+                                <span style="font-size: 12px; color: #6b6b6b;">Pending</span>
+                            </div>
+                            <div class="gantt-bar">
+                                <div class="gantt-fill pending" style="width: 0%;"></div>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-top: 4px;">
+                                <span style="font-size: 10px; color: #6b6b6b;">Jul 16</span>
+                                <span style="font-size: 10px; color: #6b6b6b;">Aug 30</span>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                                <span style="font-size: 13px;">Final Inspection</span>
+                                <span style="font-size: 12px; color: #6b6b6b;">Pending</span>
+                            </div>
+                            <div class="gantt-bar">
+                                <div class="gantt-fill pending" style="width: 0%;"></div>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-top: 4px;">
+                                <span style="font-size: 10px; color: #6b6b6b;">Sep 01</span>
+                                <span style="font-size: 10px; color: #6b6b6b;">Sep 27</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Updates Card -->
+            <div class="dash-progress-card" style="margin: 20px;">
+                <div class="dash-progress-card-title">
+                    <p>Recent Updates from Project Manager</p>
+                </div>
+                <div style="margin-top: 16px;">
+                    <div style="background: #0a0a0a; padding: 16px; border-radius: 12px; margin-bottom: 12px; border-left: 3px solid #FF5200;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span style="font-weight: 600;">John Doe (PM)</span>
+                            <span style="font-size: 11px; color: #6b6b6b;">June 10, 2026</span>
+                        </div>
+                        <p style="font-size: 14px; color: #d0d0d0;">Structural framework is ahead of schedule. We've completed the 5th floor this week. Expecting to finish all 8 floors by end of June.</p>
+                    </div>
+                    <div style="background: #0a0a0a; padding: 16px; border-radius: 12px; border-left: 3px solid #22C55E;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span style="font-weight: 600;">John Doe (PM)</span>
+                            <span style="font-size: 11px; color: #6b6b6b;">June 01, 2026</span>
+                        </div>
+                        <p style="font-size: 14px; color: #d0d0d0;">Monthly report for May has been uploaded to the Documents section. All materials for the next phase have been ordered.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/side-bar.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/auth-check.js"></script>
+</body>
+</html>

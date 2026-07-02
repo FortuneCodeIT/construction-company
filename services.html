@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
     <title>Document</title>
 </head>
 <body>
+
+        <!-- this is for preloader -->
+            <!-- <div id="preloader">
+        <div class="logo-loader">
+            <img src="../images/Vector.png" alt="Pinnacle">
+            <h2>Pinnacle</h2>
+            <div class="spinner"></div>
+            <div class="loader-text">Loading...</div>
+        </div>
+    </div> -->
     
         <header>
         <div class="logo">
@@ -19,23 +30,25 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about-us.html">About Us</a></li>
-                <li><a href="projects.html" >Projects</a></li>
                 <li><a href="services.html" class="active">Services</a></li>
-                <li><a href="">News</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
             </ul>
         </nav>
 
-        <nav class="mobile-nav" id="mobile-nav">
+          <nav class="mobile-nav" id="mobile-nav">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about-us.html">About Us</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="services.html" class="active">Services</a></li>
-                <li><a href="">News</a></li>
-            </ul>
+                <a href="index.html" ><li >Home</li></a>
+                <a href="about-us.html"><li >About Us</li></a>
+                <a href="services.html"><li class="active">Services</li></a>
+                <a href="contact.html"><li>Contact Us</li></a>
 
-             <button>Contact Us</button>
+                <div class="" style="position: absolute; bottom: 0; right:0; left:0;  background: #FF5200; text-align:center; margin:0 20px 40px; font-size: 24px; border-radius:6px;">
+                <a href="login.html"> <li style="padding:20px; width:100%">Login</li></a>
+                </div>
+            </ul>       
+
         </nav>
+
 
 
         <div class="bar-wrapper" id="openNav">
@@ -44,36 +57,58 @@
             <span class="bar"></span>
         </div>
 
-        <button>Contact Us</button>
+        <div class="reg-btn">
+            <a href="login.html">Login</a>
+        </div>
     </header>
 
-<div class="container">
+<div class="container" >
 
     <section class="about-hero-section">
         <div class="we-build">
-            <h1>Bringing Your <br>Vision to Life</h1>
-            <p>
+            <h1 data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="100"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>Bringing Your <br>Vision to Life</h1>
+            <p  data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="300"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
                 Pinnacle's commitment to excellence extends beyond just construction buildings - 
                 it's about crafting exceptional spaces thaat inspire and delightour clients.
             </p>
         </div>
 
-        <div class="build-img">
-            <img src="images/Image (3).jpg" alt="" id="desktop-s-build-img" style="width: 100%;">
-            <img src="images/Image (1).jpg" alt="" id="tab-build-img" style="width: 100%; height: 100%; object-fit: conver; border-radius: 12px;">
-
-        </div>
-
     </section>
 
-    <section class="our-story">
-        <div class="we-build">
-            <div class="we-build-text">
-                <h1>Residential Construction</h1>
-                <button>Schedule a Call</button>
+    <section class="our-story-wrapper">
+                <div class="we-build-text">
+                <h1 data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="100"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>Residential Construction</h1>
+                <button data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="300"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>Schedule a Call</button>
             </div>
-            <div class="our-story-content">
-            <p style="max-width: none; margin-top:20px;">
+        <div class="our-story">
+
+            <div class="our-story-content" data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="300"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
+            <p style="max-width: none;">
                 Pinnacle has a long history of delivering residential construction services, from custom home to commuity development to renovations. Our team of experts works closely with our clients to understand their unique needs and preferences,
                 ensuring that every project we undertake is a reflection of their personal style and vision.
             </p>
@@ -106,17 +141,37 @@
             </div>
 
             </div>
+
+            <div class="about-left" data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="600"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
+            <img src="images/sevice-visual.jpg" alt="">
+            <img src="images/about-visual2.jpg" alt="">
+            </div>
         </div>
     </section>
 
 
     <section class="contact-section">
-        <div class="featured-head">
+        <div class="featured-head" data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="300"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
             <img src="images/Vector (9).png" alt="">
             <h1>Have a project in your mind?</h1>
         </div>
 
-        <div class="contact-card-wrapper">
+        <div class="contact-card-wrapper" data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="600"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
             <div class="contact-card">
                 <form action="">
 
@@ -141,7 +196,7 @@
 
                         <div class="name">
                             <img src="images/phone.png" alt="">
-                            <input type="number" placeholder="Phone Number">
+                            <input type="tel" placeholder="Phone Number">
                         </div>
                   
                         </div>
@@ -221,12 +276,22 @@
 
     <!-- call to action -->
         <section class="cta-container">
-        <h1>Let's Build
+        <h1 data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="100"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>Let's Build
             <img src="images/Vector (6).png" alt=""> 
             Something <br>Extraordinary Together
         </h1>
 
-        <button>View our projects</button>
+        <button data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="200"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>View our projects</button>
 
         <div class="cta-design-bg">
             <img src="images/Vector (1).png" alt="" id="first-design">
@@ -236,21 +301,31 @@
 
 
     <!-- Footer section -->
-    <section class="footer-container">
-        <div>
+      <section class="footer-container">
+        <div data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="100"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
             <div class="logo">
-                <img src="images/Vector.png" alt="">
+                <img src="../images/Vector.png" alt="">
                 <h2>Pinnacle</h2>
             </div>
             <div class="input-wrapper">
-                 <img src="images/Mail-Send-Envelope--Streamline-Core.svg.png" alt="" id="mailEnv">
+                 <img src="../images/Mail-Send-Envelope--Streamline-Core.svg.png" alt="" id="mailEnv">
                 <input type="email" name="email" placeholder="Enter Your Email">
-                <img src="images/Send-Email--Streamline-Core.svg.png" alt="" id="sendEmail">
+                <img src="../images/Send-Email--Streamline-Core.svg.png" alt="" id="sendEmail">
             </div>
         </div>
 
         <div class="navigation-wrapper">
-        <div class="navigation">
+        <div class="navigation" data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="300"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
             <h4>Navigation</h4>
 
             <ul>
@@ -262,7 +337,12 @@
             </ul>
         </div>
 
-        <div class="navigation">
+        <div class="navigation" data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="600"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
             <h4>About Us</h4>
 
             <ul>
@@ -272,7 +352,12 @@
             </ul>
         </div>
 
-        <div class="navigation">
+        <div class="navigation" data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="900"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
             <h4>Properties</h4>
 
             <ul>
@@ -281,7 +366,12 @@
             </ul>
         </div>
 
-        <div class="navigation">
+        <div class="navigation" data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="1200"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
             <h4>Services</h4>
 
             <ul>
@@ -292,7 +382,12 @@
             </ul>
         </div>
 
-        <div class="navigation">
+        <div class="navigation" data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="1500"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
             <h4>Contact</h4>
 
             <ul>
@@ -312,7 +407,7 @@
                     &copy;2024 Pinnacle. All Rights Reserved.
                 </p>
             </div>
-            <div>
+            <div class="all-right-socials">
                 <img src="images/Button (4).png" alt="">
                 <img src="images/Button (3).png" alt="">
                 <img src="images/Button (2).png" alt="">
@@ -320,6 +415,11 @@
             </div>
         </div>
     </footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 
 <script src="js/script.js"></script>
 </body>

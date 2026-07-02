@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/wo-dashboard.css">
+    <link rel="stylesheet" href="../boxicons-2.1.4/boxicons-2.1.4/css/boxicons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <title>Worker Dashboard - Pinnacle</title>
+    <style>
+    </style>
+</head>
+<body>
+   
+    <!-- Worker Sidebar -->
+    <aside class="aside-container">
+        <div class="logo">
+            <img src="../images/Vector.png" alt="">
+            <h2>Pinnacle</h2>
+        </div>
+        <nav>
+            <ul>
+                <a href="wo-dashboard.html">
+                    <div class="side-list active">
+                        <i class="bx bx-home-alt"></i>
+                        <li>My Dashboard</li>
+                    </div>
+                </a>
+                <a href="wo-project.html">
+                    <div class="side-list">
+                        <i class="bx bx-briefcase"></i>
+                        <li>My Projects</li>
+                    </div>
+                </a>
+                <a href="wo-tasks.html">
+                    <div class="side-list">
+                        <i class="bx bx-task"></i>
+                        <li>My Tasks</li>
+                    </div>
+                </a>
+                <a href="wo-materials.html">
+                    <div class="side-list">
+                        <i class="bx bx-cube"></i>
+                        <li>Materials</li>
+                    </div>
+                </a>
+                <a href="wo-monitoring.html">
+                    <div class="side-list">
+                        <i class="bx bx-line-chart"></i>
+                        <li>Site Monitoring</li>
+                    </div>
+                </a>
+
+                <a href="wo-inbox.html">
+                    <div class="side-list">
+                        <i class="bx bx-message"></i>
+                        <li>Inbox</li>
+                    </div>
+                </a>
+
+                <a href="wo-profile.html">
+                    <div class="side-list">
+                        <i class="bx bx-user"></i>
+                        <li>My Profile</li>
+                    </div>
+                </a>
+                <a href="wo-notifications.html">
+                    <div class="side-list">
+                        <i class="bx bx-bell bell"></i>
+                        <li>Notifications</li>
+                    </div>
+                </a>
+                <a href="wo-settings.html">
+                    <div class="side-list">
+                        <i class="bx bx-slider"></i>
+                        <li>Settings</li>
+                    </div>
+                </a>
+
+                <div class="logout-wrapper">
+                    <a href="../logout.html">
+                        <div class="logout">
+                            <i class="bx bx-log-out"></i>
+                            <li>Logout</li>
+                        </div>
+                    </a>
+                </div>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Header -->
+  <header>
+        <div class="bar-wrapper">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="search-bar-wrapper">
+            <i class="bx bx-search search"></i>
+            <input type="search" placeholder="search conversations...">
+        </div>
+        <div class="header-profile-wrapper">
+            <i class="bx bx-bell bell"></i>
+            <div class="notify-dot"></div>
+            <div class="header-profile">
+                <img src="../images/avatar2.jpg" alt="">
+                <div class="header-profile-text">
+                    <h3>John Doe</h3>
+                    <p>Project Manager</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <div class="main-content">
+            <div class="page-name">
+                <h1>My Dashboard</h1>
+                <div class="role-badge" >
+                    <i class="bx bx-user"></i>
+                    
+                    <span  style="color: #9a9a9a; font-size: 14px;" id="roleDisplay"></span>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="dash-overview-container">
+                <div class="dash-overview-card" style="box-shadow: 0 6px 2px rgb(34, 197, 94);">
+                    <div class="dash-overview-icon" style="background-color:rgba(34, 197, 94, 0.07);">
+                        <i class="bx bx-briefcase" style="font-size: 24px; color: #22C55E;"></i>
+                    </div>
+                    <div class="overview-card-content">
+                        <p>My Projects</p>
+                        <h4 id="myOwnProjects">0</h4>
+                    </div>
+                </div>
+
+                <div class="dash-overview-card" style="box-shadow: 0 6px 2px rgb(255, 82, 0);">
+                    <div class="dash-overview-icon" style="background-color:rgba(255, 82, 0, 0.07);">
+                        <i class="bx bx-task" style="font-size: 24px; color: #FF5200;"></i>
+                    </div>
+                    <div class="overview-card-content">
+                        <p>Pending Tasks</p>
+                        <h4 id="pendingTasks">0</h4>
+                    </div>
+                </div>
+
+                <div class="dash-overview-card" style="box-shadow: 0 6px 2px rgb(59, 130, 246);">
+                    <div class="dash-overview-icon" style="background-color:rgba(59, 130, 246, 0.07);">
+                        <i class="bx bx-check-circle" style="font-size: 24px; color: #3b82f6;"></i>
+                    </div>
+                    <div class="overview-card-content">
+                        <p>Completed Tasks</p>
+                        <h4 id="completedTasks">0</h4>
+                    </div>
+                </div>
+
+                <div class="dash-overview-card" style="box-shadow: 0 6px 2px rgb(245, 158, 11);">
+                    <div class="dash-overview-icon" style="background-color:rgba(245, 158, 11, 0.07);">
+                        <i class="bx bx-calendar" style="font-size: 24px; color: #F59E0B;"></i>
+                    </div>
+                    <div class="overview-card-content">
+                        <p>This Week</p>
+                        <h4 id="dueTasks">0</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-action">
+                <div class="quick-action-btn" onclick="location.href='wo-tasks.html'">
+                    <i class="bx bx-plus-circle"></i>
+                    <span>Update Task</span>
+                </div>
+                <div class="quick-action-btn" onclick="location.href='wo-monitoring.html'">
+                    <i class="bx bx-camera"></i>
+                    <span>Submit Report</span>
+                </div>
+                <div class="quick-action-btn" onclick="location.href='wo-materials.html'">
+                    <i class="bx bx-package"></i>
+                    <span>Request Material</span>
+                </div>
+                <div class="quick-action-btn" onclick="location.href='wo-profile.html'">
+                    <i class="bx bx-time-five"></i>
+                    <span>Log Hours</span>
+                </div>
+            </div>
+
+            <!-- My Tasks & Recent Activity -->
+            <div class="my-tasks-container" 
+               
+                <!-- My Tasks Card -->
+                <div class="dash-progress-card">
+                    <div class="dash-progress-card-title">
+                        <p>My Tasks</p>
+                        <span id="taskCount"></span>
+                        <a href="wo-tasks.html" style="font-size: 12px; color: #FF5200;">View All</a>
+                    </div>
+                    <div style="margin-top: 16px;"  id="taskList">
+                        <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #2a2a2a;">
+                            <!-- <div>
+                                <h4 style="font-size: 14px;">Excavation Work</h4>
+                                <p style="font-size: 12px; color: #9a9a9a;">Sunrise Tower</p>
+                            </div>
+                            <span style="color: #F59E0B; font-size: 12px;">In Progress</span> -->
+                        </div>
+                       
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="dash-progress-card">
+                    <div class="dash-progress-card-title">
+                        <p>Recent Activity</p>
+                    </div>
+                    <div class="activity-list" style="margin-top: 16px;">
+                        <div class="activity-item" style="padding: 8px 0;">
+                            <div class="act-dot" style="background: #22C55E;"></div>
+                            <div class="act-text">Submitted daily report for Sunrise Tower</div>
+                            <div class="act-time">2 hours ago</div>
+                        </div>
+                        <div class="activity-item" style="padding: 8px 0;">
+                            <div class="act-dot" style="background: #3b82f6;"></div>
+                            <div class="act-text">Task "Foundation" marked as completed</div>
+                            <div class="act-time">Yesterday</div>
+                        </div>
+                        <div class="activity-item" style="padding: 8px 0;">
+                            <div class="act-dot" style="background: #F59E0B;"></div>
+                            <div class="act-text">New material request approved</div>
+                            <div class="act-time">2 days ago</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            updateMyTask();
+        });
+
+
+        console.log('Worker Dashboard loaded');
+        console.log('Current User:', getCurrentUser());
+
+        setTimeout(() => {
+            console.log('Manually calling loadWorkerDashboard...');
+            loadworkerDashboard();
+        }, 500);
+
+    </script>
+
+    <script src="../js/side-bar.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/auth-check.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

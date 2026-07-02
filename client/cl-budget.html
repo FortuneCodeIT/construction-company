@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/cl-dashboard.css">
+    <link rel="stylesheet" href="../boxicons-2.1.4/boxicons-2.1.4/css/boxicons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <title>Budget - Client Portal</title>
+    <style>
+    </style>
+</head>
+<body>
+   
+    <!-- Client Sidebar -->
+    <aside class="aside-container">
+        <div class="logo">
+            <img src="../images/Vector.png" alt="">
+            <h2>Pinnacle</h2>
+        </div>
+
+        <nav>
+            <ul>
+                <a href="my-project.html">
+                    <div class="side-list">
+                        <i class="bx bx-home-alt"></i>
+                        <li>Project Overview</li>
+                    </div>
+                </a>
+
+                <a href="cl-project-status.html">
+                    <div class="side-list">
+                        <i class="bx bx-chart"></i>
+                        <li>Progress</li>
+                    </div>
+                </a>
+
+                <a href="cl-budget.html">
+                    <div class="side-list active">
+                        <i class="bx bx-money"></i>
+                        <li>Budget</li>
+                    </div>
+                </a>
+
+                <a href="cl-document.html">
+                    <div class="side-list">
+                        <i class="bx bx-file"></i>
+                        <li>Documents</li>
+                    </div>
+                </a>
+
+                <a href="cl-messages.html">
+                    <div class="side-list">
+                        <i class="bx bx-message"></i>
+                        <li>Messages</li>
+                    </div>
+                </a>
+
+                <a href="cl-profile.html">
+                    <div class="side-list">
+                        <i class="bx bx-user"></i>
+                        <li>My Profile</li>
+                    </div>
+                </a>
+
+                <a href="cl-support.html">
+                    <div class="side-list">
+                        <i class="bx bx-help-circle"></i>
+                        <li>Support</li>
+                    </div>
+                </a>
+
+                <div class="logout-wrapper">
+                    <a href="../logout.html">
+                        <div class="logout">
+                            <i class="bx bx-log-out"></i>
+                            <li>Logout</li>
+                        </div>
+                    </a>
+                </div>
+            </ul>
+        </nav>
+    </aside>
+
+    <header>
+        <div class="bar-wrapper"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+        <div class="search-bar-wrapper"><i class="bx bx-search search"></i><input type="search" placeholder="search..."></div>
+        <div class="header-profile-wrapper">
+            <i class="bx bx-bell bell"></i><div class="notify-dot"></div>
+            <div class="header-profile">
+                <img src="../images/avatar2.jpg" alt="">
+                <div class="header-profile-text"><h3>Sarah Johnson</h3><p>Client</p></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="main-content">
+            <div class="page-name">
+                <h1>Budget & Invoices</h1>
+                <div class="read-only-badge"><i class="bx bx-show"></i>View Only</div>
+            </div>
+
+            <!-- Summary Cards -->
+            <div class="dash-overview-container">
+                <div class="dash-overview-card" style="box-shadow: 0 6px 2px rgb(34, 197, 94);">
+                    <div class="dash-overview-icon" style="background-color:rgba(34, 197, 94, 0.07);">
+                        <i class="bx bx-wallet" style="font-size: 24px; color: #22C55E;"></i>
+                    </div>
+                    <div class="overview-card-content">
+                        <p>Total Contract</p>
+                        <h4>₦1.10B</h4>
+                    </div>
+                </div>
+
+                <div class="dash-overview-card" style="box-shadow: 0 6px 2px rgb(59, 130, 246);">
+                    <div class="dash-overview-icon" style="background-color:rgba(59, 130, 246, 0.07);">
+                        <i class="bx bx-receipt" style="font-size: 24px; color: #3b82f6;"></i>
+                    </div>
+                    <div class="overview-card-content">
+                        <p>Total Invoiced</p>
+                        <h4>₦825M</h4>
+                    </div>
+                </div>
+
+                <div class="dash-overview-card" style="box-shadow: 0 6px 2px rgb(34, 197, 94);">
+                    <div class="dash-overview-icon" style="background-color:rgba(34, 197, 94, 0.07);">
+                        <i class="bx bx-check-circle" style="font-size: 24px; color: #22C55E;"></i>
+                    </div>
+                    <div class="overview-card-content">
+                        <p>Amount Paid</p>
+                        <h4>₦700M</h4>
+                    </div>
+                </div>
+
+                <div class="dash-overview-card" style="box-shadow: 0 6px 2px rgb(245, 158, 11);">
+                    <div class="dash-overview-icon" style="background-color:rgba(245, 158, 11, 0.07);">
+                        <i class="bx bx-hourglass" style="font-size: 24px; color: #F59E0B;"></i>
+                    </div>
+                    <div class="overview-card-content">
+                        <p>Outstanding</p>
+                        <h4>₦125M</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Invoice History Table -->
+             <div class="invoice-wrapper">
+            <div class="activities-table">
+                <h4 style=" padding: 20px">Invoice History</h4>
+                <table class="invoice-table" style="width: 100%;">
+                    <thead>
+                        <tr class="table-bg">
+                            <th>Invoice #</th>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>PIN-001</td>
+                            <td>Jan 25, 2026</td>
+                            <td>Foundation Deposit</td>
+                            <td>₦200,000,000</td>
+                            <td class="status-paid">● Paid</td>
+                        </tr>
+                        <tr>
+                            <td>PIN-002</td>
+                            <td>Mar 20, 2026</td>
+                            <td>Structure Phase</td>
+                            <td>₦250,000,000</td>
+                            <td class="status-paid">● Paid</td>
+                        </tr>
+                        <tr>
+                            <td>PIN-003</td>
+                            <td>May 15, 2026</td>
+                            <td>Materials & Labor</td>
+                            <td>₦250,000,000</td>
+                            <td class="status-paid">● Paid</td>
+                        </tr>
+                        <tr>
+                            <td>PIN-004</td>
+                            <td>Jun 10, 2026</td>
+                            <td>Structural Steel</td>
+                            <td>₦125,000,000</td>
+                            <td class="status-pending">● Pending</td>
+                        </tr>
+                        <tr>
+                            <td>PIN-005</td>
+                            <td>Aug 01, 2026</td>
+                            <td>Finishing Phase</td>
+                            <td>₦275,000,000</td>
+                            <td class="status-pending">● Upcoming</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+
+            <!-- Payment Instructions -->
+            <div class="dash-progress-card" style="margin: 20px;">
+                <div class="dash-progress-card-title">
+                    <p>Payment Information</p>
+                </div>
+                <div style="padding: 16px; background: #0a0a0a; border-radius: 12px; margin-top: 8px;">
+                    <p style="color: #9a9a9a; margin-bottom: 8px;">Bank: First Bank of Nigeria</p>
+                    <p style="color: #9a9a9a; margin-bottom: 8px;">Account Name: Pinnacle Construction Ltd</p>
+                    <p style="color: #9a9a9a; margin-bottom: 8px;">Account Number: 1234567890</p>
+                    <p style="color: #F59E0B; font-size: 13px; margin-top: 12px;">For payment inquiries, please contact accounts@pinnacle.com</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/side-bar.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/auth-check.js"></script>
+</body>
+</html>

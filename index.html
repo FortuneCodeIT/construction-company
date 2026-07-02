@@ -5,13 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
+         <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 </head>
+<style>
+    .hidden {
+        display: none;
+    }
+</style>
 <body>
+
+        <!-- this is for preloader -->
+            <!-- <div id="preloader">
+        <div class="logo-loader">
+            <img src="../images/Vector.png" alt="Pinnacle">
+            <h2>Pinnacle</h2>
+            <div class="spinner"></div>
+            <div class="loader-text">Loading...</div>
+        </div>
+    </div> -->
 
 
     <header>
         <div class="logo">
-            <img src="images/Vector.png" alt="">
+            <img src="../images/Vector.png" alt="">
             <h2>Pinnacle</h2>
         </div>
 
@@ -20,20 +36,23 @@
             <ul>
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="about-us.html">About Us</a></li>
-                <li><a href="projects.html">Projects</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="">News</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+
             </ul>
         </nav>
 
         <nav class="mobile-nav" id="mobile-nav">
             <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about-us.html">About Us</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="">News</a></li>
-            </ul>
+                <a href="index.html" ><li class="active">Home</li></a>
+                <a href="about-us.html"><li>About Us</li></a>
+                <a href="services.html"><li>Services</li></a>
+                <a href="contact.html"><li>Contact Us</li></a>
+
+                <div class="" style="border-radius:6px; position: absolute; bottom: 0; right:0; left:0;  background: #FF5200; text-align:center; margin:0 20px 40px; font-size: 24px; ">
+                <a href="login.html"> <li style="padding:20px; width:100%">Login</li></a>
+                </div>
+            </ul>       
 
         </nav>
 
@@ -44,36 +63,59 @@
             <span class="bar"></span>
         </div>
 
-        <button>Contact Us</button>
+        <div class="reg-btn">
+        <a href="login.html">Login</a>
+        </div>
     </header>
 
 
 <div class="container">
     <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-content">
-            <h2>Creating a Better <br>Tomorrow, One <br>Home at a Time</h2>
-            <p>We built a reputation for delivering exceptional results and exceeding our clients' expectations. 
+    <section class="hero-section" >
+        <div class="hero-content" >
+            <h2 data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="100"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation >Creating a Better <br>Tomorrow, One <br>Home at a Time</h2>
+            <p data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="300"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>We built a reputation for delivering exceptional results and exceeding our clients' expectations. 
                 From luxurious residential homes to state-of-the-art commercial properties, our team of experts is dedicated to bringing your vision to life.
             </p>
 
-            <div class="hero-btn">
-                <button>Schedule a Call</button>
-                <button>View Our Projects</button>
+            <div class="hero-btn" >
+                <a href="contact.html"data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="400"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>Schedule a call</a>
+                <a href="login.html" data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="600"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>Get Started</a>
             </div>
         </div>
 
-        <div class="hero-img">
-            <img src="images/image 5.png" alt="" id="mansion">
-            <img src="images/Review (1).png" alt="" id="review1">
-            <img src="images/Review.png" alt="" id="review2">
-        </div>
         
     </section>
 
     <!-- About Us section -->
-    <section class="about-us-section">
-        <div class="first-commune">
+    <section class="about-us-section" >
+       
+        <div class="first-commune"  data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="100"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
             <h1>We're </h1>
                 <div class="circle">
                     <div class="or-circle"></div>
@@ -81,132 +123,51 @@
             <h1>building </h1>                    
         </div>
 
-        <div class="second-commune">
+        <div class="second-commune"  data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="100"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
          <h1>communities.</h1>
          <p>With the commitment to excellence and a focus on innovation, we've established ourselves as a
            <br> leader in the real estate and construction industry.
          </p>
 
-         <button>Learn More About Us...</button>
+          <a href="about-us.html">Learn More About Us...</a>
 
-        <div class="avatar-group" style="margin-top: 40px;">
+        <div class="avatar-group" style="margin-top: 40px;"  data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="100"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
             <div class="avatars">
-                <div class="avatar"><img src="images/avatar1.jpg" alt=""></div>
-                <div class="avatar"><img src="images/avatar2.jpg" alt=""></div>
-                <div class="avatar"><img src="images/ch2.png" alt=""></div>
-                <div class="avatar"><img src="images/founder.jpg" alt=""></div>
+                <div class="avatar"><img src="../images/avatar1.jpg" alt=""></div>
+                <div class="avatar"><img src="../images/avatar2.jpg" alt=""></div>
+                <div class="avatar"><img src="../images/ch2.png" alt=""></div>
+                <div class="avatar"><img src="../images/founder.jpg" alt=""></div>
             </div>
             <div class="rating">
                 <div class="rate">
-                    <img src="images/Star 4.png" alt="">
-                    <img src="images/Star 4.png" alt="">
-                    <img src="images/Star 4.png" alt="">
-                    <img src="images/Star 4.png" alt="">
-                    <img src="images/Frame 8.png" alt="">
+                    <img src="../images/Star 4.png" alt="">
+                    <img src="../images/Star 4.png" alt="">
+                    <img src="../images/Star 4.png" alt="">
+                    <img src="../images/Star 4.png" alt="">
+                    <img src="../images/Frame 8.png" alt="">
                 </div>
                 <span style="color: #fff;">4.3/5 Rated by 300+ Professionals</span>
             </div>
         </div>
         </div>
 
-        <div class="design-img">
-            <img src="images/Image.png" alt="" id="right-image">
-            <img src="images/image (1).png" alt="" id="left-image">
-            <img src="images/Vector (1).png" alt="" id="circle-design">
-        </div>
-    </section>
-
-    <!-- Featured section -->
-    <section class="featured-section">
-        <div class="featured-content">
-            <div class="featured-text">
-                <div class="featured-head">
-                    <img src="images/Vector (7).png" alt="">
-                <h1>Featured Projects</h1>
-                </div>
-                <p>We built a reputation for delivering exceptional results and exceeding our clients' expectations. 
-                    From luxurious residential homes to state-of-the-art commercial properties, our team of experts is dedicated to bringing your vision to life.
-                </p>
-            </div>
-
-            <button>View all Projects</button>
+        <div class="design-img" >
+            <img src="../images/Image.png" alt="" id="right-image">
+            <img src="../images/image (1).png" alt="" id="left-image">
+            <img src="../images/Vector (1).png" alt="" id="circle-design">
         </div>
 
-        <div class="property-card-wrapper">
-       
-            <div class="property-card">
-                <img src="images/Card-image (3).png" alt="">
-
-                <div class="card-text">
-                    <h4>The Grand Estate</h4>
-                    <p>The Grand Estate ia a luxurious residential development featuring 12 bespoke homes, each with...</p>
-
-                    <small>Upper Macungie Township. PA</small> <br>
-                    <div class="property-card-btn">
-                      <button>Movie theater</button>
-                    </div>
-                </div>
-
-                <div class="property-btn">
-                    <button>View Property</button>
-                </div>
-            </div>
-            
-
-            <div class="property-card">
-                <img src="images/Card-image (4).png" alt="">
-
-                <div class="card-text">
-                    <h4>The Business Hub</h4>
-                    <p>The Business Hub is a state-of-the-art commercial office space designed to meet the needs of modern...</p>
-
-                    <small>Upper Macungie Township. PA</small> <br>
-                    <div class="property-card-btn">
-                      <button>High-speed Wi-Fi</button>
-                    </div>
-                </div>
-
-                <div class="property-btn">
-                    <button>View Property</button>
-                </div>
-            </div>
-            
-
-            <div class="property-card">
-                <img src="images/Card-image (5).png" alt="">
-
-                <div class="card-text">
-                    <h4>The Village</h4>
-                    <p>The Village is community development featuring a mix of residential and commercial spaces, designed...</p>
-
-                    <small>Upper Macungie Township. PA</small> <br>
-                    <div class="property-card-btn">
-                      <button>Green spaces</button>
-                    </div>
-                </div>
-
-                <div class="property-btn">
-                    <button>View Property</button>
-                </div>
-            </div>
-            
-        </div>
-
-         <div class="property-scroll-wrapper">
-            <div class="property-scroll-text">
-                <span>01</span><span>/03</span>
-            </div>
-
-            <div class="property-scroll-arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
-                <path fill="#fff" d="m7.825 13l4.9 4.9q.3.3.288.7t-.313.7q-.3.275-.7.288t-.7-.288l-6.6-6.6q-.15-.15-.213-.325T4.426 12t.063-.375t.212-.325l6.6-6.6q.275-.275.688-.275t.712.275q.3.3.3.713t-.3.712L7.825 11H19q.425 0 .713.288T20 12t-.288.713T19 13z" />
-                </svg>
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" class="active">
-                <path fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7l-7 7" />
-                </svg>
-            </div>
-         </div>
+        
     </section>
 
 
@@ -214,104 +175,324 @@
     <section class="services-section">
         <div class="services-content-wrapper">
 
-            <div class="featured-head">
+            <div class="featured-head"  data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="100"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
             <h1>Quality service you get</h1>
-            <img src="images/Vector (2).png" alt="">
+            <img src="../images/Vector (2).png" alt="">
             </div>
-            <p>At Pinnacle, we offer a wide range services to cater to your unique needs. 
+            <p  data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="100"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>At Pinnacle, we offer a wide range services to cater to your unique needs. 
                 From residential construction to commercial development. We've got you covered.
             </p>
 
-            <div class="services-offered-btns">
-                <button class="active">Residential</button>
-                <button>Property Management</button>
-                <button>Commercial</button>
-                <button>development</button>
+            <div class="services-offered-btns"  data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="100"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
+                <button class="active-service" id="residentialBtn">Residential</button>
+                <button  id="manageBtn">Property Management</button>
+                <button id="commerceBtn">Commercial</button>
+                <button id="devBtn">development</button>
             </div>
         </div>
 
-        <div class="services-card-wrapper">
+        <div class="services-card-wrapper" id="residential"  data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="100"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
        
             <div class="service-card">
-                <img src="images/Card-image.png" alt="">
+
+                <img src="../images/Card-image.png" alt="">
+      
 
                 <div class="service-card-text">
                     <h4>Custom Home</h4>
-                    <p>We design and build custom homes that reflect your personal style and meet your specific needs...</p>
+                    <p class="text">We design and build custom homes that reflect your personal style and meet your specific needs. 
+                        From concept to completion, we work closely with you to create a space that feels uniquely yours.
+                    </p>
 
                     <div class="service-btn">
-                      <button>Learn More...</button>
+                      <button class="moreBtn">Learn More...</button>
                     </div>
                 </div>
             </div>
             
 
             <div class="service-card">
-                <img src="images/Card-image.png" alt="">
+                <img src="../images/residential1.jpg" alt="">
+
 
                 <div class="service-card-text">
                     <h4>Community Dev</h4>
-                    <p>We develop and manage community projects, including single-family homes, townhomes and con...</p>
-
+                    <p class="text">We develop and manage community projects, including single-family homes, townhomes, and condominiums.
+                        Our communities are designed to foster connection, comfort, and convenience.
+                    </p>
                     <div class="service-btn">
-                      <button>Learn More...</button>
+                      <button class="moreBtn">Learn More...</button>
                     </div>
                 </div>
             </div>
             
 
             <div class="service-card">
-                <img src="images/Card-image.png" alt="">
+                <img src="../images/residential.jpg" alt="">
+    
 
                 <div class="service-card-text">
                     <h4>Renovations</h4>
-                    <p>We specialize in residential renovations, from minor updates to major overhauls.</p>
-
+                    <p class="text">We specialize in residential renovations, from minor updates to major overhauls. 
+                        Whether it's a kitchen, bathroom, or entire home transformation, we bring new life to your space 
+                    </p>
                     <div class="service-btn">
-                      <button>Learn More...</button>
+                      <button class="moreBtn">Learn More...</button>
                     </div>
                 </div>
             </div>
             
         </div>
+
+        <div class="services-card-wrapper hidden" id="management"  data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="100"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
+
+             <div class="service-card">
+                <img src="../images/tenants.jpg" alt="">
+      
+                <div class="service-card-text">
+                    <h4>Tenant Management</h4>
+                    <p class="text">We handle all tenant-related matters including screening, lease agreements, rent collection, and conflict resolution.
+                        Our goal is to keep your properties occupied with reliable tenants.
+                    </p>
+                    <div class="service-btn">
+                      <button class="moreBtn">Learn More...</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-card">
+
+                <img src="../images/repairs.jpg" alt="">
+    
+                <div class="service-card-text">
+                    <h4>Maintenance & Repairs</h4>
+                    <p class="text">24/7 maintenance responce for all your properties. We coordinate repairs, inspections, 
+                        and preventive maintenance to protect your investment and keep tenants happy</p>
+
+                    <div class="service-btn">
+                      <button class="moreBtn">Learn More...</button>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="service-card">
+
+                <img src="../images/reporting.jpg" alt="">
+    
+                <div class="service-card-text">
+                    <h4>Financial Reporting</h4>
+                    <p class="text">Monthly financial statements, expense tracking, and tax-ready reports. Stay informed about your property's
+                        performance with our transparent and detailed reporting system.
+                    </p>
+
+                    <div class="service-btn">
+                      <button class="moreBtn">Learn More...</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="services-card-wrapper hidden" id="commercial"  data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="100"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
+            <div class="service-card">
+
+                <img src="../images/office.jpg" alt="">
+    
+                <div class="service-card-text">
+                    <h4>Office Building</h4>
+                    <p class="text">We construct modern, functional office buildings designed for productivity and collaboration. 
+                        From corporate headquaters to small business offices, we deliver quality commercial spaces.
+                    </p>
+                    <div class="service-btn">
+                      <button class="moreBtn">Learn More...</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-card">
+
+                <img src="../images/retail.jpg" alt="">
+    
+                <div class="service-card-text">
+                    <h4>Retail Spaces</h4>
+                    <p class="text">Specialized in building retail environments that attract customers and maximize sales.
+                        We understand the unique needs of shops, showrooms, restaurants, and shopping centers.
+                    </p>
+
+                    <div class="service-btn">
+                      <button class="moreBtn">Learn More...</button>
+                    </div>
+                </div>
+            </div>
+            
+
+                <div class="service-card">
+
+                <img src="../images/industry.jpg" alt="">
+
+                <div class="service-card-text">
+                    <h4>Industrial Warehouses</h4>
+                    <p class="text">Duration, efficient industrial warehouses built to handle heavy operations. We focus on safety, accessibility, and
+                        functionality for manufacturing, storage, and logistic needs.
+                    </p>
+
+                    <div class="service-btn">
+                      <button class="moreBtn">Learn More...</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="services-card-wrapper hidden" id="development"  data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="100"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
+            <div class="service-card">
+
+                <img src="../images/land.jpg" alt="">
+      
+
+                <div class="service-card-text">
+                    <h4>Land Acquisition</h4>
+                    <p class="text">We help identify, evaluate, and acquire prime land for development projects. 
+                        Our team conducts feasibility studies and negotiates the best terms for your investment.</p>
+
+                    <div class="service-btn">
+                      <button class="moreBtn">Learn More...</button>
+                    </div>
+                </div>
+            </div>
+            
+                        <div class="service-card">
+
+                <img src="images/finance.jpg" alt="">
+      
+
+                <div class="service-card-text">
+                    <h4>Project Financing</h4>
+                    <p class="text">Assistance with securing funding for your development projects. We connect you with lenders, 
+                        manage budgets, and structure financing to keep your project moving forward.
+                    </p>
+
+                    <div class="service-btn">
+                      <button class="moreBtn">Learn More...</button>
+                    </div>
+                </div>
+            </div>
+            
+
+                        <div class="service-card">
+
+                <img src="../images/plan.jpg" alt="">
+      
+
+                <div class="service-card-text">
+                    <h4>Site Planning</h4>
+                    <p class="text">Comprehensive site planning including zoning analysis, environmental impact studies, and infrastructure design.
+                        We ensure your project is compliant, sustainable, and well-organized.
+                    </p>
+
+                    <div class="service-btn">
+                      <button class="moreBtn">Learn More...</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+
     </section>
 
 
 
     <!-- What client says -->
     <section class="client-review">
-        <div class="services-content-wrapper">
+        <div class="services-content-wrapper"  data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="100"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
             <div class="featured-head">
             <h1>What Our Clients Say</h1>
-            <img src="images/Vector (3).png" alt="">
+            <img src="../images/Vector (3).png" alt="">
             </div>
             <p>At Pinnacle, We're not just building structures - we're building relationships. 
                 Here's what some of our satisfied clients have to say about thier experience with us.
             </p>
         </div>
 
-        <div class="avatar-group">
+        <div class="avatar-group"  data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="100"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
             <div class="avatars">
-                <div class="avatar"><img src="images/avatar1.jpg" alt=""></div>
-                <div class="avatar"><img src="images/avatar2.jpg" alt=""></div>
-                <div class="avatar"><img src="images/ch2.png" alt=""></div>
-                <div class="avatar"><img src="images/founder.jpg" alt=""></div>
+                <div class="avatar"><img src="../images/avatar1.jpg" alt=""></div>
+                <div class="avatar"><img src="../images/avatar2.jpg" alt=""></div>
+                <div class="avatar"><img src="../images/ch2.png" alt=""></div>
+                <div class="avatar"><img src="../images/founder.jpg" alt=""></div>
             </div>
-            <div class="rating">
+            <div class="rating"  data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="100"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
                 <div class="rate">
-                    <img src="images/Star 4.png" alt="">
-                    <img src="images/Star 4.png" alt="">
-                    <img src="images/Star 4.png" alt="">
-                    <img src="images/Star 4.png" alt="">
-                    <img src="images/Frame 8.png" alt="">
+                    <img src="../images/Star 4.png" alt="">
+                    <img src="../images/Star 4.png" alt="">
+                    <img src="../images/Star 4.png" alt="">
+                    <img src="../images/Star 4.png" alt="">
+                    <img src="../images/Frame 8.png" alt="">
                 </div>
                 <span>4.3/5 Rated by 300+ Professionals</span>
             </div>
         </div>
 
-        <div class="review-wrapper">
+        <div class="review-wrapper"  data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="100"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
             <div class="review-card">
-                <img src="images/avatar2.jpg" alt="">
+                <img src="../images/avatar2.jpg" alt="">
                  <div class="review-content">
                     <p>
                         "Pinnacle's attention to details and commitment t excellence is unparalleled. Their team is professional, courteous,
@@ -323,7 +504,7 @@
             </div>
 
             <div class="review-card">
-                <img src="images/avatar2.jpg" alt="">
+                <img src="../images/avatar2.jpg" alt="">
                  <div class="review-content">
                     <p>
                         "Pinnacle's attention to details and commitment t excellence is unparalleled. Their team is professional, courteous,
@@ -335,7 +516,7 @@
             </div>
 
             <div class="review-card">
-                <img src="images/avatar1.jpg" alt="">
+                <img src="../images/avatar1.jpg" alt="">
                  <div class="review-content">
                     <p>
                         "I was blown away by the quality of work and the level of service provided by Pinnacle.
@@ -347,7 +528,7 @@
             </div>
 
             <div class="review-card">
-                <img src="images/avatar2.jpg" alt="">
+                <img src="../images/avatar2.jpg" alt="">
                  <div class="review-content">
                     <p>
                         "Pinnacle's ability to balance budget, schedule and quality is impressive. They're true partner in the construction process."
@@ -363,11 +544,11 @@
 
 
     <!-- Latest News -->
-    <section class="latest-news-section">
+    <!-- <section class="latest-news-section">
                 <div class="featured-content">
             <div class="featured-text">
                 <div class="featured-head">
-                    <img src="images/vector (4).png" alt="" >
+                    <img src="../images/vector (4).png" alt="" >
                     <h1>Latest News</h1>
                 </div>
                 <p>We built a reputation for delivering exceptional results and exceeding our clients' expectations. 
@@ -380,8 +561,8 @@
 
         <div class="news-card-wrapper">
             <div class="news-card">
-                <img src="images/Card-image (1).png" alt="" class="desktop-img">
-                <img src="images/Card-image.png" alt="" class="mobile-img">
+                <img src="../images/Card-image (1).png" alt="" class="desktop-img">
+                <img src="../images/Card-image.png" alt="" class="mobile-img">
 
                 <div class="news-content">
                     <div class="up-btn">
@@ -400,8 +581,28 @@
             </div>
 
             <div class="news-card">
-                <img src="images/Card-image (1).png" alt="" class="desktop-img">
-                <img src="images/Card-image.png" alt="" class="mobile-img">
+                <img src="../images/Card-image (1).png" alt="" class="desktop-img">
+                <img src="../images/Card-image.png" alt="" class="mobile-img">
+
+                <div class="news-content">
+                    <div class="up-btn">
+                        <button>Planning</button>
+                    </div>
+                    <h2>How To Plan Your Dream Home</h2>
+
+                    <div class="date-btn">
+                        <span>Jan 15, 2023</span>
+ 
+                    <div class="service-btn">
+                      <button>Read More...</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <img src="../images/Card-image (1).png" alt="" class="desktop-img">
+                <img src="../images/Card-image.png" alt="" class="mobile-img">
 
                 <div class="news-content">
                     <div class="up-btn">
@@ -436,22 +637,32 @@
             </div>
          </div>
             
-    </section>
+    </section> -->
 
 
 
     <!-- FAQ -->
     <section class="FAQ-wrapper">
-        <div class="featured-content">
+        <div class="featured-content"  data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="100"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
             <div class="featured-text">
             <div class="featured-head">
-                <img src="images/vector (5).png" alt="">
+                <img src="../images/vector (5).png" alt="">
                 <h1 style="text-align: start;">Frequently Asked Questions</h1>
             </div>
             </div>
         </div>
 
-        <div class="faq-card-wrapper">
+        <div class="faq-card-wrapper"  data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="100"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
             <div class="faq-card">
                 <h2>How long has pinnacle been in business?</h2>
                 <p>
@@ -489,37 +700,58 @@
 
 
     <!-- Call to Action -->
-    <section class="cta-container">
-        <h1>Let's Build
-            <img src="images/Vector (6).png" alt=""> 
+    <section class="cta-container" >
+
+        <h1 data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="100"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>Let's Build
+            <img src="../images/Vector (6).png" alt=""> 
             Something <br>Extraordinary Together
         </h1>
 
-        <button>View our projects</button>
+        <button data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="100"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>Get Started</button>
 
         <div class="cta-design-bg">
-            <img src="images/Vector (1).png" alt="" id="first-design">
-            <img src="images/Vector (1).png" alt="" id="second-design">
+            <img src="../images/Vector (1).png" alt="" id="first-design">
+            <img src="../images/Vector (1).png" alt="" id="second-design">
         </div>
     </section>
 
 
     <!-- Footer section -->
     <section class="footer-container">
-        <div>
+        <div data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="100"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
             <div class="logo">
-                <img src="images/Vector.png" alt="">
+                <img src="../images/Vector.png" alt="">
                 <h2>Pinnacle</h2>
             </div>
             <div class="input-wrapper">
-                 <img src="images/Mail-Send-Envelope--Streamline-Core.svg.png" alt="" id="mailEnv">
+                 <img src="../images/Mail-Send-Envelope--Streamline-Core.svg.png" alt="" id="mailEnv">
                 <input type="email" name="email" placeholder="Enter Your Email">
-                <img src="images/Send-Email--Streamline-Core.svg.png" alt="" id="sendEmail">
+                <img src="../images/Send-Email--Streamline-Core.svg.png" alt="" id="sendEmail">
             </div>
         </div>
 
         <div class="navigation-wrapper">
-        <div class="navigation">
+        <div class="navigation" data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="300"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
             <h4>Navigation</h4>
 
             <ul>
@@ -531,7 +763,12 @@
             </ul>
         </div>
 
-        <div class="navigation">
+        <div class="navigation" data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="600"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
             <h4>About Us</h4>
 
             <ul>
@@ -541,7 +778,12 @@
             </ul>
         </div>
 
-        <div class="navigation">
+        <div class="navigation" data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="900"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
             <h4>Properties</h4>
 
             <ul>
@@ -550,7 +792,12 @@
             </ul>
         </div>
 
-        <div class="navigation">
+        <div class="navigation" data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="1200"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
             <h4>Services</h4>
 
             <ul>
@@ -561,7 +808,12 @@
             </ul>
         </div>
 
-        <div class="navigation">
+        <div class="navigation" data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-delay="1500"
+                    data-aos-easing="ease-in-out"
+
+                    Smooth animation>
             <h4>Contact</h4>
 
             <ul>
@@ -581,14 +833,19 @@
                     &copy;2024 Pinnacle. All Rights Reserved.
                 </p>
             </div>
-            <div>
-                <img src="images/Button (4).png" alt="">
-                <img src="images/Button (3).png" alt="">
-                <img src="images/Button (2).png" alt="">
-                <img src="images/Button (1).png" alt="">
+            <div class="all-right-socials">
+                <img src="../images/Button (4).png" alt="">
+                <img src="../images/Button (3).png" alt="">
+                <img src="../images/Button (2).png" alt="">
+                <img src="../images/Button (1).png" alt="">
             </div>
         </div>
     </footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 
 <script src="js/script.js"></script>
 </body>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/wo-dashboard.css">
+    <link rel="stylesheet" href="../boxicons-2.1.4/boxicons-2.1.4/css/boxicons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <title>Materials - Worker Portal</title>
+    <style>
+    </style>
+</head>
+<body>
+   
+   
+    <!-- Worker Sidebar -->
+    <aside class="aside-container">
+        <div class="logo">
+            <img src="../images/Vector.png" alt="">
+            <h2>Pinnacle</h2>
+        </div>
+        <nav>
+            <ul>
+                <a href="wo-dashboard.html">
+                    <div class="side-list">
+                        <i class="bx bx-home-alt"></i>
+                        <li>My Dashboard</li>
+                    </div>
+                </a>
+                <a href="wo-project.html">
+                    <div class="side-list">
+                        <i class="bx bx-briefcase"></i>
+                        <li>My Projects</li>
+                    </div>
+                </a>
+                <a href="wo-tasks.html">
+                    <div class="side-list">
+                        <i class="bx bx-task"></i>
+                        <li>My Tasks</li>
+                    </div>
+                </a>
+                <a href="wo-materials.html">
+                    <div class="side-list active">
+                        <i class="bx bx-cube"></i>
+                        <li>Materials</li>
+                    </div>
+                </a>
+                <a href="wo-monitoring.html">
+                    <div class="side-list">
+                        <i class="bx bx-line-chart"></i>
+                        <li>Site Monitoring</li>
+                    </div>
+                </a>
+
+                <a href="wo-inbox.html">
+                    <div class="side-list">
+                        <i class="bx bx-message"></i>
+                        <li>Inbox</li>
+                    </div>
+                </a>
+
+                <a href="wo-profile.html">
+                    <div class="side-list">
+                        <i class="bx bx-user"></i>
+                        <li>My Profile</li>
+                    </div>
+                </a>
+                <a href="wo-notifications.html">
+                    <div class="side-list">
+                        <i class="bx bx-bell bell"></i>
+                        <li>Notifications</li>
+                    </div>
+                </a>
+                <a href="wo-settings.html">
+                    <div class="side-list">
+                        <i class="bx bx-slider"></i>
+                        <li>Settings</li>
+                    </div>
+                </a>
+
+                <div class="logout-wrapper">
+                    <a href="../logout.html">
+                        <div class="logout">
+                            <i class="bx bx-log-out"></i>
+                            <li>Logout</li>
+                        </div>
+                    </a>
+                </div>
+            </ul>
+        </nav>
+    </aside>
+
+    <header>
+        <div class="bar-wrapper"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+        <div class="search-bar-wrapper"><i class="bx bx-search search"></i><input type="search" placeholder="search materials..."></div>
+        <div class="header-profile-wrapper">
+            <i class="bx bx-bell bell"></i><div class="notify-dot"></div>
+            <div class="header-profile">
+                <img src="../images/avatar2.jpg" alt="">
+                <div class="header-profile-text"><h3>John Doe</h3><p>Project Manager</p></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="main-content">
+            <div class="page-name">
+                <h1>Materials & Inventory</h1>
+                <button class="role-badge" style="background: #FF5200; color: #fff; border: none; cursor: pointer;" onclick="openRequestModal()">
+                    <i class="bx bx-plus"></i>
+                    Request Material
+                </button>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="dash-overview-container">
+                <div class="dash-overview-card" style="box-shadow: 0 6px 2px rgb(34, 197, 94);">
+                    <div class="dash-overview-icon" style="background-color:rgba(34, 197, 94, 0.07);">
+                        <i class="bx bx-cube" style="font-size: 24px; color: #22C55E;"></i>
+                    </div>
+                    <div class="overview-card-content">
+                        <p>Available Items</p>
+                        <h4>24</h4>
+                    </div>
+                </div>
+
+                <div class="dash-overview-card" style="box-shadow: 0 6px 2px rgb(245, 158, 11);">
+                    <div class="dash-overview-icon" style="background-color:rgba(245, 158, 11, 0.07);">
+                        <i class="bx bx-error-circle" style="font-size: 24px; color: #F59E0B;"></i>
+                    </div>
+                    <div class="overview-card-content">
+                        <p>Low Stock</p>
+                        <h4>5</h4>
+                    </div>
+                </div>
+
+                <div class="dash-overview-card" style="box-shadow: 0 6px 2px rgb(59, 130, 246);">
+                    <div class="dash-overview-icon" style="background-color:rgba(59, 130, 246, 0.07);">
+                        <i class="bx bx-time" style="font-size: 24px; color: #3b82f6;"></i>
+                    </div>
+                    <div class="overview-card-content">
+                        <p>Pending Requests</p>
+                        <h4>2</h4>
+                    </div>
+                </div>
+
+                <div class="dash-overview-card" style="box-shadow: 0 6px 2px rgb(255, 82, 0);">
+                    <div class="dash-overview-icon" style="background-color:rgba(255, 82, 0, 0.07);">
+                        <i class="bx bx-check-shield" style="font-size: 24px; color: #FF5200;"></i>
+                    </div>
+                    <div class="overview-card-content">
+                        <p>Approved</p>
+                        <h4>12</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Materials Table -->
+            <div class="materials-table-container">
+                <div class="activities-table">
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr class="table-bg">
+                                <th>Material Name</th>
+                                <th>Category</th>
+                                <th>Quantity</th>
+                                <th>Unit</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Cement</td>
+                                <td>Construction</td>
+                                <td>2000</td>
+                                <td>Bags</td>
+                                <td class="available">Available</td>
+                                <td><button class="role-badge" style="background: #3b82f6; color: #fff; border: none; cursor: pointer;" onclick="openRequestWithItem('Cement')">Request</button></td>
+                            </tr>
+                            <tr>
+                                <td>Steel Rods</td>
+                                <td>Construction</td>
+                                <td>1500</td>
+                                <td>Kg</td>
+                                <td class="low-stock">Low Stock</td>
+                                <td><button class="role-badge" style="background: #F59E0B; color: #fff; border: none; cursor: pointer;" onclick="openRequestWithItem('Steel Rods')">Request</button></td>
+                            </tr>
+                            <tr>
+                                <td>Bricks</td>
+                                <td>Construction</td>
+                                <td>5000</td>
+                                <td>Pcs</td>
+                                <td class="available">Available</td>
+                                <td><button class="role-badge" style="background: #3b82f6; color: #fff; border: none; cursor: pointer;" onclick="openRequestWithItem('Bricks')">Request</button></td>
+                            </tr>
+                            <tr>
+                                <td>Sand</td>
+                                <td>Construction</td>
+                                <td>80</td>
+                                <td>m³</td>
+                                <td class="available">Available</td>
+                                <td><button class="role-badge" style="background: #3b82f6; color: #fff; border: none; cursor: pointer;" onclick="openRequestWithItem('Sand')">Request</button></td>
+                            </tr>
+                            <tr>
+                                <td>Granite</td>
+                                <td>Construction</td>
+                                <td>60</td>
+                                <td>m³</td>
+                                <td class="low-stock">Low Stock</td>
+                                <td><button class="role-badge" style="background: #F59E0B; color: #fff; border: none; cursor: pointer;" onclick="openRequestWithItem('Granite')">Request</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Request Modal -->
+    <div class="request-modal" id="requestModal">
+        <div class="modal-content">
+            <h3 style="margin-bottom: 20px;">Request Material</h3>
+            <input type="text" id="materialName" placeholder="Material Name">
+            <select id="projectSelect">
+                <option value="">Select Project</option>
+                <option value="Sunrise Tower">Sunrise Tower</option>
+                <option value="Metro Station">Metro Station</option>
+                <option value="River Bridge">River Bridge</option>
+            </select>
+            <input type="number" id="quantityInput" placeholder="Quantity">
+            <textarea id="reasonInput" rows="3" placeholder="Reason for request"></textarea>
+            <div class="modal-buttons">
+                <button class="cancel-btn" onclick="closeRequestModal()">Cancel</button>
+                <button class="request-btn" onclick="submitRequest()">Submit Request</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openRequestModal() {
+            document.getElementById('requestModal').style.display = 'flex';
+        }
+       
+        function openRequestWithItem(itemName) {
+            document.getElementById('materialName').value = itemName;
+            document.getElementById('requestModal').style.display = 'flex';
+        }
+       
+        function closeRequestModal() {
+            document.getElementById('requestModal').style.display = 'none';
+            document.getElementById('materialName').value = '';
+            document.getElementById('projectSelect').value = '';
+            document.getElementById('quantityInput').value = '';
+            document.getElementById('reasonInput').value = '';
+        }
+       
+        function submitRequest() {
+            const material = document.getElementById('materialName').value;
+            const project = document.getElementById('projectSelect').value;
+            const quantity = document.getElementById('quantityInput').value;
+            const reason = document.getElementById('reasonInput').value;
+           
+            if (!material || !project || !quantity) {
+                alert('Please fill all required fields');
+                return;
+            }
+           
+            alert(`Material request submitted!\n\nMaterial: ${material}\nProject: ${project}\nQuantity: ${quantity}\nReason: ${reason || 'Not specified'}\n\nYour request has been sent for approval.`);
+            closeRequestModal();
+        }
+       
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('requestModal');
+            if (event.target === modal) {
+                closeRequestModal();
+            }
+        }
+    </script>
+
+<script src="../js/data.js"></script>
+<script src="../js/auth-check.js"></script>
+</body>
+</html>
