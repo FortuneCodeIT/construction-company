@@ -2198,33 +2198,19 @@ updateNotificationDot();
 let allNotification = [];
 
 function loadNotification() {
-         console.log("📋 Loading notifications...");
-            
-            // Get current user
-            const currentUser = getCurrentUser();
-            if (!currentUser) {
-                console.warn("⚠️ No user logged in");
-                return;
-            }
+    console.log('Loading notification...')
 
-            // Get all notifications from localStorage
-            const allNotifs = getAllNotifications();
-            console.log("📋 All notifications in storage:", allNotifs.length);
-            
-            // ✅ FILTER: Only show notifications for current user
-            const userNotifs = allNotifs.filter(n => n.userId === currentUser.id);
-            console.log(`📋 Notifications for ${currentUser.name}:`, userNotifs.length);
-            
-            allNotifications = userNotifs;
-            
-            // Update stats
-            updateStats(userNotifs);
-            
-            // Render notifications
-            renderNotifications(userNotifs);
-            
-            // Update notification dot
-            updateNotificationDot();
+    const notifications = getAllNotifications();
+
+    notifications.sort((a, b) => {
+        return new Date(b.createdAt) - new Date(a.createdAt);
+    });
+
+    allNotification = notifications;
+
+    updateStats(notifications);
+
+    renderNotifications(notifications);
 
     console.log('✅ Notifications loaded successfully!');
 }
@@ -2249,46 +2235,40 @@ function updateStats(notifications) {
   // ============================================
         // RENDER NOTIFICATIONS
         // ============================================
-function renderNotifications(notifications) {
-            console.log("📋 renderNotifications() called with:", notifications.length, "notifications");
-            
-            const container = document.getElementById('notificationsContainer');
-            if (!container) {
-                console.error("❌ notificationsContainer not found!");
-                return;
-            }
+function renderNotifications(notifications = getAllNotifications()) {
+  console.log('notification called')
 
-            if (!notifications || notifications.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-state">
-                        <i class="bx bx-bell-off"></i>
-                        <h4>No Notifications</h4>
-                        <p>You're all caught up! No notifications to display.</p>
-                    </div>
-                `;
-                console.log("✅ Empty state shown");
-                return;
-            }
+    const container = document.getElementById('notificationsContainer');
 
-            // Sort by newest first
-            notifications.sort((a, b) => {
-                return new Date(b.createdAt) - new Date(a.createdAt);
-            });
+    container.innerHTML = `gyguihu`
 
-            let html = `<div class="notification-list">`;
+    if (notifications.length === 0) {
+        container.innerHTML = `
+            <div class="empty-state">
+                <i class="bx bx-bell-off"></i>
+                <h4>No Notifications</h4>
+                <p>You're all caught up! No notifications to display.</p>
+            </div>
+        `;
+        return;
+    }
 
-            notifications.forEach(n => {
-                const isRead = n.isRead || false;
-                const iconMap = {
-                    'task': '📋',
-                    'project': '📁',
-                    'message': '💬',
-                    'material': '📦',
-                    'report': '📊',
-                    'system': '⚙️'
-                };
-                const icon = iconMap[n.type] || '🔔';
-                const time = n.createdAt ? formatTimeAgo(n.createdAt) : 'Just now';
+    let html = '';
+
+    notifications.forEach(n => {
+        const isRead = n.isRead || false;
+        const iconClass = n.type || 'system';
+        const iconMap = {
+            'task': '📋',
+            'project': '📁',
+            'message': '💬',
+            'material': '📦',
+            'report': '📊',
+            'system': '⚙️'
+        };
+        const icon = iconMap[n.type] || '🔔';
+        const time = n.createdAt ? formatTimeAgo(n.createdAt) : 'Just now';
+
         html += `
 
 
