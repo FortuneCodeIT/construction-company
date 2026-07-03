@@ -2198,46 +2198,33 @@ updateNotificationDot();
 let allNotification = [];
 
 function loadNotification() {
-    console.log('📋 Loading notifications...');
+         console.log("📋 Loading notifications...");
+            
+            // Get current user
+            const currentUser = getCurrentUser();
+            if (!currentUser) {
+                console.warn("⚠️ No user logged in");
+                return;
+            }
 
-    const currentUser = getCurrentUser();
-    if (!currentUser) {
-        console.warn('⚠️ No user logged in');
-        const container = document.getElementById('notificationsContainer');
-        if (container) {
-            container.innerHTML = `
-                <div class="empty-state">
-                    <i class="bx bx-lock"></i>
-                    <h4>Please Login</h4>
-                    <p>You need to be logged in to view notifications.</p>
-                </div>
-            `;
-        }
-        return;
-    }
-
-    const allNotifications = getAllNotifications();
-    
-    // ✅ Filter by current user
-    const userNotifications = allNotifications.filter(n => n.userId === currentUser.id);
-
-    console.log(`📋 Found ${userNotifications.length} notifications for ${currentUser.name}`);
-
-    // Sort by newest first
-    userNotifications.sort((a, b) => {
-        return new Date(b.createdAt) - new Date(a.createdAt);
-    });
-
-    allNotification = userNotifications;
-
-    // Update stats
-    updateStats(userNotifications);
-
-    // Render notifications
-    renderNotifications(userNotifications);
-
-    // Update notification dot
-    updateNotificationDot();
+            // Get all notifications from localStorage
+            const allNotifs = getAllNotifications();
+            console.log("📋 All notifications in storage:", allNotifs.length);
+            
+            // ✅ FILTER: Only show notifications for current user
+            const userNotifs = allNotifs.filter(n => n.userId === currentUser.id);
+            console.log(`📋 Notifications for ${currentUser.name}:`, userNotifs.length);
+            
+            allNotifications = userNotifs;
+            
+            // Update stats
+            updateStats(userNotifs);
+            
+            // Render notifications
+            renderNotifications(userNotifs);
+            
+            // Update notification dot
+            updateNotificationDot();
 
     console.log('✅ Notifications loaded successfully!');
 }
@@ -2262,62 +2249,46 @@ function updateStats(notifications) {
   // ============================================
         // RENDER NOTIFICATIONS
         // ============================================
-function renderNotifications(notifications = getAllNotifications()) {
-    console.log('notification called')
+function renderNotifications(notifications) {
+            console.log("📋 renderNotifications() called with:", notifications.length, "notifications");
+            
+            const container = document.getElementById('notificationsContainer');
+            if (!container) {
+                console.error("❌ notificationsContainer not found!");
+                return;
+            }
 
-    const container = document.getElementById('notificationsContainer');
+            if (!notifications || notifications.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="bx bx-bell-off"></i>
+                        <h4>No Notifications</h4>
+                        <p>You're all caught up! No notifications to display.</p>
+                    </div>
+                `;
+                console.log("✅ Empty state shown");
+                return;
+            }
 
-    if (!container) return;
+            // Sort by newest first
+            notifications.sort((a, b) => {
+                return new Date(b.createdAt) - new Date(a.createdAt);
+            });
 
-    // ✅ Get current user
-    const currentUser = getCurrentUser();
-    if (!currentUser) {
-        console.warn('⚠️ No user logged in');
-        container.innerHTML = `
-            <div class="empty-state">
-                <i class="bx bx-lock"></i>
-                <h4>Please Login</h4>
-                <p>You need to be logged in to view notifications.</p>
-            </div>
-        `;
-        return;
-    }
+            let html = `<div class="notification-list">`;
 
-    // ✅ FILTER: Only show notifications for the current user
-    const userNotifications = notifications.filter(n => n.userId === currentUser.id);
-
-    console.log(`📋 Found ${userNotifications.length} notifications for user ${currentUser.name}`);
-
-    if (userNotifications.length === 0) {
-        container.innerHTML = `
-            <div class="empty-state">
-                <i class="bx bx-bell-off"></i>
-                <h4>No Notifications</h4>
-                <p>You're all caught up! No notifications to display.</p>
-            </div>
-        `;
-        return;
-    }
-
-    // Sort by newest first
-    userNotifications.sort((a, b) => {
-        return new Date(b.createdAt) - new Date(a.createdAt);
-    });
-
-    let html = '';
-
-    userNotifications.forEach(n => {
-        const isRead = n.isRead || false;
-        const iconMap = {
-            'task': '📋',
-            'project': '📁',
-            'message': '💬',
-            'material': '📦',
-            'report': '📊',
-            'system': '⚙️'
-        };
-        const icon = iconMap[n.type] || '🔔';
-        const time = n.createdAt ? formatTimeAgo(n.createdAt) : 'Just now';
+            notifications.forEach(n => {
+                const isRead = n.isRead || false;
+                const iconMap = {
+                    'task': '📋',
+                    'project': '📁',
+                    'message': '💬',
+                    'material': '📦',
+                    'report': '📊',
+                    'system': '⚙️'
+                };
+                const icon = iconMap[n.type] || '🔔';
+                const time = n.createdAt ? formatTimeAgo(n.createdAt) : 'Just now';
         html += `
 
 
@@ -2327,7 +2298,7 @@ function renderNotifications(notifications = getAllNotifications()) {
             data-status="${isRead ? 'read' : 'unread'}"
                     onclick="markAsRead(${n.id})">
             <div class="notify-content">
-                <div class="notify-icon  ${iconClass}" >
+                <div class="notify-ico" >
                     ${icon}
                 </div>
                 <div class="notify-text">
