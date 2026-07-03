@@ -114,112 +114,177 @@
     document.getElementById('addProjectModal').style.display = 'flex';
 }
 
-        
-let isAddingProject = false;
- 
-function handleAddProject(event) {
 
+let isAddingProject = false;
+
+function handleAddProject(event) {
     if (event) event.preventDefault();
 
-
     if (isAddingProject) {
-        console.log('Preject already being added, please wait...');
+        console.log('⏳ Project already being added, please wait...');
         return;
     }
 
-        console.log('handleAddProject() called!');
+    console.log('🔵 handleAddProject() called!');
 
-        isAddingProject = true;
+    isAddingProject = true;
 
-        // Validate fields
-        const projectName = document.getElementById("projectName").value.trim();
-        const location = document.getElementById("location").value.trim();
-        const startDate = document.getElementById("startDate").value;
-        const endDate = document.getElementById("endDate").value;
-        const budget = document.getElementById("budget").value;
-        const projectManagerId = document.getElementById("manager").value;
-        const assigneeId = document.getElementById("projectAssignee").value;
-        const clientId = document.getElementById("client").value;
-        const status = document.getElementById("status").value;
-        const range = document.getElementById("range").value;
-        const description = document.getElementById("description").value.trim();
-        const formError = document.getElementById('formError');
+    // Get form values
+    const projectName = document.getElementById("projectName").value.trim();
+    const location = document.getElementById("location").value.trim();
+    const startDate = document.getElementById("startDate").value;
+    const endDate = document.getElementById("endDate").value;
+    const budget = document.getElementById("budget").value;
+    const projectManagerId = document.getElementById("manager").value;
+    const assigneeId = document.getElementById("projectAssignee").value;
+    const clientId = document.getElementById("client").value;
+    const status = document.getElementById("status").value;
+    const description = document.getElementById("description").value.trim();
+    const formError = document.getElementById('formError');
 
+    // ✅ Clear previous errors
+    formError.textContent = '';
+    formError.style.display = 'none';
+    formError.style.color = '#EF4444';
 
+    // Reset border colors
+    document.getElementById("projectName").style.borderColor = '#2a2a2a';
+    document.getElementById("location").style.borderColor = '#2a2a2a';
+    document.getElementById("manager").style.borderColor = '#2a2a2a';
+    document.getElementById("client").style.borderColor = '#2a2a2a';
 
-        if (!projectName) {
-            formError.textContent = "Please fill in all required fields.";
-            document.getElementById("projectName").style.borderColor = '#EF4444'
-            document.getElementById("projectName").focus();
-            return;
-        }
+    // ✅ Validation - Collect all errors
+    let hasError = false;  // ✅ Use 'let' so it can be reassigned
+    let errorMessages = [];
 
-        if (!location || !startDate || !endDate || !budget || !projectManagerId || !clientId || !status || !description) {
-            formError.textContent = "Please fill in all required fields.";
-           return;
-            
-        } else {
-            formError.textContent = "Project added successfully"
-            formError.style.color = "#22C55E"
-        }
+    if (!projectName) {
+        errorMessages.push('❌ Please enter a project name');
+        document.getElementById("projectName").style.borderColor = '#EF4444';
+        document.getElementById("projectName").focus();
+        hasError = true;
+    }
 
-         
-        
-        // Create project object
-        const newProject = {
-            id: Date.now(),
-            name: projectName,
-            location: location,
-            startDate: startDate,
-            endDate: endDate,
-            budget: Number(budget),
-            projectManagerId: projectManagerId,
-            assigneeId: assigneeId,
-            clientId: clientId,
-            status: status,
-            description: description,
-            progress: 0, // default progress,
-            createdAt: new Date().toISOString()
-        };
+    if (!location) {
+        errorMessages.push('❌ Please enter a location');
+        document.getElementById("location").style.borderColor = '#EF4444';
+        document.getElementById("location").focus();
+        hasError = true;
+    }
 
-        const result = addProject(newProject);
+    if (!startDate) {
+        errorMessages.push('❌ Please select a start date');
+        document.getElementById("startDate").style.borderColor = '#EF4444';
+        document.getElementById("startDate").focus();
+        hasError = true;
+    }
 
-        if (result) {
-            formError.innerHTML = 'Project "${name}" created successfuly!';
-            formError.style.color = 'green';
-        }
+    if (!endDate) {
+        errorMessages.push('❌ Please select an end date');
+        document.getElementById("endDate").style.borderColor = '#EF4444';
+        document.getElementById("endDate").focus();
+        hasError = true;
+    }
 
+    if (!budget || isNaN(budget) || budget <= 0) {
+        errorMessages.push('❌ Please enter a valid budget');
+        document.getElementById("budget").style.borderColor = '#EF4444';
+        document.getElementById("budget").focus();
+        hasError = true;
+    }
 
-                // Clear form
-        setTimeout(() => {
-        closeProjectModal();
+    if (!projectManagerId) {
+        errorMessages.push('❌ Please select a project manager');
+        document.getElementById("manager").style.borderColor = '#EF4444';
+        document.getElementById("manager").focus();
+        hasError = true;
+    }
 
-        document.getElementById('projectForm').reset();
-        formError.textContent = '';
-         
-        renderProjects();
-         loadDashboard();
+    if (!clientId) {
+        errorMessages.push('❌ Please select a client');
+        document.getElementById("client").style.borderColor = '#EF4444';
+        document.getElementById("client").focus();
+        hasError = true;
+    }
+
+    if (!description) {
+        errorMessages.push('❌ Please enter a description');
+        document.getElementById("description").style.borderColor = '#EF4444';
+        document.getElementById("description").focus();
+        hasError = true;
+    }
+
+    // ✅ If there are errors, show them and STOP
+    if (hasError) {
+        formError.innerHTML = errorMessages.join('<br>');
+        formError.style.display = 'block';
+        formError.style.color = '#EF4444';
+        formError.style.background = 'rgba(239, 68, 68, 0.1)';
+        formError.style.border = '1px solid #EF4444';
+        formError.style.padding = '12px';
+        formError.style.borderRadius = '8px';
+        console.log('❌ Validation errors:', errorMessages);
         isAddingProject = false;
-         
+        return false;
+    }
+
+    // ✅ Create project object
+    const newProject = {
+        id: Date.now(),
+        name: projectName,
+        location: location,
+        startDate: startDate,
+        endDate: endDate,
+        budget: Number(budget),
+        projectManagerId: parseInt(projectManagerId),
+        assigneeId: assigneeId ? parseInt(assigneeId) : null,
+        clientId: parseInt(clientId),
+        status: status,
+        description: description,
+        progress: 0,
+        assignedTeam: assigneeId ? [parseInt(assigneeId)] : [],
+        createdAt: new Date().toISOString()
+    };
+
+    console.log('✅ New project:', newProject);
+
+    // ✅ Save project
+    const result = addProject(newProject);
+
+    if (result) {
+        // ✅ Show success
+        formError.innerHTML = `✅ Project "${projectName}" created successfully!`;
+        formError.style.display = 'block';
+        formError.style.color = '#22C55E';
+        formError.style.background = 'rgba(34, 197, 94, 0.1)';
+        formError.style.border = '1px solid #22C55E';
+        formError.style.padding = '12px';
+        formError.style.borderRadius = '8px';
+        
+        console.log('✅ Project created successfully!');
+
+        // ✅ Add activity
+        addActivity(`Project "${projectName}" was created`, "project");
+
+        // ✅ Close modal after delay
+        setTimeout(() => {
+            closeProjectModal();
+            renderProjects();
+            loadDashboard();
+            isAddingProject = false;
         }, 2000);
 
-          
-        
-
-        // Add activity
-        addActivity(
-            `Project created: ${projectName}`, 
-            "project"
-        );
-
-
-
-        // Refresh project list and dashboard
-
-       // Assuming you have this function in dashboard.js
-
+    } else {
+        formError.innerHTML = '❌ Failed to create project. Please try again.';
+        formError.style.display = 'block';
+        formError.style.color = '#EF4444';
+        formError.style.background = 'rgba(239, 68, 68, 0.1)';
+        formError.style.border = '1px solid #EF4444';
+        formError.style.padding = '12px';
+        formError.style.borderRadius = '8px';
+        console.error('❌ Failed to create project');
+        isAddingProject = false;
+    }
 }
-
 
 
 
