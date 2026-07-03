@@ -51,7 +51,13 @@
                 const clientOption = option.cloneNode(true);
                 clientSelect.appendChild(clientOption);
             });
-        }
+  
+   }
+
+
+let isAddingProject = false;
+
+
     function openProjectModal() {
     console.log('Opening project Modal');
 
@@ -109,13 +115,14 @@
     
     document.getElementById('status').value = 'active';
 
+       isAddingProject = false;
 
 
     document.getElementById('addProjectModal').style.display = 'flex';
 }
 
 
-let isAddingProject = false;
+
 
 function handleAddProject(event) {
     if (event) event.preventDefault();
