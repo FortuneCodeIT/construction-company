@@ -2238,6 +2238,10 @@ function updateStats(notifications) {
 function renderNotifications(notifications = getAllNotifications()) {
   console.log('notification called')
 
+    notifications.sort((a, b) => {
+             return new Date(b.createdAt) - new Date(a.createdAt);
+         });
+
     const container = document.getElementById('notificationsContainer');
 
     container.innerHTML = `gyguihu`
