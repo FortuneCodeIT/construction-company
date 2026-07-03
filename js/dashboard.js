@@ -2340,13 +2340,13 @@ if (!confirm('Mark all notifications as read?')) return;
 
         
     function updateNotificationDot() {
-        const currentUser = getCurrentuser();
+        const currentUser = getCurrentUser();
         if (!currentUser) {
             const dot = document.querySelector('.notify-dot');
             if (dot) dot.style.display = 'none';
             return;
         }
-        const notifications = getAllNotificatiions();
+        const notifications = getAllNotifications();
         
         const unreadCount = getUnreadNotificationCount();
         const dot = document.querySelector('.notify-dot');
