@@ -341,7 +341,7 @@ function renderProjects(projects = getAllProjects()) {
                 <p>Client</p>
                 <span>${clientName}</span>
             </div>
-            div class="start-date" >
+            <div class="start-date" >
                 <p>Other Team</p>
                 <span>${teamName}</span>
             </div>
