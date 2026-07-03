@@ -341,7 +341,10 @@ function renderProjects(projects = getAllProjects()) {
                 <p>Client</p>
                 <span>${clientName}</span>
             </div>
-            
+            <div class="start-date" >
+                <p>Other Team</p>
+                <span>${teamName}</span>
+            </div>
 
             <div class="view-details">
             <a href="projects-details.html?id=${project.id}" onclick="viewProject(${project.id})">View Details</a>
