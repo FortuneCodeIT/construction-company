@@ -2239,9 +2239,28 @@ function renderNotifications(notifications = getAllNotifications()) {
 
     const container = document.getElementById('notificationsContainer');
 
-    container.innerHTML = `gyguihu`
+    if (!container) return;
 
-    if (notifications.length === 0) {
+    // ✅ Get current user
+    const currentUser = getCurrentUser();
+    if (!currentUser) {
+        console.warn('⚠️ No user logged in');
+        container.innerHTML = `
+            <div class="empty-state">
+                <i class="bx bx-lock"></i>
+                <h4>Please Login</h4>
+                <p>You need to be logged in to view notifications.</p>
+            </div>
+        `;
+        return;
+    }
+
+    // ✅ FILTER: Only show notifications for the current user
+    const userNotifications = notifications.filter(n => n.userId === currentUser.id);
+
+    console.log(`📋 Found ${userNotifications.length} notifications for user ${currentUser.name}`);
+
+    if (userNotifications.length === 0) {
         container.innerHTML = `
             <div class="empty-state">
                 <i class="bx bx-bell-off"></i>
@@ -2252,11 +2271,15 @@ function renderNotifications(notifications = getAllNotifications()) {
         return;
     }
 
+    // Sort by newest first
+    userNotifications.sort((a, b) => {
+        return new Date(b.createdAt) - new Date(a.createdAt);
+    });
+
     let html = '';
 
-    notifications.forEach(n => {
+    userNotifications.forEach(n => {
         const isRead = n.isRead || false;
-        const iconClass = n.type || 'system';
         const iconMap = {
             'task': '📋',
             'project': '📁',
@@ -2267,7 +2290,6 @@ function renderNotifications(notifications = getAllNotifications()) {
         };
         const icon = iconMap[n.type] || '🔔';
         const time = n.createdAt ? formatTimeAgo(n.createdAt) : 'Just now';
-
         html += `
 
 
