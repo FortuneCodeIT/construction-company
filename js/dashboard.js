@@ -2198,20 +2198,48 @@ updateNotificationDot();
 let allNotification = [];
 
 function loadNotification() {
-    console.log('Loading notification...')
+    console.log('📋 Loading notifications...');
 
-    const notifications = getAllNotifications();
+    const currentUser = getCurrentUser();
+    if (!currentUser) {
+        console.warn('⚠️ No user logged in');
+        const container = document.getElementById('notificationsContainer');
+        if (container) {
+            container.innerHTML = `
+                <div class="empty-state">
+                    <i class="bx bx-lock"></i>
+                    <h4>Please Login</h4>
+                    <p>You need to be logged in to view notifications.</p>
+                </div>
+            `;
+        }
+        return;
+    }
 
-    notifications.sort((a, b) => {
+    const allNotifications = getAllNotifications();
+    
+    // ✅ Filter by current user
+    const userNotifications = allNotifications.filter(n => n.userId === currentUser.id);
+
+    console.log(`📋 Found ${userNotifications.length} notifications for ${currentUser.name}`);
+
+    // Sort by newest first
+    userNotifications.sort((a, b) => {
         return new Date(b.createdAt) - new Date(a.createdAt);
     });
 
-    allNotification = notifications;
+    allNotification = userNotifications;
 
-    updateStats(notifications);
+    // Update stats
+    updateStats(userNotifications);
 
-    renderNotifications(notifications);
+    // Render notifications
+    renderNotifications(userNotifications);
 
+    // Update notification dot
+    updateNotificationDot();
+
+    console.log('✅ Notifications loaded successfully!');
 }
 
 
