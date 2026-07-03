@@ -194,12 +194,16 @@ function handleAddProject(event) {
         setTimeout(() => {
         closeProjectModal();
 
-        renderProjects();
         document.getElementById('projectForm').reset();
         formError.textContent = '';
+         
+        renderProjects();
+         loadDashboard();
+        isAddingProject = false;
+         
         }, 2000);
 
-          isAddingProject = false;
+          
         
 
         // Add activity
