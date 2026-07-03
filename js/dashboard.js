@@ -301,7 +301,8 @@ function renderProjects(projects = getAllProjects()) {
     container.innerHTML = paginatedProjects.map(project => {
 
         const managerName = getUserName(project.projectManagerId);
-        const clientName = getUserName(project.clientId)
+        const clientName = getUserName(project.clientId);
+        const teamName = getUserName(project.assigneeId);
 
         console.log(`project: ${project.name}`);
         console.log(`PM ID: ${project.projectManagerId} -> Name: ${managerName}`);
@@ -339,6 +340,10 @@ function renderProjects(projects = getAllProjects()) {
             <div class="start-date" >
                 <p>Client</p>
                 <span>${clientName}</span>
+            </div>
+            div class="start-date" >
+                <p>Other Team</p>
+                <span>${teamName}</span>
             </div>
 
             <div class="view-details">
