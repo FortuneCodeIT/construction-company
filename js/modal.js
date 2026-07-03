@@ -216,7 +216,7 @@ function handleAddProject(event) {
 
         // Refresh project list and dashboard
 
-        loadDashboard(); // Assuming you have this function in dashboard.js
+       // Assuming you have this function in dashboard.js
 
 }
 
